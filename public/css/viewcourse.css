@@ -1,0 +1,22 @@
+/* public/styles.css */
+#coursesContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#coursesContainer .courseCard {
+  width: 500px;
+  border: 1px solid #cf5d5d;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+
+
+#coursesContainer .courseCard img {
+  width: 450px;
+  height: 450px;
+}
+
+

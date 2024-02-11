@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>uploadnotes</title>
+  <link rel="stylesheet" href="\public\css\notesUploadCourse.css">    
+</head>
+<body>
+  <p><a href="/adminPanel" style="color: white;">go admin panel</a></p>
+  <div id="notesSectionCourse">     
+  
+    
+    <h2 id="coursesection"><%=coursesection%></h2>
+    <h3>is selected</h3>
+  <h3 style="color: rgb(13 37 13)">fill below to uplaod notes</h3>
+  <!-- <form id="courseChoose" method="post" name="data" action="/uploadnoteswithcourses">
+    
+    <input type="text" name="text">
+    
+
+
+    <button>submit</button>
+  </form> -->
+
+  <form id="pdfForm" enctype="multipart/form-data">
+    <label for="selectcourse">select course:</label>
+    <select name="courseName" id="selectcourse" >
+      <option value="">--choose an course--</option>
+      <% courseitem.forEach(item=>{  %>
+          <option value="<%=item.courseName%>"><%=item.courseName%></option>
+     <% }); %>
+    </select>
+    <br>            
+    <label for="videoName">video class Name:</label>       
+    <input type="text" id="videoName" name="videoName" required>
+    <br>   
+    <label for="videoFile">Choose video:</label>
+    <input type="file" id="videoFile" name="videoFile" accept="video/*" required>
+    <div id="message"></div>
+    <button type="button" onclick="uploadPDF()">Upload video</button> 
+    <button type="reset">reset</button>
+    
+</form>
+
+
+</div>
+
+<script>
+  function uploadPDF(){  
+    var courseName = document.getElementById('selectcourse').value;
+    var videoName=document.getElementById('videoName').value;
+    var videoFile = document.getElementById('videoFile').files[0];  
+    var courseSection=document.getElementById('coursesection').innerText;    
+    console.log(courseSection);  
+    if (!videoName || !videoFile || !courseName) {
+        alert('Please provide both PDF name and file and course name .');
+        return;
+    }
+
+    var formdata=new FormData(document.getElementById('pdfForm'));
+    formdata.append('coursesection', courseSection);  
+    fetch('/uploadVideoWithCourses', {
+        method: 'POST',  
+        body:formdata
+      })      
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('message').innerHTML = data.msg;     
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });  
+  }          
+</script>
+</body>
+</html>
+

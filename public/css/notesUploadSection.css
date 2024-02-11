@@ -1,0 +1,29 @@
+body{
+  background-color: #1c83ac;
+}
+
+
+#uploadnotessection{
+  width: 479px;
+    height: 359px;
+    margin: 88px auto;
+    align-items: center;
+    border: 1px solid green;
+    background-color: cornflowerblue;
+    color: white;
+    text-align: center;
+}
+
+#uploadnotessection h2{
+  margin: 41px 0px 28px 0px;
+  font-size: 48px;
+}
+
+#selectedbutton{
+  color: white;
+  background-color: #268626;
+  border: none;
+  cursor: pointer;
+}
+
+

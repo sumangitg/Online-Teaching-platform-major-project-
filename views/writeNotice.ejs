@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>notice</title>
+  <link rel="stylesheet" href="\css\notice.css">
+</head>
+<body>  
+  <form id="latestNewsform" action="/latestNotice" method="post" >    
+    <h2>Latest Notice</h2>
+    <label for="writeLatestNews">write notice here</label>
+    <br>       
+    <!-- <input type="text" id="writeLatestNews" name="latestNews"> -->
+     <textarea name="latestNews" id="writeLatestNews" cols="50" rows="10" ></textarea>
+    
+    <br>
+    <button type="submit" >upload notice</button>
+    <button type="reset" id="noticeResetButton" >reset</button>
+    
+  </form>     
+<hr>
+
+<form id="latestNewsform" action="/upcomingNotice" method="post" >    
+  <h2>Upcoming Notice</h2>
+  <label for="writeLatestNews">write notice here</label>
+  <br>       
+  <!-- <input type="text" id="writeLatestNews" name="latestNews"> -->
+   <textarea name="latestNews" id="writeLatestNews" cols="50" rows="10" ></textarea>
+  
+  <br>
+  <button type="submit" >upload notice</button>
+  <button type="reset" id="noticeResetButton" >reset</button>
+  
+</form> 
+</body>
+</html>
+
+

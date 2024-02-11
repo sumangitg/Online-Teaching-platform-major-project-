@@ -1,0 +1,45 @@
+#latestNewsform{
+/*border: 1px solid green; */
+    width: 652px;
+    height: 443px;
+    margin: 38px auto;
+    background-color: #f1f1f1;
+    padding: 0px 0px 5px 0px;
+}
+
+#latestNewsform h2{
+  margin: 0px 0px 7px 0px;
+  padding: 0px 0px 0px 0px;
+  background-color: #4d4df5;
+  color: #fff;
+  font-size: 36px;
+}
+
+#latestNewsform label{
+  font-size: 20px;
+  /* margin: 78px 0px 0px 0px; */
+  margin: 0px;
+}
+#latestNewsform #noticeResetButton{
+  padding: 5px 15px 5px 15px;
+}
+#latestNewsform #writeLatestNews{
+  width: 623px;
+  height: 300px;
+  /* border-radius: 5px; */
+  margin: 14px 0px 0px 0px;
+  border: 1px sollid blue;
+  /* border: 1px solid blue; */
+}
+
+#latestNewsform button{
+float: right;
+margin: 1px 22px 0px 0px;
+background-color: #3f82fa;
+font-size: 16px;
+border: none;
+color: #fff;
+cursor: pointer;
+padding: 5px;
+}
+

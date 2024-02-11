@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Course</title>
+  <link rel="stylesheet" href="\css\addCourse.css">
+</head>
+
+<body>
+  <h1>Add Course</h1>
+  
+  <form id="addCourseForm" enctype="multipart/form-data">
+    <label for="courseName">Course Name:</label>
+    <div id="message-1" style="color: red;"></div>
+    <input type="text" id="courseName" name="courseName" required />
+
+    <div id="message-2" style="color: red;"></div>
+    <select name="courseSection" id="courseSection" required>
+
+      <option value="">
+        --choose an option--
+      </option>
+
+      <option value="I.S.I ENTRANCE">
+        I.S.I ENTRANCE
+      </option>
+
+      <option value="IIT JAM">
+        IIT JAM
+      </option>
+
+      <option value="B.S.C MATH(HONOURS PASS)">
+        B.S.C MATH(HONOURS & PASS)
+      </option>
+
+      <option value="JELET">
+        JELET
+      </option>
+
+      <option value="GATE (MATH COMPUTER)">
+        GATE (MATH & COMPUTER)
+      </option>
+
+      <option value="NIMCET ENTRANCE">
+        NIMCET ENTRANCE
+      </option>
+
+      <option value="B.TECH (MATH COMPUTER)">
+        B.TECH (MATH & COMPUTER)
+      </option>
+
+      <option value="JEE (MAINADVANCE)">
+        JEE (MAIN & ADVANCE)
+      </option>
+
+      <option value="COMPUTER LANGUAGE">  
+        COMPUTER LANGUAGE
+      </option>
+
+      <option value="COMPUTER PROJECT">
+        COMPUTER PROJECT
+      </option>
+
+      <option value="S.S.C(school service comission)">
+        S.S.C(school service comission)
+      </option>
+
+      <option value="CLASS XI (MATH)">
+        CLASS XI (MATH)
+      </option>
+
+      <option value="CLASS XII (MATH)">
+        CLASS XII (MATH)
+      </option>
+
+      <option value="CAT-MAT (MATHEMATICS)">
+        CAT-MAT (MATHEMATICS)
+      </option>
+
+      <option value="OXYMPIAD (MATH)">
+        OXYMPIAD (MATH)
+      </option>
+
+    </select>
+    <label for="coursePrice">Course Price:</label>
+    <div id="message-3" style="color: red;"></div>
+    <input type="number" id="coursePrice" name="coursePrice" required />
+
+    <label for="coordinator">Coordinator:</label>
+    <div id="message-4" style="color: red;"></div>
+    <input type="text" id="coordinator" name="coordinator" required />
+
+    <label for="courseTime">Course Time:</label>
+    <div id="message-5" style="color: red;"></div>
+    <input type="number" id="courseTime" name="courseTime" required />
+
+    <label for="noteAvailable">Note Available:</label>
+    <input type="checkbox" id="noteAvailable" name="noteAvalaible" />
+
+    <label for="videoClasses">Video Classes:</label>
+    <input type="checkbox" id="videoClasses" name="videoClasses" />
+
+    <label for="topics">Topics:</label>
+    <div id="message-6" style="color: red;"></div>
+    <textarea id="topics" name="topics" rows="4" required></textarea>
+
+    <!-- <label for="path">Path:</label>
+    <input type="text" id="path" name="path" required /> -->
+    <label for="courseImage">Course Image:</label>
+    <div id="message-7" style="color: red;"></div>
+    <input type="file" id="image" name="image" accept="image/*" required />
+
+    <button type="button" onclick="validateAndAddCourse()">Add Course</button>
+    <div id="message" style="color: green;"></div>
+    <button type="reset">reset form</button>
+  </form>
+  <!-- <div id="message" style="color: green;"></div> -->
+  <!-- <div id="message-1" style="color: red;"></div> -->
+  <!-- <div id="message-2" style="color: red;"></div>
+  <div id="message-3" style="color: red;"></div>
+  <div id="message-4" style="color: red;"></div>
+  <div id="message-5" style="color: red;"></div>
+  <div id="message-6" style="color: red;"></div>
+  <div id="message-7" style="color: red;"></div> -->
+  <script>
+
+    function validateAndAddCourse() {
+      var courseName = document.getElementById('courseName').value;
+
+      var courseSection = document.getElementById('courseSection').value;
+
+      var coursePrice = document.getElementById('coursePrice').value;
+
+      var coordinator = document.getElementById('coordinator').value;
+
+      var courseTime = document.getElementById('courseTime').value;
+
+      var topics = document.getElementById('topics').value;
+
+      var image = document.getElementById('image').value;
+      var i = 1;
+      if (1) {
+        if (!courseName) {
+          document.getElementById('message-1').innerHTML = `Please enter Course Name`;
+          i = 0;
+        }else{
+          document.getElementById('message-1').innerHTML = ``;
+        }
+        if (!courseSection) {
+          document.getElementById('message-2').innerHTML = `Please enter course Section`;
+          i = 0;
+        }else{
+          document.getElementById('message-2').innerHTML = ``;
+        }
+        if (!coursePrice) {
+          document.getElementById('message-3').innerHTML = `Please enter course price`;
+          i = 0;
+        }else{
+          document.getElementById('message-3').innerHTML = ``;
+        }
+        if (!coordinator) {
+          document.getElementById('message-4').innerHTML = `Please enter coordinator`;
+          i = 0;
+        }else{
+          document.getElementById('message-4').innerHTML = ``;
+        }
+
+        if (!courseTime) {
+          document.getElementById('message-5').innerHTML = `Please enter course time`;
+          i = 0;
+        }else{
+          document.getElementById('message-5').innerHTML = ``;
+        }
+
+        if (!topics) {
+          document.getElementById('message-6').innerHTML = `Please enter Course topics`;
+          i = 0;
+        }else{
+          document.getElementById('message-6').innerHTML = ``;
+        }
+        if (!image) {
+          document.getElementById('message-7').innerHTML = `Please enter Course image`;
+          i = 0;
+        }else{    
+          document.getElementById('message-7').innerHTML = ``;
+        }
+
+        if (i === 0) { return; }
+
+      }
+
+      var formData = new FormData(document.getElementById('addCourseForm'));
+
+      fetch('/addCourse', {
+        method: 'POST',
+        body: formData,
+      })    
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('message').innerHTML = data.msg;
+        })    
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+
+  </script>
+</body>
+
+</html>
+
+
+
+
+

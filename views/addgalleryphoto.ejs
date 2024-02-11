@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>add gallery</title>
+</head>
+<body>
+  <h1>add gallery photo</h1>
+  <form action="/upload" method="post" enctype="multipart/form-data" id="formid">
+    <input type="file" id="imageinput" name="image" accept="image/*" >
+    <button type="button" onclick="imageupload()">upload</button>
+    <div id="uploadMsg"></div>
+    <button type="reset" onclick="f1()">reset</button>
+  </form>
+
+
+  <script >
+      function imageupload(){
+        var formData=new FormData(document.getElementById('formid'));
+
+        fetch('/upload', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response=> response.json())
+        .then(data=>{
+          document.getElementById('uploadMsg').innerHTML=data.msg;
+        })    
+        .catch(error=>{
+          console.error('error:', error);
+        })
+      }
+
+
+      function f1(){
+        document.getElementById('uploadMsg').innerHTML="";
+      }
+  </script>
+</body>
+</html>
+

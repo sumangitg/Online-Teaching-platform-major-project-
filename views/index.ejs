@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sdMath</title>
+  <link rel="stylesheet" href="\css\home.css">
+
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <!-- <style>
+
+#logoNav{
+  height:300px;
+  width: 600px;
+  border:5px solid green;
+}
+</style> -->
+
+</head>
+
+<body>
+  <header id="homeHeader">
+    <div class="inHeader" id="item-1">
+      <img src="\public\images\websitelogo2.jpg" alt="SdMath" srcset="">
+    </div>
+    <div class="inHeader" id="item-2">
+      <h1> <span>MATHEMATICS ACADEMY</span><input type="text" class="search-box" placeholder="Search here"></h1>
+      <h2>No. 1 Institution Of All India Mca Entrance</h2>
+      <h3><span>More than 20 years of teaching experience</span><a href="/login">Teacher login</a></h3>
+    </div>
+
+    <div class="inHeader" id="item-3">
+      <img src="\public\images\sd2.png" alt="Sdinda" srcset="">
+      
+    </div>
+  </header>
+
+
+  <nav id="homeNav">
+    <ul id="navlist">
+      <li id="li-1" class="listitem"><a href="">home</a></li>
+      <li id="li-12" class="listitem"><a href="/viewgallery">gallery</a></li>
+      <li id="li-2" class="listitem"><a href="/studentlogin">student login</a></li>
+      <li id="li-3" class="listitem"><a href="/registration">student register</a></li>
+      <li id="li-12" class="listitem"><a href="/admissionNotice">admission notice</a></li>
+      <li id="li-13" class="listitem"><a href="/feestructure">fees structure</a></li>    
+      <li id="li-4" class="listitem"><a href="/courses">courses</a></li>
+      <li id="li-5" class="listitem"><a href="">notes</a></li>
+      <li id="li-6" class="listitem"><a href="">classes</a></li>
+      <li id="li-8" class="listitem"><a href="">exam</a></li>   
+      <li id="li-14" class="listitem"><a href="/parentZone">parent zone</a></li>   
+      <!-- <li id="li-9" class="listitem"><a href="/login">Teacher login</a></li> -->
+      <li id="li-10" class="listitem"><a href="#aboutheading">about us</a></li>
+      <li id="li-11" class="listitem"><a href="#contact-Us">contact us</a></li>
+
+    </ul>
+  </nav>
+
+
+  <div id="homePhotoSection">
+    <img src="public\images\group photp2.jpg" alt="mathmatics">
+    <!-- <img src="public\images\homeimage1.jpg" alt="photo1"> -->
+    
+  </div>
+
+  <h2 id="allindiarank">
+    All India Rank
+  </h2>
+  <div class="container">
+    <div class="box box1">
+      <img src="\public\images\profile-boy-icon.png" alt="">
+      <h4>JEE 10</h4>
+    </div>
+
+    <div class="box box2">
+      <img src="\public\images\profile-boy-icon.png" alt="">
+      <h4>SSC 102</h4>
+    </div>
+
+    <div class="box box3"><img src="\public\images\profile-boy-icon.png" alt="">
+      <h4>JEE 3</h4>
+    </div>
+
+    <div class="box box4"><img src="\public\images\profile-boy-icon.png" alt="">
+      <h4>IIT JAM 15</h4>
+    </div>
+
+  </div>
+  <h2 id="admissionNotice">Admission Notice</h2>      
+  <div class="width-100 margin-top-50">
+    
+    <div class="width-33">
+      <div class="latest-news">
+        <div class="heading-sect">
+          <h3 class="head-title">Latest New</h3>
+        </div>
+        <marquee direction="up">
+        <ul class="latest-news-ul">
+        <% latest.forEach(notice1=>{  %>
+          <li> <%=notice1.notice%> <img src="\public\images\latest-news-blink-img.gif"></li>
+      <%  })%>
+
+        </ul>
+        </marquee>
+      </div>
+    </div>
+
+    <div class="width-33">
+      <div class="event-list">
+        <div class="heading-sect">
+          <h3 class="head-title">Upcoming Events</h3>
+        </div>
+        <ul class="upcoming-event-list">
+          <% upcoming.forEach(upcom=>{ %>
+            <li><span class="event-date">29 <br>
+              April</span><span><%= upcom.notice%></span> </li>
+         <% })%>    
+          
+          
+        </ul>
+      </div>
+    </div>
+
+    <div class="width-33">
+      <div class="notice-board">
+        <div class="heading-sect">
+          <h3 class="head-title">Notice Board</h3>
+        </div>
+        <ul class="notice-board-list">
+          <li><img src="\public\images\notice-board-img.png">	Participation in Climate Correction Day (CCD) Challenge for Mission LiFE </li>
+          <li><img src="images/notice-board-img.png"> 	West Zone Inter University Table Teniss (man) Tournament 2022-23 </li>
+          <li><img src="images/notice-board-img.png"> 	PhD Registration Form for Selected Candidates </li>
+          <li><img src="images/notice-board-img.png"> 	List of Activities organised under TEQIP-III </li>
+          <li><img src="images/notice-board-img.png"> 	Documents for empanellment of vendor for A Class contyractor </li>
+          <li><img src="images/notice-board-img.png"> 	School of Architecture College Level counselling 2022-23  </li>
+        </ul>
+      </div>
+    </div>
+  
+</div>
+
+  <h2 id="courseheading">
+    Our Courses
+  </h2>
+
+  <div id="courseContainer">
+    <a href="/viewcourses/?name=I.S.I ENTRANCE">
+      <div class="courseitem">
+        <img src="\public\images\isi.jpeg" alt="">
+        <h2>I.S.I ENTRANCE</h2>
+      </div>
+    </a>
+
+    <a href="/viewcourses/?name=IIT JAM">
+      <div class="courseitem">
+        <img src="\public\images\iit jam.jpg" alt="">
+        <h2>IIT JAM</h2>
+      </div>
+    </a>
+
+    <a href="/viewcourses/?name=COMPUTER LANGUAGE">
+      <div class="courseitem">
+        <img src="\public\images\computer language.png" alt="">
+        <h2>COMPUTER LANGUAGE</h2>
+      </div>
+    </a>
+
+    <a href="/viewcourses/?name=B.S.C MATH(HONOURS PASS)">
+      <div class="courseitem">
+        <img src="\public\images\bsc math.webp" alt="">
+        <h2>B.S.C MATH(HONOURS & PASS)</h2>
+      </div>
+    </a>
+
+    <a href="/viewcourses/?name=JELET">
+      <div class="courseitem">
+        <img src="\public\images\jelet3.jpeg" alt="">
+        <h2>JELET</h2>
+      </div>
+    </a>
+
+    <a href="/viewcourses/?name=GATE (MATH COMPUTER)">
+      <div class="courseitem">
+        <img src="\public\images\gate1.jpeg" alt="">
+        <h2>GATE (MATH & COMPUTER)</h2>
+      </div>
+    </a>
+
+    <a href="/viewcourses/?name=NIMCET ENTRANCE">
+      <div class="courseitem">
+        <img src="\public\images\nimcet2.jpeg" alt="">
+        <h2>NIMCET ENTRANCE</h2>
+      </div>
+    </a>
+
+    <a href="/viewcourses/?name=B.TECH (MATH COMPUTER)">
+      <div class="courseitem">
+        <img src="\public\images\b tech1.jpeg" alt="">
+        <h2>B.TECH (MATH & COMPUTER)</h2>
+      </div>
+    </a>
+
+
+    <a href="/viewcourses/?name=JEE (MAINADVANCE)">
+      <div class="courseitem">
+        <img src="\public\images\jee main.jpeg" alt="">
+        <h2>JEE (MAIN & ADVANCE)</h2>
+      </div>
+    </a>
+
+    <a href="#">
+      <div class="courseitem">
+        <img src="\public\images\mock test.png" alt="">
+        <h2>MOCK TEST</h2>
+      </div>
+    </a>
+    
+    <a href="/viewcourses/?name=COMPUTER PROJECT">
+      <div class="courseitem">
+        <img src="\public\images\computer project.png" alt="">
+        <h2>COMPUTER PROJECT</h2>
+      </div>
+    </a>
+
+    <a href="/viewcourses/?name=S.S.C(school service comission)">
+      <div class="courseitem">
+        <img src="\public\images\ssc.jpeg" alt="">
+        <h2>S.S.C(school service comission)</h2>
+      </div>
+    </a>
+
+    <a href="/viewcourses/?name=CLASS XI (MATH)">
+      <div class="courseitem">
+        <img src="\public\images\class xi.jpeg" alt="">
+        <h2>CLASS XI (MATH)</h2>
+      </div>
+    </a>
+
+    <a href="/viewcourses/?name=CLASS XI (MATH)">
+      <div class="courseitem" >
+        <img src="\public\images\class xii.png" alt="">
+        <h2>CLASS XII (MATH)</h2>
+      </div>
+    </a>
+
+    <a href="/viewcourses/?name=CAT-MAT (MATHEMATICS)">
+      <div class="courseitem">
+        <img src="\public\images\cat-mat.jpg" alt="">
+        <h2>CAT-MAT (MATHEMATICS)</h2>
+      </div>
+    </a>
+
+    <a href="/viewcourses/?name=OXYMPIAD (MATH)">
+      <div class="courseitem">
+        <img src="\public\images\Olympiad-Exams.png" alt="">
+        <h2>OXYMPIAD (MATH)</h2>
+      </div>
+    </a>
+
+  </div>
+
+
+
+  <div id="gallerynoticefees">
+
+      <a class="gaNoFee" href="/viewgallery" id="photogallery1">
+        <img src="\public\images\pngwing.com.png" alt="gallery">
+        <h4>photo gallery</h4>
+      </a>
+   
+
+    
+      <a class="gaNoFee" href="/admissionNotice" id="admission1">
+        <img src="\public\images\admission notice.png" alt="admission notice">
+        <h4>admission notice</h4>
+      </a>
+  
+    
+
+    
+      <a class="gaNoFee" href="/feestructure" id="feesstructure1">
+        <img src="\public\images\fees structure5.png" alt="fees structure">
+        <h4>fees structure</h4>
+      </a>
+   
+
+   
+      <a class="gaNoFee" href="/studentFeedback" method="get" id="studentfeedback1">
+        <img src="\public\images\student feedback.png" alt="student feedback">
+        <h4>student feedback</h4>
+      </a>
+
+      <a class="gaNoFee" href="/doubt" id="doubtasked1">
+        <img src="\public\images\question mark.png" alt="doubt asked">
+        <h4>doubt asked</h4>
+      </a>
+
+      <a class="gaNoFee" href="/parentZone" id="parentzone1">
+        <img src="\public\images\parent6.png" alt="parent zone">   
+        <h4>parent zone</h4>
+      </a>
+
+    
+  </div>
+
+  <h2 id="aboutheading">About Us</h2>
+  <div id="aboutus">
+
+    <div id="aboutsd">
+      <img src="\public\images\sd.png" alt="subhabrata dinda">
+    </div>
+    <div id="aboutsdText">
+      I, Dr. Subhabrata Dinda, got my Ph.D Degree from Jadavpur University in Science since 2020. I delivered the
+      lecture through online and off line mode. Here every previous students got MCA ranked and servies different
+      Multinational Companies. Many of Students got service at SCHOOL(GOVT) , COLLEGE, BANK , FOOD(GOVT), INDIAN
+      RAILWAYS, POST OFFICE and other's Govt Jobs. I inspire to all students to get the decisions from first year
+      (Hons/Pass) course, then you reach to your goal. I supplied the photo copy of Study Material in all courses. The
+      student's will be gainer to got my Study Material.More than 20 years I teaches in my Coaching Institute.
+    </div>
+
+  </div>
+  <h2 id="locationheading">
+    Get In Touch
+  </h2>
+  <div id="location">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d88388.68375421318!2d88.34451951535934!3d22.46577175819336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0271a00d52ca53%3A0x84c91e76a182e37a!2sGaria%2C%20Kolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1705083764103!5m2!1sen!2sin"
+      width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+
+
+  <!-- footer section -->
+  <footer id="contact-Us">   
+    <div class="footer-col">
+      <h4>products</h4>
+      <ul>
+        <li><a href="#">teams</a></li>
+        <li><a href="#">advertising</a></li>
+        <li><a href="#">talent</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>network</h4>
+      <ul>
+        <li><a href="#">technology</a></li>
+        <li><a href="#">science</a></li>
+        <li><a href="#">business</a></li>
+        <li><a href="#">professional</a></li>
+        <li><a href="#">API</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>company</h4>
+      <ul>
+        <li><a href="#">about</a></li>
+        <li><a href="#">legal</a></li>
+        <li><a href="#">contact us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>follow us</h4>
+      <div class="links">
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+body{
+  background-color: #1c83ac;
+}
+
+
+#uploadnotessection{
+  width: 479px;
+  height: 178px;
+  margin: 0px auto;
+  align-items: center;
+  /* border: 1px solid green; */
+  background-color: cornflowerblue;
+  color: white;
+  text-align: center;
+}
+
+#notesSectionCourse{
+  width: 479px;
+  height: 530px;
+  margin: 88px auto;
+  align-items: center;
+  border: 1px solid green;
+  background-color: cornflowerblue;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+
+}
+
+#uploadnotessection h2{
+  margin: 41px 0px 28px 0px;
+  font-size: 48px;
+}
+
+#selectedbutton{
+  color: white;
+  background-color: #268626;
+  border: none;
+  cursor: pointer;
+}
+
+
+#pdfForm{
+  width: 400px;
+  height: 230px;
+  /* border: 1px solid red; */
+  margin: 0px auto;
+  border-radius: 6px;
+  background-color: #4e7ac9;
+}
+
+#pdfForm label{
+  font-size: 20px;
+  margin: 0px 13px 0px 0px;
+}
+
+#pdfForm input{
+  margin: 19px 0px 33px 0px;
+  color: rgb(187, 55, 55);
+}
+
+#pdfForm button{
+  color: white;
+background-color: #118511;
+border: none;
+font-size: 15px;
+padding: 3px 10px 3px 10px;
+border-radius: 3px;
+color: white;
+}
+

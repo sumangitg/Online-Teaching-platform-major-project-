@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>view gallery</title>
+  <style>
+    .galleryphoto{
+      width: 100%;
+      height: 500px;
+      border: 5px solid red;
+
+    }
+  </style>
+</head>
+<body>
+  <h1>gallery photo</h1>
+  <div id="viewgallery">
+    <% galleryphoto.forEach(gallery => { %>
+      <div class="galleryphoto">
+        <img src="<%=gallery.path %>" alt="galley photo">   
+
+    </div>
+    <% }); %>
+  </div>
+</body>
+</html>

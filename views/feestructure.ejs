@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>feestructure</title>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #74c4dc;
+      color: white;
+    }
+    #feesheading{
+      text-align: center;
+    font-size: 50px;
+    background-color: blue;
+    color: white;
+    margin: 0px 0px 18px 0px;
+    }  
+    </style>
+</head>
+<body>
+  <h2 id="feesheading">Fees Structure</h2>
+
+<table>
+  <tr>
+    <th>Course</th>
+    <th>course Time</th>
+    <th>course Section</th>
+    <th>coordinator</th>
+    <th>price</th>
+  </tr>
+ <% fees.forEach(fee=>{  %>
+  <tr>
+    <td><%=fee.courseName%></td>
+    <td><%=fee.courseTime%></td>
+    <td><%=fee.courseSection%></td>
+    <td><%=fee.coordinator%></td>
+    <td><%=fee.coursePrice%></td>
+  </tr>
+ <% }) %>
+  
+  
+</table>
+</body>
+</html>

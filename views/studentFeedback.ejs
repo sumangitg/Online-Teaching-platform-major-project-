@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  form{
+    width: 579px;
+    height: 484px;
+    margin: 0px auto;
+    background-color: #f2f0f0;
+  }
+  form h2{
+    text-align: center;
+    background-color: blue;
+    color: white;
+    font-size: 33px;
+    margin: 0px;
+  }
+  form label{
+    font-size: 21px;
+  }
+  form #feedName{
+    margin: 12px 0px 16px 12px;
+  }
+  form textarea{
+    width: 552px;
+    height: 323px;
+    margin: 0px 0px 0px 8px;
+}
+  form button{
+    margin: 11px 14px 0px 0px;
+    background-color: blue;
+    color: white;
+    border: none;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 2px;
+    
+}
+</style>
+<body>
+  
+  <form>
+    <h2 >student feedback</h2>  
+    <label for="student">Name:</label>
+    <input type="text" id="feedName" name="student" placeholder="your name">
+    <br>
+    <textarea name="feedback" id="feed" cols="50" rows="10"></textarea>
+    <br>
+    <button type="button" onclick="fb()">submit</button>
+    <button type="reset" onclick="clearf()">reset</button>
+    <div id="message"></div>
+  </form>      
+  
+<script>
+
+  function clearf()
+  {
+    document.getElementById('message').innerHTML='';
+  }
+
+  function fb(){
+    var student=document.getElementById('feedName').value;
+  var f=document.getElementById('feed').value;
+  
+  var a={
+    name:student,
+    feedtext: f      
+  }
+  fetch('/studenteedback', {
+        method: 'POST',
+        headers: {
+      "Content-Type": "application/json",
+    },    
+        body: JSON.stringify(a)     
+      })        
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('message').innerHTML = data.msg;
+        })    
+        .catch(error => {
+          console.error('Error:', error);
+        });
+  }
+
+
+</script>
+  
+
+
+</body>
+</html>
