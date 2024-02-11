@@ -557,7 +557,7 @@ app.post('/uploadVideoSection',(req, res)=>{
       res.render('uploadVideoWithCourses',{coursesection:courseSection,courseitem:result});  
       //res.redirect('/uploadnoteswithcourses');
       //res.send("catched");
-    }
+    }         
   })
 })
 
