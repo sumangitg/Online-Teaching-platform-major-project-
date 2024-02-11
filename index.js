@@ -584,7 +584,7 @@ app.post('/uploadVideoWithCourses', upload2.single('videoFile'), (req, res)=>{
         }
     else if(result.length===0)
     {  
-      console.log('not found');
+      console.log('not found');console.log('not found');
     }
     else{        
       //console.log('in result part');  
