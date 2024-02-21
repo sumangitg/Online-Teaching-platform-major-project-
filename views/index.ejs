@@ -21,6 +21,24 @@
 </head>
 
 <body>
+
+  <%if(users) { %>
+    
+    
+    <div id="profileHeadDiv">
+      <div>my profile <%= users %></div>
+      <a href="/logout">logout</a> 
+      <div id="outerInheadDiv-3"> 
+       
+        
+        <button id="inheadDiv-3" class="inheadDiv" onclick="toggleProfile()"><img src=".\public\images\kindpng_4952535.png" alt="profile"></button>
+        <br>
+    <div id="profileBox"> </div>
+        </div>
+    </div>
+  <%}  %>
+ 
+  
   <header id="homeHeader">
     <div class="inHeader" id="item-1">
       <img src="\public\images\websitelogo2.jpg" alt="SdMath" srcset="">
@@ -370,6 +388,30 @@
       </div>
     </div>
   </footer>
+
+
+  <script>    
+    let hiDivVisible = false;
+    function toggleProfile() {
+      const hiDiv = document.getElementById('profileBox');
+      
+      if (hiDivVisible) {
+        hiDiv.style.display = 'none'; // Hide the div
+        hiDivVisible = false;
+      } else {
+        hiDiv.innerHTML = `  <a href="" class="profileOption">Account</a>
+  <br>
+  <a href="" class="profileOption" >My Enrollments</a>
+  <br>
+  <a href="" 
+  <a href="" class="profileOption" >Sign Out</a> `;
+        hiDiv.style.display = 'flex'; // Show the div
+        hiDiv.style.flexDirection='column';
+        hiDivVisible = true;
+      }
+    }     
+    
+  </script>
 
 </body>
 

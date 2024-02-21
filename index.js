@@ -12,7 +12,6 @@ const fs= require("fs");
 
 
 
-
 const app=express();
 
 // port of server running
@@ -28,7 +27,17 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:false}));   
 app.use(bodyParser.json());
 
-
+// Express middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cookieParser());
+app.use(
+  session({
+    secret: 'your_secret_key',
+    resave: true,
+    saveUninitialized: true,
+  })
+);
 
 // make static folder named public to serve static files
 app.use(express.static('public'));
@@ -37,6 +46,9 @@ app.use('/public/images', express.static(__dirname + '/public/images'));
 app.use('/public/css', express.static(__dirname + '/public/css'));
 
 app.use(express.static(path.join(__dirname, 'uploads')));
+
+
+
 
 
 // Multer setup for handling file uploads
@@ -130,22 +142,33 @@ app.post('/uploadnotes', (req, res)=>{
 
 
 //home page
-app.get('/' , (req , res)=>{   
+app.get('/' , (req , res)=>{ 
+  //console.log(req);
   const sql='select notice from admissionnotice where noticeType=(?)';
   const sql1='select notice from admissionnotice where noticeType=(?)';
   noticetype='latestNews';
   noticetype1='upcomingNews';
   db.query(sql, [noticetype], (err, result1)=>{
-    if(err){
+    if(err){     
       return console.error('latest notice not available',err);    
     }    
     db.query(sql1, [noticetype1], (err, result2)=>{
       if(err){          
        return  console.error('latest notice not available',err);
-      }
-      res.render('index', {latest:result1, upcoming:result2});
+      }   
+
+      if(req.session.token){
+        let value = req.session.mykey;
+        res.render('index', {latest:result1, upcoming:result2 ,users: value}); 
+      }else        
+        res.render('index', {latest:result1, upcoming:result2 ,users: 0}); 
+      
     })
+   
   })
+
+
+
 })   
   
 
@@ -180,6 +203,7 @@ app.get('/adminPanel',(req,res)=>{
 app.get('/addCourse', (req, res) => {
   res.render('addCourse');
 });   
+
 
 app.post('/addCourse', (req, res) => {
  // console.log("IN");
@@ -329,6 +353,7 @@ app.post('/uploadnoteswithcourses',upload1.single('pdfFile'), (req, res)=>{
 
 
 
+
 app.get('/viewcourses', (req, res) => {
   var name = req.query.name; // Default to 'default' if no name is provided
  console.log('Received name:', name);
@@ -414,27 +439,16 @@ app.get('/giveNotice' , (req, res)=>{
 
 //working in this route
 
-// Express middleware
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(cookieParser());
-app.use(
-  session({
-    secret: 'your_secret_key',
-    resave: true,
-    saveUninitialized: true,
-  })
-);
 
 // Middleware to check if the user is authenticated
 function isAuthenticated(req, res, next) {
-  if (req.session.user && req.session.token) {
+  if (req.session.token) {
     jwt.verify(req.session.token, 'your_jwt_secret', (err, decoded) => {
       if (err) {
         return res.redirect('/studentlogin');
       }
-      req.user = decoded;
-      next();
+      req.user = decoded;    
+      next();       
     });
   } else {
     res.redirect('/studentlogin');
@@ -492,8 +506,8 @@ app.get('/studentlogin', (req, res)=>{
 app.post('/studentlogin', async (req, res)=>{
   const { email, stuPassword } = req.body;
   //added new
-console.log(email);
-console.log(stuPassword);
+//console.log(email);
+//console.log(stuPassword);
   // Check if userName exists
   const user = await new Promise((resolve, reject) => {
     db.query(
@@ -508,6 +522,8 @@ console.log(stuPassword);
 
   // added new
   //console.log(user);
+
+
 
   if (!user) {
     res.send('Invalid username. <a href="/registration">Register</a>');
@@ -524,19 +540,25 @@ console.log(stuPassword);
       // Save token in session and cookie
       req.session.token = token;
       res.cookie('token', token, { maxAge: 3600000, httpOnly: true });
-
-      res.redirect('/welcome');
+      console.log(req.session.token);
+      //my  
+      req.session.mykey = user.stuId;   
+      res.redirect('/');   
+       
     } else {
+      
       res.send('Incorrect password. <a href="/studentlogin">Login</a>');
     }
-  }
+  }   
 })
 
 //new added 
-app.get('/welcome', isAuthenticated, (req, res) => {
-  res.send(`<h1>Welcome, ${req.user.email}!</h1><a href="/logout">Logout</a>`);
+app.get('/welcome', isAuthenticated, (req, res) => {  
+   //console.log(req);    
+   console.log(req.session.token);   
+   res.send(`<h1>Welcome, ${req.user.userName}!</h1><a href="/logout">Logout</a>`);
 });
-
+   
 app.get('/uploadVideoSection' , (req , res)=>{
   res.render('uploadVideoSection');  
 })
@@ -586,7 +608,7 @@ app.post('/uploadVideoWithCourses', upload2.single('videoFile'), (req, res)=>{
     {  
       console.log('not found');console.log('not found');
     }
-    else{        
+    else{            
       //console.log('in result part');  
       if (result.length > 0) {
           //console.log(result);
@@ -725,6 +747,14 @@ app.get('/doubt' , (req, res)=>{
 app.get('/parentZone', (req , res)=>{
   res.render('parentzone');
 })
+
+// Logout
+app.get('/logout', (req, res) => {
+  req.session.destroy();
+  res.clearCookie('token');
+  res.redirect('/');  
+});   
+
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

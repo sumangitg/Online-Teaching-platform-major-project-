@@ -774,5 +774,72 @@ height: 250px;
 }
 
 
+/* header css   */
+#profileHeadDiv {
+  display: flex;
+    flex-direction: row;
+    /* border: 1px solid black; */
+    padding: 0px;
+    float: right;    
+    display: flex;
+    padding-right: 28px;  
+}
+.inheadDiv {
+  border: 1px solid green;
+  /* margin: 5px; */
+  padding: 5px;
+}
 
+
+
+
+
+#outerInheadDiv-3 {
+  margin: 0px 0px 0px 646px;
+}
+#outerInheadDiv-3 button {
+  margin: 0px 0px 0px 0px;
+  border: none;
+  background-color: white;
+  padding: 3px 0px 0px 0px;
+}
+#profileBox {
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 54px;
+  /* left: 20px; */
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid green;
+  width: 234px;
+  height: 273px;
+  font-size: 25px;    
+  background-color: whitesmoke;
+  /* color: #821f1f; */
+  color: white;
+  right: 12px;
+  border-radius: 7px;
+  box-shadow: 2px 2px 5px 0px #b8c2e2;
+  /* color: white; */
+  /* text-decoration: none; */
+}
+
+#outerInheadDiv-3 img {
+  width: 47px;
+  /* height: 60px;*/   
+}
+.profileOption {
+  /* border: 1px solid green; */
+  /* margin: 0px 0px 12px 0px; */
+  /* padding: 0px 0px 13px 0px; */
+  text-decoration: none;
+  /* margin: 20px; */
+  padding: 5px 5px 5px 0px;
+}  
+
+
+
+/*header css end */
 
