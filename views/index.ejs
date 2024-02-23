@@ -26,7 +26,7 @@
     
     
     <div id="profileHeadDiv">
-      <div>my profile <%= users %></div>
+      <div id="userid"><%=users%></div>
       <a href="/logout">logout</a> 
       <div id="outerInheadDiv-3"> 
        
@@ -391,6 +391,7 @@
 
 
   <script>    
+  let userid=document.getElementById('userid').innerText;  
     let hiDivVisible = false;
     function toggleProfile() {
       const hiDiv = document.getElementById('profileBox');
@@ -398,13 +399,15 @@
       if (hiDivVisible) {
         hiDiv.style.display = 'none'; // Hide the div
         hiDivVisible = false;
-      } else {
-        hiDiv.innerHTML = `  <a href="" class="profileOption">Account</a>
-  <br>
-  <a href="" class="profileOption" >My Enrollments</a>
-  <br>
-  <a href="" 
-  <a href="" class="profileOption" >Sign Out</a> `;
+      } else {  
+        hiDiv.innerHTML = `  <a class="profileOption" id="profileLink" href="/myProfile/${userid}">My Profile</a>
+  <br>        
+        <a class="profileOption" href="/MyAccount/${userid}">My Account</a>  
+  <br>  
+  <a class="profileOption" href="/MyEnrollments/${userid}">My Enrollments</a>
+  <br>      
+  <a class="profileOption" href="/logout">Sign Out</a> `;  
+
         hiDiv.style.display = 'flex'; // Show the div
         hiDiv.style.flexDirection='column';
         hiDivVisible = true;

@@ -755,6 +755,24 @@ app.get('/logout', (req, res) => {
   res.redirect('/');  
 });   
 
+app.get('/myProfile/:userid', (req, res)=>{
+  //console.log("ok"); 
+  //console.log(req.params.userid);  
+  res.render('profilePage',{users: req.params.userid});    
+    
+}) 
+
+app.get('/MyAccount/:userid', (req, res)=>{
+  console.log("ok"); 
+  console.log(req.params.userid);  
+  res.send("done my account"); 
+})
+
+app.get('/MyEnrollments/:userid' , (req, res)=>{
+  //console.log("ok"); 
+  //console.log(req.params.userid);  
+  res.render('myEnrollments.ejs',{users: req.params.userid});   
+})
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

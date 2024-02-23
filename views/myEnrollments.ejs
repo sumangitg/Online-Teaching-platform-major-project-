@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>enrollments</title>
+  <style>  
+    body{
+      margin: 5px 0px 0px 0px;
+    }
+/* header css   */
+    #profileHeadDiv {
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid black; */    
+    padding: 0px;   
+}
+.inheadDiv {
+    border: 1px solid green;
+    /* margin: 5px; */
+    padding: 5px;
+}
+#inheadDiv-1 {
+    margin: 0px 0px 0px 197px;
+    padding: 4px 0px 0px 0px;
+    border: none;
+}
+#inheadDiv-1 img {
+    width: 77px;
+    height: 69px;
+}
+
+#inheadDiv-2 {
+    margin: 5px 0px 5px 33px;
+    /* padding: 5px 95px 5px 95px; */
+    display: flex;
+    padding: 0px;
+    border: none;
+}
+#inheadDiv-2 input {
+    margin-bottom: 0px;
+    font-size: 17px;
+    padding: 0px 8px 0px 12px;
+    /* border: none; */
+    margin: 12px 0px 12px 12px;
+}
+#inheadDiv-2 img {
+    width: 25px;
+    height: 25px;
+    margin: 16px 0px 0px 0px;
+}
+#outerInheadDiv-3 {
+    margin: 0px 0px 0px 646px;
+}
+#outerInheadDiv-3 button {
+    margin: 0px 0px 0px 0px;
+    border: none;
+    background-color: white;
+}  
+#profileBox {
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 75px;      
+  /* left: 20px; */
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid green;
+  width: 234px;
+  height: 273px;
+  font-size: 25px;    
+  background-color: whitesmoke;
+  /* color: #821f1f; */
+  color: white;
+  right: 212px;  
+  border-radius: 7px;
+  box-shadow: 2px 2px 5px 0px #b8c2e2;
+  /* color: white; */
+  /* text-decoration: none; */
+}   
+
+#outerInheadDiv-3 img {
+    width: 60px;
+    height: 60px;
+}
+.profileOption {
+    /* border: 1px solid green; */
+    /* margin: 0px 0px 12px 0px; */
+    /* padding: 0px 0px 13px 0px; */
+    text-decoration: none;
+    /* margin: 20px; */
+    padding: 5px 5px 5px 0px;
+}  
+
+
+
+/*header css end */
+
+#enrolledcourse{
+  width: 100%;
+  height: 500px;
+  border: 1px solid black;
+
+}
+#myenrollmentHeading{
+  /* border: 1px solid green; */
+    padding: 42px 0px 42px 198px;
+    font-size: 38px;
+    font-weight: bold;
+    background-image: linear-gradient(to left, rgb(228 181 228 / 43%), #c797c538);
+}
+#enrollheading{
+  border: 1px solid black;
+    padding: 17px 0px 17px 194px;
+    font-size: 24px;
+    color: blue;
+
+}
+
+
+/* footer css */
+#footer {
+    display: flex;
+    flex-direction: row;
+    /* padding: 10px; */
+    /* border: 1px solid red; */
+}
+
+#footer .footeritem {
+    /* border: 1px solid green; */
+    /* padding: 5px; */
+}
+#footer-1 {
+    margin: 2px 22px 2px 170px;
+    font-size: 32px;
+    background-color: blue;
+    color: white;
+    border: 1px solid green;
+    border: 1px solid green;
+    border-radius: 24px;
+    padding: 5px;
+}
+#footer-2 {
+    padding: 12px 0px 0px 0px;
+    font-size: 22px;
+    /* margin: 10px 0px 9px 0px; */
+    /* margin-top: 5px; */
+    cursor: pointer;
+}
+
+#footer-3 {
+    margin: 0px 25px 0px 450px;
+}
+#footer-4 img {
+    width: 45px;
+    height: 42px;
+    padding: 4px 0px 0px 0px;
+}
+  </style>
+</head>
+<body>
+  <div id="profileHeadDiv">
+    <div id="inheadDiv-1" class="inheadDiv"><img src="\images\websitelogo2copy.jpg" alt="logo"></div>   
+    <div id="inheadDiv-2" class="inheadDiv"><input type="search" placeholder="search here "><div><img src="\images\icons8-search-50.png" alt=""></div></div>
+    <div id="userid"><%users%></div>  
+    <div id="outerInheadDiv-3">  
+      <button id="inheadDiv-3" class="inheadDiv" onclick="toggleProfile()"><img src="\images\kindpng_4952535.png" alt="profile"></button>
+      <br>    
+  <div id="profileBox"> </div>
+      </div>
+  </div>
+
+  <div id="myenrollmentHeading">
+    My Enrollments
+  </div>        
+<div id="enrollheading">ALL ENROLLED </div>
+  <div id="enrolledcourse">
+
+  </div>
+
+  <hr>
+
+  <div id="footer">
+    <div id="footer-1" class="footeritem">SD</div>
+    <div id="footer-2" class="footeritem">About us</div>
+  
+    
+    <div id="footer-3" class="footeritem"><img src="\images\icons8-twitter-squared-48.png" alt=""></div>         
+    <div id="footer-4" class="footeritem"><img src="\images\youtube.256x256.png" alt=""></div>
+    
+  </div>
+
+    
+        <script>    
+  let userid=document.getElementById('userid').innerText;  
+    let hiDivVisible = false;
+    function toggleProfile() {
+      const hiDiv = document.getElementById('profileBox');
+      
+      if (hiDivVisible) {
+        hiDiv.style.display = 'none'; // Hide the div
+        hiDivVisible = false;
+      } else {  
+        hiDiv.innerHTML = `  <a class="profileOption" id="profileLink" href="/myProfile/${userid}">My Profile</a>
+  <br>        
+        <a class="profileOption" href="/MyAccount/${userid}">My Account</a>  
+  <br>  
+  <a class="profileOption" href="/MyEnrollments/${userid}">My Enrollments</a>
+  <br>      
+  <a class="profileOption" href="/logout">Sign Out</a> `;  
+
+        hiDiv.style.display = 'flex'; // Show the div
+        hiDiv.style.flexDirection='column';
+        hiDivVisible = true;
+      }
+    }    
+          
+        </script>   
+</body>
+</html>
