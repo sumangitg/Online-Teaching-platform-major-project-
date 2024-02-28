@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>video playlist</title>
+  <link rel="stylesheet" href="\css\onlineClass.css">     
+</head>
+<body>      
+      
+<div id="container">   
+
+      <div class="main-video">
+        <div class="videodiv">
+          <div id="headdiv">
+            <div id="image">
+              <img src="\images\1608508_angle_left_icon.png" alt="">
+            </div>          
+            <div id="heading" > course <%=coursename[0].courseName %>  by Subhabrata Dinda </div>  
+          </div>
+          
+         
+          <video  src="<%=videos[0].videoPath%>" controls muted  autoplay class="video"></video>
+          <h3 class="video-title" id="videotitleid"><%=videos[0].classVideoName%></h3>
+        
+      </div>    
+
+      <hr>
+      <div id="aNEC">
+        <ul id="aNECul">
+          <button href="#" id="aNEC-1" class="aNECbar" onclick="about()"><li class="aNECli">about</li></button>    
+          <button href="#" id="aNEC-2" class="aNECbar" onclick="showNotes()"><li class="aNECli">notes</li></button>
+          <button href="#" id="aNEC-3" class="aNECbar" onclick="exam()"><li class="aNECli">exam</li></button>
+        <button href="#" id="aNEC-4" class="aNECbar" onclick="certification()"><li class="aNECli">certificate</li></button>            
+        </ul>
+
+      </div>
+    
+      <div id="belowmaindiv">  
+       <div id="introToCourse">Introduction to course <%=coursename[0].courseName %></div> 
+       <div id="authordiv">Author</div>
+       <div id="dinda"> 
+        <div id="dindaImg"><img src="\images\sdphotoInClass.png" alt="sd"></div>  
+        <div id="dindaName">Subhabrata Dinda</div>
+       </div>  
+       <div id="dindaStory">I, Dr. Subhabrata Dinda, got my Ph.D Degree from Jadavpur University in Science since 2020. I delivered the lecture through online and off line mode. Here every previous students got MCA ranked and servies different Multinational Companies. Many of Students got service at SCHOOL(GOVT) , COLLEGE, BANK , FOOD(GOVT), INDIAN RAILWAYS, POST OFFICE and other's Govt Jobs. I inspire to all students to get the decisions from first year (Hons/Pass) course, then you reach to your goal. I supplied the photo copy of Study Material in all courses. The student's will be gainer to got my Study Material.More than 20 years I teaches in my Coaching Institute.</div>
+       <div id="aboutThisCourse">About this course</div>
+       <div>  
+        <div class="inAbout">course name : <span><%=coursename[0].courseName %></span></div>
+        <div class="inAbout">medium : <span>hindi</span></div>
+        <div class="inAbout">mode : <span>Online LIVE Classes | Recordings will be available so that you can watch them</span> </div>
+        <div class="inAbout">Instructor : <span>Subrata Dinda</span></div>
+        <div class="inAbout">Time : <span>9:30 AM to 11:30 AM</span></div>
+        <div class="inAbout">Days : <span>Saturday & Sunday</span> </div>
+        <div class="inAbout">Duration : <span><%=coursename[0].courseTime%> months</span></div>
+
+        <div class="inAbout">Certification: <span>Yes</span></div>
+        <div class="inAbout">Doubt Handling Classes : <span>Yes</span></div>
+        <div class="inAbout">Assignments : <span>Yes</span></div>
+
+       </div>
+      </div>
+<hr>
+      <div id="footer">
+        <div id="footer-1" class="footeritem">SD</div>
+        <div id="footer-2" class="footeritem">About us</div>
+      
+        
+        <div id="footer-3" class="footeritem"><img src="\images\icons8-twitter-squared-48.png" alt=""></div>   
+        <div id="footer-4" class="footeritem"><img src="\images\youtube.256x256.png" alt=""></div>
+        
+      </div>
+
+    </div>    
+<div id="syllabus">
+  <h3 id="syllabusheading">syllabus <img src="\images\icons8-search-50.png" alt=""></h3>
+  <hr>  
+      <div class="videolist">
+        <%videos.forEach((video1,i)=>{ %>
+
+          <div class="invideolist active">
+          <video src="<%=video1.videoPath%>" muted  class="video"></video>
+          <h3 class="video-title"><%=i+1 %>. <%=video1.classVideoName%> </h3>
+        </div>  
+        <hr>                  
+        <% })%>     
+      </div> 
+    </div>   
+</div> 
+
+<script>
+  function showNotes(){
+    document.getElementById('belowmaindiv').innerHTML=`
+    <div id="downloadnote1">Download Notes </div>
+    <ul id="notesUl"> 
+      <% note.forEach(notes=>{ %>
+          <li class="notesLi">
+            <%= notes.noteName %>
+                <a href="/download/<%= notes.noteId %>" download >
+                    <button class="downloadButton">Download</button>
+                </a>   
+            </li>
+          <hr>
+      <%  })%>
+    </ul>`;    
+  }  
+  function exam(){
+    document.getElementById('belowmaindiv').innerHTML=`<div id="examdiv">
+      <img src="/images/joinExamGirl.png" alt="join exam" id="joinExamGirl">
+  <button id="joinexam">Join Exam</button>
+</div>`;    
+  }   
+  function certification(){
+    document.getElementById('belowmaindiv').innerHTML=`<div id="certificate"> Not Available Now.</div>`;
+  }
+  function about(){
+    document.getElementById('belowmaindiv').innerHTML=`       <div id="introToCourse" >Introduction to course AI</div>    
+    <div id="authordiv">Author</div>
+      <div id="dinda">    
+        <div id="dindaImg"><img src="/images/sdphotoInClass.png" alt="sd"></div>
+        <div id="dindaName">Subhabrata Dinda</div>
+        
+       </div>
+
+       <div id="dindaStory">I, Dr. Subhabrata Dinda, got my Ph.D Degree from Jadavpur University in Science since 2020. I delivered the lecture through online and off line mode. Here every previous students got MCA ranked and servies different Multinational Companies. Many of Students got service at SCHOOL(GOVT) , COLLEGE, BANK , FOOD(GOVT), INDIAN RAILWAYS, POST OFFICE and other's Govt Jobs. I inspire to all students to get the decisions from first year (Hons/Pass) course, then you reach to your goal. I supplied the photo copy of Study Material in all courses. The student's will be gainer to got my Study Material.More than 20 years I teaches in my Coaching Institute.</div>
+       <div id="aboutThisCourse">About this course</div>
+       <div>
+        <div class="inAbout">course name : <span>Artificial Intelligence(AI)</span></div>
+        <div class="inAbout">medium : <span>hindi</span></div>
+        <div class="inAbout">mode : <span>Online LIVE Classes | Recordings will be available so that you can watch them</span> </div>
+        <div class="inAbout">Instructor : <span>Subrata Dinda</span></div>
+        <div class="inAbout">Time : <span>9:30 AM to 11:30 AM</span></div>
+        <div class="inAbout">Days : <span>Saturday & Sunday</span> </div>
+        <div class="inAbout">Duration : <span>6 months</span></div>
+
+        <div class="inAbout">Certification: <span>Yes</span></div>
+        <div class="inAbout">Doubt Handling Classes : <span>Yes</span></div>
+        <div class="inAbout">Assignments : <span>Yes</span></div>
+
+       </div>`;  
+
+
+  }
+
+
+  let listvideo= document.querySelectorAll('.videolist .invideolist');  
+  let mainvideo=document.querySelector('.main-video .videodiv video');
+  let title=document.getElementById('videotitleid');
+  console.log(listvideo);
+  console.log(mainvideo);     
+  console.log(title);
+
+  listvideo.forEach(video =>{
+    video.onclick=()=>{       
+      listvideo.forEach(vid => {
+        vid.classList.remove('active');
+        
+      }); 
+      
+      video.classList.add('active');
+      let src=video.children[0].getAttribute('src');
+      console.log(src);
+      mainvideo.src=src;  
+      let text =video.children[1].innerHTML; 
+      title.innerHTML=text;  
+      
+    }
+  })
+
+
+</script>
+</body>
+</html>

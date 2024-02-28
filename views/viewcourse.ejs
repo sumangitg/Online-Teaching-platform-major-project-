@@ -6,15 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>All Courses</title>
   <link rel="stylesheet" href="\css\viewcourse.css">
-</head>
-<body>   
+</head>   
+<body>     
   <h1>All Courses fhd</h1>  
 <!-- <img src="/course-images/courseImage-1703331843426.png" alt="a">  
 <img src="/course-images/courseImage-1703335790131.png" alt="b">    -->
   <div id="coursesContainer">
     <% courses.forEach(course => { %>
       <div class="courseCard">
-        <img src="<%=course.imagePath %>" alt="<%= course.courseName %>">   
+        <img src="<%=course.imagePath %>" alt="<%= course.courseName %>">      
         <h2><%= course.courseName %></h2>      
         <p>Price: <%= course.coursePrice %></p>
         <p>Coordinator: <%= course.coordinator %></p>
@@ -22,7 +22,9 @@
         <p>Note Available: <%= course.noteAvalaible ? 'Yes' : 'No' %></p>
         <p>Video Classes: <%= course.videoClasses ? 'Yes' : 'No' %></p>
         <p>Topics: <%= course.topics %></p>
-      </div>
+          
+        <a id="enrollButton" href="/enrollCourse/<%=course.courseId%>">Enroll</a>  
+      </div>  
     <% }); %>
   </div>
 </body>

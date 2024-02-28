@@ -1,0 +1,325 @@
+
+
+.main-video{
+  /* width: 60%; */
+  /* height: 500px; */    
+  /* border: 1px solid black;  */
+  /* padding: 10px;  */
+  overflow-y: scroll;
+  height: 100vh;
+     
+}
+.video{
+  width: 100%;
+  height: 600px;   
+  object-fit: unset;   
+}
+.videodiv{
+  /* border: 1px solid green; */
+  /* padding: 10px; */
+  /* margin-top: 51px; */
+}
+
+.main-video .videodiv #heading{
+  padding: 9px 0px 9px 33px;
+  font-size: 20px;
+}
+#headdiv{
+  display: flex;
+  flex-direction: row;  
+}
+
+#headdiv #image{
+      /* border: 1px solid black; */
+    /* width: 20px; */
+    margin-left: 16px;
+}
+
+#headdiv #image img{
+  width: 20px;
+  margin-top: 10px;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  text-transform: capitalize;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: normal;  
+
+}
+
+#videotitleid{
+ /* color: white; */
+    margin-top: 5px;
+    margin-bottom: 12px;
+    padding-left: 20px;
+}
+
+.heading{
+  color: #444;
+  font-size: 40px;
+  text-align: center;
+  padding: 10px;    
+}
+
+#container{
+  display: grid;
+  grid-template-columns: 70% 30%;  
+  gap: 0px;  
+  align-items: flex-start;
+  /* padding: 5px 5%;   */
+
+}
+
+.videolist{
+  /* border: 1px solid green; */
+  padding: 5px;     
+  overflow-y: scroll;
+  background: #fff;
+height: 91vh;   
+margin: 2px 0px 0px 0px;   
+background: #f8f8f8;     
+}
+
+.videolist .invideolist{
+  padding: 6px 0px 6px 17px;
+  background: #f8f8f8;
+}
+
+.videolist .invideolist:hover{
+  background: rgb(238 238 238);  
+}
+
+/* #container #syllabus .videolist::-webkit-scrollbar{
+  width: 8px;   
+  
+} */  
+
+#container #syllabus .videolist .active{
+  background: rgb(238 238 238);    
+}
+
+
+#container #syllabus .videolist::-webkit-scrollbar-track{
+  background: #ccc;    
+  border-radius: 50px;   
+}
+
+#container #syllabus .videolist::-webkit-scrollbar-thumb{
+  background: #666;
+  border-radius: 50px;   
+}
+
+#container .main-video .videodiv{
+  /* background: #444; */
+  /* border-radius: 5px;   */
+  /* padding: 10px; */
+
+   
+}
+#container .videolist .invideolist .video{
+  width: 100px;
+  height: 60px;  
+  border-radius: 5px;
+
+}
+
+#belowmaindiv{
+  /* border: 1px solid green; */
+  /* height: 600px; */  
+  width: 100%;  
+
+}
+
+
+#container #syllabus #syllabusheading{  
+  margin: 0px 0px 0px 0px;
+    padding: 11px 0px 11px 21px;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: auto;
+
+}
+#container #syllabus #syllabusheading img{
+width: 21px;
+    font-weight: bolder;
+    margin: 0px 0px 0px 0px;
+    padding: 5px 39px 0px 0px;
+    float: right;
+    /* border: 1px solid red; */
+}
+
+#syllabus{
+  background: #f8f8f8;
+}
+
+#aNECul{
+  display: flex;
+  flex-direction: row;
+  /* padding: 5px 5px 5px 5px; */
+  margin: 2px 2px 2px 2px;
+  /* border: 1px solid black; */
+  list-style: none; 
+  
+}
+.aNECbar{
+  text-decoration: none;  
+  cursor: pointer;
+}
+
+.aNECli{
+      /* border: 1px solid red; */
+      padding: 5px 10px 5px 10px;
+      margin: 0px 6px 0px 9px;
+      font-size: 17px;
+}  
+
+
+/* footer css */
+#footer {
+  display: flex;
+  flex-direction: row;
+  /* padding: 10px; */
+  /* border: 1px solid red; */
+  margin-top: 6px;
+}
+  
+#footer .footeritem {
+  /* border: 1px solid green; */
+  /* padding: 5px; */
+}
+#footer-1 {
+  margin: 2px 22px 2px 24px;
+  font-size: 32px;
+  background-color: blue;
+  color: white;
+  border: 1px solid green;
+  border: 1px solid green;
+  border-radius: 24px;
+  padding: 5px;
+}
+#footer-2 {
+  padding: 12px 0px 0px 0px;
+  font-size: 22px;
+  /* margin: 10px 0px 9px 0px; */
+  /* margin-top: 5px; */
+  cursor: pointer;
+}
+
+#footer-3 {
+  margin: 0px 25px 0px 450px;
+}
+#footer-4 img {
+  width: 45px;
+  height: 42px;
+  padding: 4px 0px 0px 0px;
+}
+
+.aNECbar{
+  /*border: 1px solid green; */
+  background-color: white;
+  color: blue;
+  border: none;
+  cursor: pointer;
+  margin-right: 0px;     
+
+}
+#introToCourse{
+  padding: 11px 0px 0px 19px;
+  font-size: 29px;
+  font-weight: bold;
+}
+#authordiv{
+  padding: 13px 0px 0px 20px;
+    font-size: 30px;
+}
+#dinda{
+  display: flex;
+}
+
+#dindaName{
+  padding: 38px 0px 0px 0px;
+    font-size: 21px;
+}
+#dindaStory{
+  padding: 19px;
+  text-align: justify;
+  font-size: 17px;
+}
+#aboutThisCourse{
+  padding: 0px 0px 0px 17px;
+  font-size: 32px;
+}
+.inAbout{
+  padding: 7px 0px 10px 26px;
+    font-size: 20px;
+}
+#dindaImg img{
+  width: 75px;
+    height: 75px;
+}
+#notesUl{
+  padding: 23px 0px 200px 22px;
+  list-style: none;
+}
+
+.notesLi{
+  padding: 17px 0px 20px 0px;
+  font-size: 15px;
+}
+.notesLi:hover{
+  background: rgb(194, 194, 199);
+}
+.downloadButton{
+  float: right;
+    margin: 0px 194px 0px 0px;
+    padding: 5px;
+    background: green;
+    color: white;
+    border: none;
+}
+.downloadButton:hover{
+  color: green;
+  background: whitesmoke;
+}
+
+#examdiv {
+    width: 99%;
+    /* border: 1px solid green; */
+    /* display: flex; */
+    background: #eaeaef;
+    border-radius: 25px;
+}  
+
+#examdiv img{
+  width: 500px;
+    height: 500px;
+    margin: 40px 0px 0px 176px;  
+}
+
+#joinexam{
+  position: relative;
+    top: -383px;
+    right: 179px;
+    padding: 3px;
+    font-size: 14px;
+    background: green;
+    border: none;
+    color: whith;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#certificate{
+  padding: 200px 0px 200px 255px;
+    font-size: 46px;
+    color: gray;
+    background: whitesmoke;  
+}
+#downloadnote1{
+  padding: 20px 0px 0px 328px;
+    font-size: 32px;
+    color: gray;
+}

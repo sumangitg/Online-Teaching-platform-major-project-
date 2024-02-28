@@ -19,4 +19,11 @@
   height: 450px;
 }
 
-
+#enrollButton{
+  border: 1px solid green;
+  color: white;
+  background-color: rgb(78, 78, 201);
+  border-radius: 5px;
+  text-decoration: none;
+  
+}

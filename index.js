@@ -65,8 +65,8 @@ const storage2 = multer.diskStorage({
   destination: (req, file, cb) => {
       const uploadPath = path.join(__dirname, 'uploads');
       if (!fs.existsSync(uploadPath)) {
-          fs.mkdirSync(uploadPath);
-      }
+          fs.mkdirSync(uploadPath);   
+      }      
       cb(null, uploadPath);
   },
   filename: (req, file, cb) => {
@@ -442,13 +442,13 @@ app.get('/giveNotice' , (req, res)=>{
 
 // Middleware to check if the user is authenticated
 function isAuthenticated(req, res, next) {
-  if (req.session.token) {
+  if (req.session.token) {  
     jwt.verify(req.session.token, 'your_jwt_secret', (err, decoded) => {
-      if (err) {
+      if (err) {  
         return res.redirect('/studentlogin');
-      }
+      }   
       req.user = decoded;    
-      next();       
+      next();            
     });
   } else {
     res.redirect('/studentlogin');
@@ -533,7 +533,7 @@ app.post('/studentlogin', async (req, res)=>{
 
     if (passwordMatch) {
       // Create JWT token
-      const token = jwt.sign({ userId: user.stuId, userName: user.email }, 'your_jwt_secret', {
+      const token = jwt.sign({ userId: user.stuId, userName: user.email }, 'your_jwt_secret', {    
         expiresIn: '1h', // Set token expiration time
       });
 
@@ -565,7 +565,7 @@ app.get('/uploadVideoSection' , (req , res)=>{
 
 app.post('/uploadVideoSection',(req, res)=>{
   // console.log(req.body);   
-  //res.send("selected");
+  //res.send("selected");  
   var courseSection=req.body.courseSection;   
  //console.log(courseSection);     
   var query='select * from course where courseSection=(?)'
@@ -596,7 +596,7 @@ app.post('/uploadVideoWithCourses', upload2.single('videoFile'), (req, res)=>{
   var courseid; 
 
 
-  const sql=`select courseId from course where courseSection=(?) and courseName=(?)`
+  const sql=`select courseId from course where courseSection=(?) and courseName=(?)`   
   db.query(sql, [coursesection, courseName], (err, result)=>{
   if(err){
       //console.log('in error part');
@@ -617,8 +617,8 @@ app.post('/uploadVideoWithCourses', upload2.single('videoFile'), (req, res)=>{
           // Assuming courseId is the column name in your database
           courseid = result[0].courseId;    
           //console.log(courseid);   
-          const sql1=`insert into videoclasses(courseId, classVideoName, videoPath) value(?,?,?)`;
-          db.query(sql1, [courseid, classVideoName ,videoPath], (err, result) => {
+          let sql1=`insert into videoclasses(courseId, classVideoName, videoPath) value(?,?,?)`;
+          db.query(sql1, [courseid, classVideoName ,videoPath], (err, result) => {   
             if (err) {  
                 console.error('Error storing video in database:', err);
                 res.status(500).json({ success: false, error: 'Failed to store video in database' });
@@ -755,24 +755,147 @@ app.get('/logout', (req, res) => {
   res.redirect('/');  
 });   
 
-app.get('/myProfile/:userid', (req, res)=>{
+app.get('/myProfile/:userid',isAuthenticated, (req, res)=>{
   //console.log("ok"); 
-  //console.log(req.params.userid);  
-  res.render('profilePage',{users: req.params.userid});    
+  //console.log(req.params.userid);
+  let userid1=req.params.userid;
+  let sql3=`select *from 
+	(select course.courseId, course.courseName, course.courseTime , course.noteAvalaible, course.coursePrice, course.coordinator,course.videoClasses, course.topics, course.imagePath, course.courseSection, table2.stuId,table2.currentTime 
+    from course    
+    right join 
+    (select * from enrolledcourses WHERE stuId=${userid1}) as table2 on course.courseId = table2.courseId) as table3 
+    order by 
+    currentTime 
+    desc limit 1; `;
+  db.query(sql3, (err, result)=>{
+    if(err){
+      console.error(err);
+    }
+    else{   
+      //console.log(result); 
+      //console.log(result.imagePath);  
+      res.render('profilePage',{users: req.params.userid , recentCourse:result});  
+    }
+  })  
+   
     
 }) 
 
 app.get('/MyAccount/:userid', (req, res)=>{
-  console.log("ok"); 
+  //console.log("ok"); 
   console.log(req.params.userid);  
-  res.send("done my account"); 
+  res.render('MyAccount',{users: req.params.userid});   
 })
 
 app.get('/MyEnrollments/:userid' , (req, res)=>{
   //console.log("ok"); 
   //console.log(req.params.userid);  
-  res.render('myEnrollments.ejs',{users: req.params.userid});   
+  //res.render('myEnrollments.ejs',{users: req.params.userid});   
+
+    //console.log("ok"); 
+  //console.log(req.params.userid);
+  let userid1=req.params.userid;
+  let sql3=`select *from 
+	(select course.courseId, course.courseName, course.courseTime , course.noteAvalaible, course.coursePrice, course.coordinator,course.videoClasses, course.topics, course.imagePath, course.courseSection, table2.stuId,table2.currentTime 
+    from course    
+    right join 
+    (select * from enrolledcourses WHERE stuId=${userid1}) as table2 on course.courseId = table2.courseId) as table3 
+    order by 
+    currentTime; `;
+  db.query(sql3, (err, result)=>{
+    if(err){
+      console.error(err);
+    }
+    else{          
+      //console.log(result);   
+      //console.log(result.imagePath);  
+      res.render('myEnrollments.ejs',{users: req.params.userid , enrollCourse:result});  
+    }
+  })
 })
+
+
+
+app.get('/enrollCourse/:courseid' , isAuthenticated, (req, res)=>{
+  console.log("ok"); 
+  console.log(req.user.userId);
+  console.log(req.params.courseid);   
+  let userid=req.user.userId;   
+  let courseid=parseInt(req.params.courseid);
+                
+  let sql=`insert into enrolledcourses(stuId, courseId,currentTime) value (${userid},${courseid},CURRENT_TIMESTAMP)`;       
+  db.query(sql, (err , result)=>{
+    if(err){      
+      console.error(err);
+    }
+    else{
+      console.log("insert successfully");
+      res.redirect(`/myProfile/${userid}`);     
+    }
+  })      
+})   
+
+app.get('/onlineClass/:courseid', isAuthenticated,(req, res)=>{
+  let sql4=`select * from videoclasses where courseId=${req.params.courseid}`;
+  db.query(sql4,(err, result)=>{   
+    if(err){
+        console.error(err);       
+    }       
+    else{   
+      let sql5=`select courseName , courseTime from course where courseId=${req.params.courseid}`;
+      db.query(sql5, (err1 , result1)=>{   
+        if(err1){
+          console.error(err1);
+        }
+        else{
+          let sql6 = `SELECT noteId, noteName FROM notes where courseId=${req.params.courseid}`;
+          db.query(sql6, (err, result5)=>{
+            if(err){
+              console.error(err);
+            }
+            else{
+              console.log(result5);
+              res.render('onlineClass', {videos: result , users: req.user.userId , i:0 , coursename:result1 , note: result5});
+
+            }
+          
+          });   
+             
+        }
+      })   
+      //console.log(req.params);
+      //console.log(req.params.courseid);
+      //console.log(result);  
+       
+    }
+  })    
+}) 
+
+
+
+// Route to download an individual PDF
+app.get('/download/:noteid', (req, res) => {
+  let noteId = req.params.noteid;
+  //added new     
+  //console.log('pdfId: %d', pdfId);
+
+  let sql = 'SELECT noteName, notePdf FROM notes WHERE noteId = ?';
+
+  db.query(sql, [noteId], (err, result) => {
+      if (err) {
+          console.error('MySQL query error:', err);
+          res.status(500).json({ message: 'Error fetching PDF from the database.' });
+      } else if (result.length === 0) {
+          res.status(404).json({ message: 'PDF not found.' });
+      } else {
+          let pdfName = result[0].noteName;
+          let pdfData = result[0].notePdf;
+          
+          res.attachment(pdfName);
+          res.send(pdfData);
+      }
+  });    
+});
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

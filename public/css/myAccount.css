@@ -1,0 +1,229 @@
+/* header css   */
+a{
+  text-decoration: none;  
+}
+
+#profileHeadDiv {
+  display: flex;
+  flex-direction: row;
+  /* border: 1px solid black; */    
+  padding: 0px;   
+}
+.inheadDiv {
+  border: 1px solid green;
+  /* margin: 5px; */
+  padding: 5px;
+}
+#inheadDiv-1 {
+  margin: 0px 0px 0px 197px;
+  padding: 4px 0px 0px 0px;
+  border: none;
+}
+#inheadDiv-1 img {
+  width: 77px;
+  height: 69px;
+}
+
+#inheadDiv-2 {
+  margin: 5px 0px 5px 33px;
+  /* padding: 5px 95px 5px 95px; */
+  display: flex;
+  padding: 0px;
+  border: none;
+}
+#inheadDiv-2 input {
+  margin-bottom: 0px;
+  font-size: 17px;
+  padding: 0px 8px 0px 12px;
+  /* border: none; */
+  margin: 12px 0px 12px 12px;
+}
+#inheadDiv-2 img {
+  width: 25px;
+  height: 25px;
+  margin: 16px 0px 0px 0px;
+}
+#outerInheadDiv-3 {
+  margin: 0px 0px 0px 646px;
+}
+#outerInheadDiv-3 button {
+  margin: 0px 0px 0px 0px;
+  border: none;
+  background-color: white;
+}   
+#profileBox {
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 75px;      
+  /* left: 20px; */
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid green;
+  width: 234px;
+  height: 273px;
+  font-size: 25px;    
+  background-color: whitesmoke;
+  /* color: #821f1f; */
+  color: white;
+  right: 200px;
+  border-radius: 7px;
+  box-shadow: 2px 2px 5px 0px #b8c2e2;
+  /* color: white; */
+  /* text-decoration: none; */
+}   
+#outerInheadDiv-3 img {
+  width: 60px;
+  height: 60px;
+}
+.profileOption {
+  /* border: 1px solid green; */
+  /* margin: 0px 0px 12px 0px; */
+  /* padding: 0px 0px 13px 0px; */
+  text-decoration: none;
+  /* margin: 20px; */
+  padding: 5px 5px 5px 0px;
+}  
+
+
+
+/*header css end */
+
+/* back home div */
+#backHome{
+  padding: 29px 0px 29px 198px;   
+  text-decoration: none;
+}
+#backHome a{
+  text-decoration: none;
+  color: #3b3be4;
+  font-weight: bold;
+}
+
+
+
+#accountdiv{
+  display: grid;
+  grid-template-columns: 26% 73%;
+  width: 73%;
+  height: 600px;
+  gap: 6px;
+  /* border: 1px solid red; */
+  padding: 5px;
+  /* margin: 5px; */
+  margin: auto;   
+
+
+}
+
+#accountdiv #account-1{
+  /* border: 1px solid green; */
+
+}
+
+#accountdiv #account-2{
+ /* border: 1px solid green; */
+    border-radius: 9px;  
+    box-shadow: 2px 2px #c2bfbf, 0em 0 0.4em #6b6060;
+
+}
+
+#account-2{
+  padding: 20px;
+  
+}
+#account-2 .accountDetail{
+  margin: 20px 0px 20px 0px;
+  font-size: 20px;
+}
+
+/* account heading */
+#accountHeading{
+  font-family: "DM Sans", sans-serif;
+  margin: 0px;
+  padding: 0px 0px 22px 196px;
+  font-size: 23px;   
+}
+
+/* account heading css end */
+
+
+/* footer css start */
+/* footer css */
+#footer {
+  display: flex;
+  flex-direction: row;
+  /* padding: 10px; */
+  /* border: 1px solid red; */
+}
+
+#footer .footeritem {
+  /* border: 1px solid green; */
+  /* padding: 5px; */
+}
+#footer-1 {
+  margin: 2px 22px 2px 190px;
+  font-size: 32px;
+  background-color: blue;
+  color: white;
+  border: 1px solid green;
+  border: 1px solid green;
+  border-radius: 24px;
+  padding: 5px;
+}
+#footer-2 {
+  padding: 12px 0px 0px 0px;
+  font-size: 22px;
+  /* margin: 10px 0px 9px 0px; */
+  /* margin-top: 5px; */
+  cursor: pointer;
+}
+
+#footer-3 {
+  margin: 0px 25px 0px 450px;
+}
+#footer-4 img {
+  width: 45px;
+  height: 42px;
+  padding: 4px 0px 0px 0px;
+}
+
+/* footer css end */
+
+
+
+/* in account */
+.inAccount-1{
+  display: flex;
+  /* border: 1px solid black; */
+  padding: 1px;
+  /* background: #ffe1e1; */
+  color: black;
+  border-radius: 8px;   
+}  
+.imgicon{
+ /* border: 1px solid black; */
+  padding: 1px;
+}
+.imgicon img{
+  width: 16px;
+  height: 25px;
+  padding: 8px 0px 0px 0px;
+  margin: 0px 0px 0px 18px;
+ }
+.myprofile{   
+      /* border: 1px solid black; */
+      padding: 1px;
+      font-size: 20px;
+      padding: 5px 7px 6px 6px;
+      margin: 7px 0px 7px 21px;  
+}
+
+#myprofilelink{
+  background: #ffe1e1;
+}
+#myEnrollLink:hover{
+  background: #fdb5b5;
+}
+  

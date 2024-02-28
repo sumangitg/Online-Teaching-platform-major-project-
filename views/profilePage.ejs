@@ -35,18 +35,35 @@
     <span id="welcomeTo">welcome to Math Academy</span>   
   </div>
   <div id="myenroll">
-    <span id="continueLearning">continue learning</span> <a href="">My Enrollments -></a>
+    <span id="continueLearning">continue learning</span> <a href="/MyEnrollments/<%= users%>">My Enrollments -></a>
   </div>  
-
-  <div id="continueCourse">
-    <div id="courseview"></div>
-    <div id="coursedetails"></div>
-  </div>
+  
+  <a href="#" style="text-decoration: none;">   
+    <div id="continueCourse"> 
+    <div id="courseview">
+      <img src="<%=recentCourse[0].imagePath%>" alt="recent course">
+    </div>  
+    <div id="coursedetails">
+      
+      <p class="detail">course   :<%=recentCourse[0].courseName %></p>
+       
+      <p class="detail">coordinate by    :<%= recentCourse[0].coordinator%></p>   
+      <p class="detail">Course Validation    : <%= recentCourse[0].courseTime%> months</p>   
+    </div>    
+  </div>  
+</a>   
   <div id="courses">
     courses <div id="courseno">30</div> 
   </div>
   
+  
+
+
   <!-- <div id="allcourses">
+
+    
+
+      
     <div class="item">div1</div>
     <div class="item">div2</div>
     <div class="item">div3</div>
@@ -369,7 +386,7 @@
   
   <script>      
   let userid=document.getElementById('userid').innerText;  
-    let hiDivVisible = false;
+    let hiDivVisible = false;          
     function toggleProfile() {
       const hiDiv = document.getElementById('profileBox');
       
@@ -378,7 +395,7 @@
         hiDivVisible = false;
       } else {  
         hiDiv.innerHTML = `  <a class="profileOption" id="profileLink" href="/myProfile/${userid}">My Profile</a>
-  <br>        
+  <br>         
         <a class="profileOption" href="/MyAccount/${userid}">My Account</a>  
   <br>  
   <a class="profileOption" href="/MyEnrollments/${userid}">My Enrollments</a>
