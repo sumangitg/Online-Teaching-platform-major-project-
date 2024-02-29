@@ -770,11 +770,19 @@ app.get('/myProfile/:userid',isAuthenticated, (req, res)=>{
   db.query(sql3, (err, result)=>{
     if(err){
       console.error(err);
-    }
-    else{   
-      //console.log(result); 
+      //res.render('profilePage',{users: req.params.userid , recentCourse:0});
+    }     
+    else{     
+      console.log(result);
+      if(result.length===0)
+      {  
+        res.render('profilePage',{users: req.params.userid , recentCourse:0});
+      }   
+      else{
+        res.render('profilePage',{users: req.params.userid , recentCourse:result});
+      }
       //console.log(result.imagePath);  
-      res.render('profilePage',{users: req.params.userid , recentCourse:result});  
+        
     }
   })  
    
@@ -808,8 +816,14 @@ app.get('/MyEnrollments/:userid' , (req, res)=>{
     }
     else{          
       //console.log(result);   
-      //console.log(result.imagePath);  
-      res.render('myEnrollments.ejs',{users: req.params.userid , enrollCourse:result});  
+      //console.log(result.imagePath);
+      if(result.length===0)
+      {
+        res.render('myEnrollments.ejs',{users: req.params.userid , enrollCourse:0});   
+      }else{
+        res.render('myEnrollments.ejs',{users: req.params.userid , enrollCourse:result});  
+      } 
+      
     }
   })
 })

@@ -125,7 +125,7 @@ flex-direction: row;
 /* padding: 5px; */
 }
 #footer-1 {
-margin: 2px 22px 2px 170px;
+margin: 2px 22px 2px 197px;  
 font-size: 32px;
 background-color: blue;
 color: white;
@@ -208,3 +208,35 @@ top: -7px;
 .linkOfEnrolled:hover{
 /* background: rgb(142, 140, 202); */
 }
+
+#notCourseImg{
+  width: 420px;
+  margin: 41px 0px 0px 151px;
+}
+#noCourse{
+  position: relative;
+    top: 61px;
+    right: 156px;
+    font-size: 43px;
+}  
+#enrollnow{
+  position: relative;
+    top: 100px;
+    right: 521px;
+    color: white;
+    background: red;
+    border-radius: 5px;
+    padding: 3px;
+    border: none;
+    cursor: pointer;  
+}  
+#recentCourseZero{
+  display: flex;
+  width: 1124px;
+  /* border: 1px solid green; */
+  margin: 15px auto;
+  background: #b4baeb;
+  border-radius: 18px; 
+  padding: 19px 0px 34px 0px;
+
+}    

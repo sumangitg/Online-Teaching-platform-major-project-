@@ -37,12 +37,12 @@
   <div id="myenroll">
     <span id="continueLearning">continue learning</span> <a href="/MyEnrollments/<%= users%>">My Enrollments -></a>
   </div>  
-  
+  <%if(recentCourse){ %>
   <a href="#" style="text-decoration: none;">   
-    <div id="continueCourse"> 
-    <div id="courseview">
+    <div id="continueCourse">   
+      <div id="courseview">
       <img src="<%=recentCourse[0].imagePath%>" alt="recent course">
-    </div>  
+    </div>   
     <div id="coursedetails">
       
       <p class="detail">course   :<%=recentCourse[0].courseName %></p>
@@ -50,8 +50,22 @@
       <p class="detail">coordinate by    :<%= recentCourse[0].coordinator%></p>   
       <p class="detail">Course Validation    : <%= recentCourse[0].courseTime%> months</p>   
     </div>    
-  </div>  
-</a>   
+    </div>
+</a>
+<% } %>
+
+  <%if(recentCourse===0){ %>
+    <div id="recentCourseZero">
+    <img src="\images\joinExamGirl.png" alt="buy now" id="notCourseImg">
+<div>  
+  <span id="noCourse">No course You Buyed</span>
+  <button id="enrollnow">Buy Now</button>
+</div>
+</div>    
+  <%}%>
+
+
+
   <div id="courses">
     courses <div id="courseno">30</div> 
   </div>

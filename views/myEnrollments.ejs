@@ -22,6 +22,9 @@
     My Enrollments
   </div>          
 <div id="enrollheading">ALL ENROLLED </div>
+  <% if(enrollCourse){%>
+
+  
   <div id="enrolledCoursesContainer">
   <% enrollCourse.forEach(courses=>{ %>
     <a href="/onlineClass/<%=courses.courseId%>" style="text-decoration: none;" class="linkOfEnrolled">            
@@ -45,7 +48,18 @@
   <hr>
   <% }); %>    
 </div>
-  <hr style="margin-top: 128px;">  
+<%} %>  
+
+  <% if(enrollCourse===0){%>
+    <div id="recentCourseZero">
+      <img src="\images\joinExamGirl.png" alt="buy now" id="notCourseImg">
+  <div>  
+    <span id="noCourse">No course You Buyed</span>
+    <button id="enrollnow">Buy Now</button>
+  </div>
+  </div>
+  <%}%>
+  <hr style="margin-top: 50px;">    
 
   <div id="footer">
     <div id="footer-1" class="footeritem">SD</div>
@@ -85,3 +99,5 @@
         </script>   
 </body>
 </html>
+
+
