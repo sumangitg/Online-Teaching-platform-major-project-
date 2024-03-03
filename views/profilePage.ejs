@@ -37,8 +37,8 @@
   <div id="myenroll">
     <span id="continueLearning">continue learning</span> <a href="/MyEnrollments/<%= users%>">My Enrollments -></a>
   </div>  
-  <%if(recentCourse){ %>
-  <a href="#" style="text-decoration: none;">   
+  <%if(recentCourse){ %>  
+  <a href="/onlineClass/<%=recentCourse[0].courseId%>" style="text-decoration: none;">   
     <div id="continueCourse">   
       <div id="courseview">
       <img src="<%=recentCourse[0].imagePath%>" alt="recent course">

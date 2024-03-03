@@ -830,6 +830,7 @@ app.get('/MyEnrollments/:userid' , (req, res)=>{
 
 
 
+
 app.get('/enrollCourse/:courseid' , isAuthenticated, (req, res)=>{
   console.log("ok"); 
   console.log(req.user.userId);
