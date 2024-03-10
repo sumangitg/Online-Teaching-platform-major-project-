@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multiple Choice Exam</title>
+<style>  
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0px;
+    }
+    #container {
+    /* max-width: 600px; */
+    margin: 0 auto;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 71% 29%;
+    background: #ababab;
+    padding: 40px 59px 20px 59px;         
+    }
+    h2 {
+        text-align: center;
+    }
+    .question {
+        margin-bottom: 20px;
+        display: none;
+    }
+    .options {
+        list-style-type: none;
+        padding: 0;
+        margin: 31px 0px 0px 47px;
+    }    
+    .options li {
+        margin-bottom: 10px;
+    }
+    .navigation {
+       /* text-align: center; */
+    /* border: 1px solid #c8bfbf; */
+    padding: 8px 0px 8px 55px;   
+    background: #e8e8e8;  
+
+    }
+    #nextBtn, #prevBtn, #preview {
+        padding: 10px 20px;
+        background-color: #3b3bed;
+        color: #fff;
+        border: none;
+        /* border-radius: 5px; */   
+        cursor: pointer;
+    }         
+    #submitBtn {
+        display: none;
+    padding: 5px 27px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    }
+    
+    #timer {
+        text-align: center;
+    font-size: 20px;
+    /* margin-top: 20px; */
+    /* border: 1px solid #222021; */
+    padding: 10px 0px 10px 0px;
+    background: #e7e7e7;   
+    padding-top: 27px;
+    padding-bottom: 0px;    
+
+    }
+    #result {
+        text-align: center;
+        /* margin-top: 20px;  */    
+        /* border: 1px solid red; */
+
+    }
+    #leftdiv{
+        /* border: 1px solid green; */
+    /* padding: 5px; */
+    /* width: 700px; */
+    /* height: 400px; */
+    /* margin: 10px; */
+    /* margin-right: 10px; */
+    background: white;   
+}
+#quizForm{
+    /* border: 1px solid black; */
+    /* padding: 5px; */
+    /* width: 700px; */
+    height: 635px;   
+
+    }
+    #rightdiv{
+    /* border: 1px solid rgb(16, 38, 16); */
+    /* padding: 5px; */   
+    background: white;
+
+}
+
+    .gRY{
+       /* border: 1px solid red; */
+    /* border-radius: 19px; */
+    padding: 8px;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    /* border-radius: 27px; */
+    background-color: yellow;
+    border: none;
+    cursor: pointer;
+    border-top-left-radius: 23px;
+    background: #e3e3e3;
+
+    }
+
+#gRYbutton{
+    /* border: 1px solid green; */
+    padding: 30px 30px 0px 35px;
+    /* margin: 0px 0px 0px 33px; */
+    width: 341px;
+    overflow-y: scroll;
+    height: 200px;
+    /* margin: auto; */
+    height: 500px;
+    height: 478px;
+    background: #f8f8f8;       
+}   
+#quizForm input{
+    cursor: pointer;
+}
+#qContainDiv{
+    padding: 5px;
+    /* border: 1px solid black; */
+    height: 539px;     
+
+}
+#examheading{
+    text-align: center;
+    margin: 0px auto;
+    background: #dbdbdb;   
+    padding: 13px 0px 13px 0px;
+    font-size: 16px;
+    font-weight: bold;   
+}   
+.question .quesNO{
+    margin: 27px 0px 15px 54px;
+}
+.question .ques{
+    margin: 20px 0px 0px 51px;
+}
+#indecator{
+    /* border: 1px solid red; */
+    display: flex;
+    padding: 9px 0px 6px 96px;        
+    background-color: whitesmoke;
+
+}
+#indecator .indecatorItem{
+    /* border: 1px solid green; */
+    width: 13px;
+    height: 13px;   
+    border-radius: 13px;
+    margin-right: 8px;
+    margin-top: 2px;
+}
+#indecator .indecatorName{
+    margin-right: 129px;   
+}
+#preview{
+    padding: 5px 50px 5px 50px;
+    /* border: 1px solid black; */
+    border-radius: 24px;
+    background: maroon;
+}
+#nextBtn{    
+    display: inline-block;
+    padding: 5px 29px 5px 23px;  
+    border-bottom-right-radius: 21px;
+    border-top-right-radius: 21px;
+    margin-left: 12px;    
+}
+#prevBtn{    
+    display: inline-block;
+    padding: 5px 14px 5px 16px;
+    border-bottom-left-radius: 21px;
+    border-top-left-radius: 21px;
+    margin-left: 12px;     
+}
+#prevBtn:hover{
+background-color: blue;
+}
+#nextBtn:hover{
+  background-color: blue;
+}
+#preview:hover{
+  background: #ce1515;
+}
+#timeLeft{
+    text-align: center;
+    font-size: 20px;
+    /* margin-top: 20px; */
+    /* border: 1px solid #222021; */
+    padding: 10px 0px 11px 0px;
+    background: #cecece;  
+}
+#minSec{
+    padding: 4px 0px 11px 119px;
+    /* background: #f7f7f7; */
+    background: #e7e7e7;  
+}  
+#minSec span{
+    margin-right: 30px;
+} 
+#buttonhead{
+       /* margin: auto; */
+       padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgb(211 211 211);
+    font-size: 20px;
+    /* font-weight: bold; */
+    text-align: center;
+
+}
+#qContainDiv{
+    height: 539px;      
+}
+.gRY:hover{
+    border: 4px solid black;
+}
+
+</style>
+</head>
+<body>   
+    <!-- <h2>Multiple Choice Exam</h2> -->
+<div id="container">
+ <div id="leftdiv">
+    <form id="quizForm">
+        <p id="examheading">online Test - AI Exam </p>
+      <div id="qContainDiv"> 
+        <div class="question" id="question1">
+            <p class="quesNO">Quant - Question 1</p>
+            <hr style="margin: 0px 68px 0px 50px;">
+            <p class="ques">what is the capital of france? </p>
+            <ul class="options">   
+                <li><input type="radio" name="q1" value="Paris" > Paris</li>
+                <li><input type="radio" name="q1" value="London"> London</li>
+                <li><input type="radio" name="q1" value="Berlin"> Berlin</li>
+                <li><input type="radio" name="q1" value="Madrid"> Madrid</li>
+            </ul>  
+        </div>
+
+        <div class="question" id="question2">
+            <p class="quesNO">Quant - Question 2</p>
+            <hr style="margin: 0px 68px 0px 50px;">
+            <p class="ques">Which planet is known as the Red Planet?</p>
+            <ul class="options">
+                <li><input type="radio" name="q2" value="Mars"> Mars</li>
+                <li><input type="radio" name="q2" value="Venus"> Venus</li>
+                <li><input type="radio" name="q2" value="Jupiter"> Jupiter</li>
+                <li><input type="radio" name="q2" value="Saturn"> Saturn</li>
+            </ul>
+        </div>
+
+        <div class="question" id="question3">
+            <p class="quesNO">Quant - Question 3</p>
+            <hr style="margin: 0px 68px 0px 50px;">
+          <p class="ques">Which planet is known as the Red Planet?</p>
+          <ul class="options">
+              <li><input type="radio" name="q2" value="Mars"> Mars</li>
+              <li><input type="radio" name="q2" value="Venus"> Venus</li>
+              <li><input type="radio" name="q2" value="Jupiter"> Jupiter</li>
+              <li><input type="radio" name="q2" value="Saturn"> Saturn</li>
+          </ul>
+      </div>
+
+      <div class="question" id="question4">
+        <p class="quesNO">Quant - Question 4</p>
+            <hr style="margin: 0px 68px 0px 50px;">
+        <p class="ques">Which planet is known as the Red Planet?</p>
+        <ul class="options">
+            <li><input type="radio" name="q2" value="Mars"> Mars</li>
+            <li><input type="radio" name="q2" value="Venus"> Venus</li>
+            <li><input type="radio" name="q2" value="Jupiter"> Jupiter</li>
+            <li><input type="radio" name="q2" value="Saturn"> Saturn</li>
+        </ul>
+        </div>
+
+    <div class="question" id="question5">
+        <p class="quesNO">Quant - Question 5</p>
+        <hr style="margin: 0px 68px 0px 50px;">
+      <p class="ques">Which planet is known as the Red Planet?</p>
+      <ul class="options">
+          <li><input type="radio" name="q2" value="Mars"> Mars</li>
+          <li><input type="radio" name="q2" value="Venus"> Venus</li>
+          <li><input type="radio" name="q2" value="Jupiter"> Jupiter</li>
+          <li><input type="radio" name="q2" value="Saturn"> Saturn</li>
+      </ul>
+    </div>
+
+    <div class="question" id="question6">
+        <p class="quesNO">Quant - Question 6</p>
+        <hr style="margin: 0px 68px 0px 50px;">
+    <p class="ques">Which planet is known as the Red Planet?</p>
+    <ul class="options">
+        <li><input type="radio" name="q2" value="Mars"> Mars</li>
+        <li><input type="radio" name="q2" value="Venus"> Venus</li>
+        <li><input type="radio" name="q2" value="Jupiter"> Jupiter</li>
+        <li><input type="radio" name="q2" value="Saturn"> Saturn</li>
+    </ul>
+    </div>
+
+    <div class="question" id="question7">
+        <p class="quesNO">Quant - Question 7</p>
+        <hr style="margin: 0px 68px 0px 50px;">
+  <p class="ques">Which planet is known as the Red Planet?</p>
+  <ul class="options">
+      <li><input type="radio" name="q2" value="Mars"> Mars</li>
+      <li><input type="radio" name="q2" value="Venus"> Venus</li>
+      <li><input type="radio" name="q2" value="Jupiter"> Jupiter</li>
+      <li><input type="radio" name="q2" value="Saturn"> Saturn</li>
+  </ul>
+    </div>
+
+    <div class="question" id="question8">
+        <p class="quesNO">Quant - Question 8</p>    
+        <hr style="margin: 0px 68px 0px 50px;">
+  <p class="ques">Which planet is known as the Red Planet?</p>
+  <ul class="options">
+      <li><input type="radio" name="q2" value="Mars"> Mars</li>
+      <li><input type="radio" name="q2" value="Venus"> Venus</li>
+      <li><input type="radio" name="q2" value="Jupiter"> Jupiter</li>
+      <li><input type="radio" name="q2" value="Saturn"> Saturn</li>
+  </ul>
+    </div>
+
+    <div class="question" id="question9">
+        <p class="quesNO">Quant - Question 9</p>
+            <hr style="margin: 0px 68px 0px 50px;">
+  <p class="ques">Which planet is known as the Red Planet?</p>
+  <ul class="options">
+      <li><input type="radio" name="q2" value="Mars"> Mars</li>
+      <li><input type="radio" name="q2" value="Venus"> Venus</li>
+      <li><input type="radio" name="q2" value="Jupiter"> Jupiter</li>
+      <li><input type="radio" name="q2" value="Saturn"> Saturn</li>
+  </ul>
+    </div>
+
+    <div class="question" id="question10">
+        <p class="quesNO">Quant - Question 10</p>
+            <hr style="margin: 0px 68px 0px 50px;">
+  <p class="ques">Which planet is known as the Red Planet?</p>
+  <ul class="options">
+      <li><input type="radio" name="q2" value="Mars"> Mars</li>
+      <li><input type="radio" name="q2" value="Venus"> Venus</li>
+      <li><input type="radio" name="q2" value="Jupiter"> Jupiter</li>
+      <li><input type="radio" name="q2" value="Saturn"> Saturn</li>
+  </ul>
+    </div>
+
+    <div class="question" id="question11">
+        <p class="quesNO">Quant - Question 11</p>
+            <hr style="margin: 0px 68px 0px 50px;">
+  <p class="ques">Which planet is known as the Red Planet?</p>
+  <ul class="options">
+      <li><input type="radio" name="q2" value="Mars"> Mars</li>
+      <li><input type="radio" name="q2" value="Venus"> Venus</li>
+      <li><input type="radio" name="q2" value="Jupiter"> Jupiter</li>
+      <li><input type="radio" name="q2" value="Saturn"> Saturn</li>
+  </ul>
+    </div>
+
+    <div class="question" id="question12">
+        <p class="quesNO">Quant - Question 12</p>
+            <hr style="margin: 0px 68px 0px 50px;">
+  <p class="ques">Which planet is known as the Red Planet?</p>
+  <ul class="options">
+      <li><input type="radio" name="q2" value="Mars"> Mars</li>
+      <li><input type="radio" name="q2" value="Venus"> Venus</li>
+      <li><input type="radio" name="q2" value="Jupiter"> Jupiter</li>
+      <li><input type="radio" name="q2" value="Saturn"> Saturn</li>
+  </ul>
+    </div>
+
+    <div class="question" id="question13">
+        <p class="quesNO">Quant - Question 13</p>
+        <hr style="margin: 0px 68px 0px 50px;">
+
+  <p class="ques">Which planet is known as the Red Planet?</p>
+  <ul class="options">
+      <li><input type="radio" name="q2" value="Mars"> Mars</li>
+      <li><input type="radio" name="q2" value="Venus"> Venus</li>
+      <li><input type="radio" name="q2" value="Jupiter"> Jupiter</li>
+      <li><input type="radio" name="q2" value="Saturn"> Saturn</li>
+  </ul>   
+    </div>
+
+    <div class="question" id="question14">
+        <p class="quesNO">Quant - Question 14</p>
+            <hr style="margin: 0px 68px 0px 50px;">
+  <p class="ques">Which planet is known as the Red Planet?</p>
+  <ul class="options">
+      <li><input type="radio" name="q2" value="Mars"> Mars</li>
+      <li><input type="radio" name="q2" value="Venus"> Venus</li>
+      <li><input type="radio" name="q2" value="Jupiter"> Jupiter</li>
+      <li><input type="radio" name="q2" value="Saturn"> Saturn</li>
+  </ul>    
+    </div>
+
+    <div class="question" id="question15">
+        <p class="quesNO">Quant - Question 15</p>
+            <hr style="margin: 0px 68px 0px 50px;">
+  <p class="ques">Which planet is known as the Red Planet?</p>
+  <ul class="options">
+      <li><input type="radio" name="q2" value="Mars"> Mars</li>
+      <li><input type="radio" name="q2" value="Venus"> Venus</li>
+      <li><input type="radio" name="q2" value="Jupiter"> Jupiter</li>
+      <li><input type="radio" name="q2" value="Saturn"> Saturn</li>
+  </ul>   
+    </div>
+
+    <div class="question" id="question16">
+        <p class="quesNO">Quant - Question 16</p>
+            <hr style="margin: 0px 68px 0px 50px;">
+  <p class="ques">Which planet is known as the Red Planet?</p>
+  <ul class="options">
+      <li><input type="radio" name="q2" value="Mars"> Mars</li>
+      <li><input type="radio" name="q2" value="Venus"> Venus</li>
+      <li><input type="radio" name="q2" value="Jupiter"> Jupiter</li>
+      <li><input type="radio" name="q2" value="Saturn"> Saturn</li>
+  </ul>
+    </div>
+
+    <div class="question" id="question17">
+        <p class="quesNO">Quant - Question 17</p>
+            <hr style="margin: 0px 68px 0px 50px;">
+  <p class="ques">Which planet is known as the Red Planet?</p>
+  <ul class="options">
+      <li><input type="radio" name="q2" value="Mars"> Mars</li>
+      <li><input type="radio" name="q2" value="Venus"> Venus</li>
+      <li><input type="radio" name="q2" value="Jupiter"> Jupiter</li>
+      <li><input type="radio" name="q2" value="Saturn"> Saturn</li>
+  </ul>
+    </div>
+
+    <div class="question" id="question18">
+        <p class="quesNO">Quant - Question 18</p>
+            <hr style="margin: 0px 68px 0px 50px;">
+  <p class="ques">Which planet is known as the Red Planet?</p>
+  <ul class="options">
+      <li><input type="radio" name="q2" value="Mars"> Mars</li>
+      <li><input type="radio" name="q2" value="Venus"> Venus</li>
+      <li><input type="radio" name="q2" value="Jupiter"> Jupiter</li>
+      <li><input type="radio" name="q2" value="Saturn"> Saturn</li>
+  </ul>
+    </div>
+
+    <div class="question" id="question19">
+        <p class="quesNO">Quant - Question 19</p>
+            <hr style="margin: 0px 68px 0px 50px;">
+  <p class="ques">Which planet is known as the Red Planet?</p>
+  <ul class="options">
+      <li><input type="radio" name="q2" value="Mars"> Mars</li>
+      <li><input type="radio" name="q2" value="Venus"> Venus</li>
+      <li><input type="radio" name="q2" value="Jupiter"> Jupiter</li>
+      <li><input type="radio" name="q2" value="Saturn"> Saturn</li>
+  </ul>    
+    </div>
+
+    <div class="question" id="question20">
+        <p class="quesNO">Quant - Question 20</p>
+            <hr style="margin: 0px 68px 0px 50px;">
+    <p class="ques">Which planet is known as the Red Planet?</p>
+    <ul class="options">
+        <li><input type="radio" name="q2" value="Mars"> Mars</li>
+        <li><input type="radio" name="q2" value="Venus"> Venus</li>
+        <li><input type="radio" name="q2" value="Jupiter"> Jupiter</li>
+        <li><input type="radio" name="q2" value="Saturn"> Saturn</li>
+    </ul>
+    </div>   
+</div> 
+
+      
+        <!-- Add more questions here -->
+        <div class="navigation">
+            <button type="button" id="preview" onclick="preView()">Review</button>
+            <button type="button" id="prevBtn" onclick="prevQuestion()">Previous</button>
+            <button type="button" id="nextBtn" onclick="nextQuestion()">Next</button>
+            
+            <button type="button" id="submitBtn" onclick="submitQuiz()">Submit</button>
+        </div> 
+ 
+    </form>  
+    <div id="indecator">
+        <div class="indecatorItem" style="background-color: green;"></div>
+        <div class="indecatorName" >answered</div>
+        <div class="indecatorItem" style="background-color: rgb(69, 71, 196);"></div>
+        <div class="indecatorName">not answered</div>   
+        <div class="indecatorItem" style="background-color: maroon;"></div>      
+        <div class="indecatorName">review</div>
+        <div class="indecatorItem" style="background-color: rgb(138, 138, 145);"></div>
+        <div class="indecatorName">not visited</div>     
+    </div>    
+ </div>
+
+    <div id="rightdiv">
+        <div id="timeLeft">Time Left </div>
+        <div id="timer"></div>
+        <div id="minSec"><span>minuetes</span> <span>seconds</span></div>
+        <div id="result"></div>
+        <div id="buttonhead">Quant</div>
+        <div id="gRYbutton">
+            <button id="button-1" class="gRY">1</button>
+            <button id="button-2" class="gRY">2</button>
+            <button id="button-3" class="gRY">3</button>
+            <button id="button-4" class="gRY">4</button>
+            <button id="button-5" class="gRY">5</button>
+            <button id="button-6" class="gRY">6</button>
+            <button id="button-7" class="gRY">7</button>
+            <button id="button-8" class="gRY">8</button>
+            <button id="button-9" class="gRY">9</button>
+            <button id="button-10" class="gRY">10</button>
+            <button id="button-11" class="gRY">11</button>
+            <button id="button-12" class="gRY">12</button>
+            <button id="button-13" class="gRY">13</button>
+            <button id="button-14" class="gRY">14</button>
+            <button id="button-15" class="gRY">15</button>
+            <button id="button-16" class="gRY">16</button>
+            <button id="button-17" class="gRY">17</button>
+            <button id="button-18" class="gRY">18</button>
+            <button id="button-19" class="gRY">19</button>
+            <button id="button-20" class="gRY">20</button>   
+        </div>  
+    </div>
+    
+</div>
+
+<script>
+    var currentQuestion = 1;
+    var totalTime = 300; // 5 minutes
+    var timerInterval;
+    // Array to store selected options for each question
+    let myMap = new Map();
+    //myMap.set('key1', 'value1');
+    // Accessing values using keys
+    //console.log(myMap.get('key1'));   
+    // Clearing the Map
+    //myMap.clear();    
+    
+    showQuestion(currentQuestion);   
+    startTimer();
+
+function showQuestion(questionNumber)  { 
+
+        var questions = document.querySelectorAll('.question');    
+        questions.forEach(function(question, index) {
+            if (index + 1 === questionNumber) {   
+                question.style.display = 'block';
+            } else {
+                question.style.display = 'none';
+            }
+        });
+
+        if (questionNumber === 1) {
+            document.getElementById('prevBtn').style.display = 'none';
+        } else {
+            document.getElementById('prevBtn').style.display = 'inline-block';
+        }
+
+        if (questionNumber === questions.length) {
+            document.getElementById('nextBtn').style.display = 'none';
+            document.getElementById('submitBtn').style.display = 'inline-block';
+        } else {
+            document.getElementById('nextBtn').style.display = 'inline-block';
+            document.getElementById('submitBtn').style.display = 'none';
+        }
+        if(myMap.has(`${currentQuestion}`)){
+            //console.log(myMap.get(`${currentQuestion}`));
+            let qId='question'+ currentQuestion;
+            let questiondiv = document.getElementById(`${qId}`);
+            let radioButtons = questiondiv.querySelectorAll('input[type="radio"]');
+              
+            //console.log(myMap.get(`${currentQuestion}`));
+            radioButtons.forEach(function(r , i){
+                if(r.defaultValue===myMap.get(`${currentQuestion}`))
+                {   
+                    r.checked = true;   
+                    console.log(myMap.get(`${currentQuestion}`));
+                    console.log("this your saved answer");    
+                }     
+                //console.log(r.defaultValue);    
+            })    
+           // if(myMap.get(`${currentQuestion}`)===)
+            
+        }        
+
+    }
+
+    function nextQuestion() {
+        // Check if any option is selected for the current question
+        var currentQuestionDiv = document.getElementById('question' + currentQuestion);     
+        var selectedOption = currentQuestionDiv.querySelector('input[type="radio"]:checked');      
+
+        // If no option is selected, change the background color of the button to pink
+ 
+        if (selectedOption === null) {
+            var buttonId = 'button-' + currentQuestion;    
+            var button = document.getElementById(buttonId);
+            if (button.style.backgroundColor !== 'maroon') { // Check if preview button already clicked
+            button.style.backgroundColor = 'blue';
+            button.style.color = 'white'; // Change text color for better visibility   
+        }  
+        }
+        
+        currentQuestion++;
+        showQuestion(currentQuestion);    
+    }
+
+    function prevQuestion() {
+        currentQuestion--;
+        showQuestion(currentQuestion);
+    }
+
+    function startTimer() {
+        var timerDisplay = document.getElementById('timer');
+        timerInterval = setInterval(function() {
+            var minutes = Math.floor(totalTime / 60);
+            var seconds = totalTime % 60;  
+            timerDisplay.textContent = minutes +"\u00A0\u00A0\u00A0\u00A0\u00A0 : \u00A0\u00A0\u00A0\u00A0\u00A0"+ (seconds < 10 ? '0' : ' ') + seconds;
+            totalTime--;
+  
+            if (totalTime < 0) {
+                clearInterval(timerInterval);
+                submitQuiz();
+            }    
+        }, 1000);
+    }
+
+    function submitQuiz() {
+        clearInterval(timerInterval);
+        let score = 0;
+        let questions = document.querySelectorAll('.question');
+
+        questions.forEach(function(question) {
+            var selectedOption = question.querySelector('input[type="radio"]:checked');
+            if (selectedOption !== null) {
+                var selectedValue = selectedOption.value;
+                if (selectedValue === 'Paris' || selectedValue === 'Mars') {
+                    score++;
+                }
+            }   
+
+        });
+
+        let resultContainer = document.getElementById('result');
+        resultContainer.innerHTML = 'Your score: ' + score + '/' + questions.length;
+    }
+
+// Adding event listener to input tags
+        var inputTags = document.querySelectorAll('.options input[type="radio"]');
+    inputTags.forEach(function(input, index) {
+
+        input.addEventListener('click', function() {
+            let buttonId = 'button-' + currentQuestion;   
+            let button = document.getElementById(buttonId);
+            button.style.backgroundColor = 'green';
+            button.style.color='white';
+        });  
+
+    });
+
+    function preView(){
+       // console.log("this is preview click");
+        
+            let buttonId='button-'+currentQuestion;
+            let button=document.getElementById(buttonId);
+            button.style.background='maroon';   
+            button.style.color='white';
+        
+    }
+
+    let gRYbuttonInRight=document.querySelectorAll('.gRY');
+    gRYbuttonInRight.forEach(function(currentButton ,i){
+        currentButton.addEventListener('click',function(){
+            currentQuestion=i+1;  
+            showQuestion(i+1);  
+        })
+    })
+
+    var Tags = document.querySelectorAll('.options input[type="radio"]');
+    Tags.forEach(function(a, i){
+        a.addEventListener('click' , function(){
+            let b=a.value;
+            myMap.set(`${currentQuestion}`, `${b}`);  
+            
+            //console.log(myMap);       
+              
+                
+        })   
+    })  
+</script>  
+</body>
+</html>
+

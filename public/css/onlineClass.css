@@ -310,6 +310,12 @@ width: 21px;
     color: white;
     border-radius: 6px;
     cursor: pointer;
+    text-decoration: none;
+}
+#joinexam:hover{
+  color: green;
+  background: white;
+  
 }
 
 #certificate{

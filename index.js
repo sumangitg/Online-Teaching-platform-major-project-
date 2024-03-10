@@ -37,7 +37,7 @@ app.use(
     resave: true,
     saveUninitialized: true,
   })
-);
+);        
 
 // make static folder named public to serve static files
 app.use(express.static('public'));
@@ -442,13 +442,13 @@ app.get('/giveNotice' , (req, res)=>{
 
 // Middleware to check if the user is authenticated
 function isAuthenticated(req, res, next) {
-  if (req.session.token) {  
+  if (req.session.token) {    
     jwt.verify(req.session.token, 'your_jwt_secret', (err, decoded) => {
       if (err) {  
         return res.redirect('/studentlogin');
       }   
       req.user = decoded;    
-      next();            
+      next();               
     });
   } else {
     res.redirect('/studentlogin');
@@ -541,7 +541,7 @@ app.post('/studentlogin', async (req, res)=>{
       req.session.token = token;
       res.cookie('token', token, { maxAge: 3600000, httpOnly: true });
       console.log(req.session.token);
-      //my  
+      
       req.session.mykey = user.stuId;   
       res.redirect('/');   
        
@@ -814,7 +814,7 @@ app.get('/MyEnrollments/:userid' , (req, res)=>{
     if(err){
       console.error(err);
     }
-    else{          
+    else{             
       //console.log(result);   
       //console.log(result.imagePath);
       if(result.length===0)
@@ -911,6 +911,10 @@ app.get('/download/:noteid', (req, res) => {
       }
   });    
 });
+
+app.get('/onlineExam',isAuthenticated,(req, res)=>{
+  res.render('onlineexam');
+})
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

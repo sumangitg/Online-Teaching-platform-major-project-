@@ -30,7 +30,7 @@
         <ul id="aNECul">
           <button href="#" id="aNEC-1" class="aNECbar" onclick="about()"><li class="aNECli">about</li></button>    
           <button href="#" id="aNEC-2" class="aNECbar" onclick="showNotes()"><li class="aNECli">notes</li></button>
-          <button href="#" id="aNEC-3" class="aNECbar" onclick="exam()"><li class="aNECli">exam</li></button>
+          <button href="#" id="aNEC-3" class="aNECbar" onclick="exam()"><li class="aNECli">exam</li></button>   
         <button href="#" id="aNEC-4" class="aNECbar" onclick="certification()"><li class="aNECli">certificate</li></button>            
         </ul>
 
@@ -42,7 +42,7 @@
        <div id="dinda"> 
         <div id="dindaImg"><img src="\images\sdphotoInClass.png" alt="sd"></div>  
         <div id="dindaName">Subhabrata Dinda</div>
-       </div>  
+       </div>     
        <div id="dindaStory">I, Dr. Subhabrata Dinda, got my Ph.D Degree from Jadavpur University in Science since 2020. I delivered the lecture through online and off line mode. Here every previous students got MCA ranked and servies different Multinational Companies. Many of Students got service at SCHOOL(GOVT) , COLLEGE, BANK , FOOD(GOVT), INDIAN RAILWAYS, POST OFFICE and other's Govt Jobs. I inspire to all students to get the decisions from first year (Hons/Pass) course, then you reach to your goal. I supplied the photo copy of Study Material in all courses. The student's will be gainer to got my Study Material.More than 20 years I teaches in my Coaching Institute.</div>
        <div id="aboutThisCourse">About this course</div>
        <div>  
@@ -60,7 +60,7 @@
 
        </div>
       </div>
-<hr>
+<hr>   
       <div id="footer">
         <div id="footer-1" class="footeritem">SD</div>
         <div id="footer-2" class="footeritem">About us</div>
@@ -107,9 +107,9 @@
   function exam(){
     document.getElementById('belowmaindiv').innerHTML=`<div id="examdiv">
       <img src="/images/joinExamGirl.png" alt="join exam" id="joinExamGirl">
-  <button id="joinexam">Join Exam</button>
-</div>`;    
-  }   
+  <a id="joinexam" href="/onlineExam">Join Exam</a>   
+</div>`;       
+  }      
   function certification(){
     document.getElementById('belowmaindiv').innerHTML=`<div id="certificate"> Not Available Now.</div>`;
   }
