@@ -1,77 +1,44 @@
+body{
+  margin: 5px;
+}
+
 #loginSuccessSection{
-  border: 1px solid green;    
-  width: 100%;      
-  padding: 0px 0px 0px 0px;   
-  height: 500px;   
+border: 1px solid green;
+width: 100%; 
+height: 100vh;
+display: grid;
+grid-template-columns: 30% 68%;
+gap: 10px;
 }
+#leftdiv{
+  border: 1px solid green;
 
-#headingOfLSS{
+
+}
+#rightdiv{
   border: 1px solid black;
-  margin: 28px 0px 16px 0px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4 , 1fr);  
+  gap: 20px;    
+  padding: 30px;   
 }
-
-#loginSuccessSection #headingOfLSS h2{
+#rightdiv a{
+  border: 1px solid green;
+  text-decoration: none;
   text-align: center;
-  margin:0px;
-  padding:0px 0px 0px 0px ;
-
-}
-
-
-
-
-
-
-/* #allFeatures #allFeaturesList{
-  display: flex;
-  flex-wrap: wrap;
-  width: 60%;
-  justify-content: space-between;
-  border: 1px solid red;
-  margin:5px;
-  list-style: none;
-  
-  
-} */
-
-
-
-
-
-
-
-
-#allFeatures{
-  border: 1px solid green;
-  width: 45%;
-  display: flex;
-  flex-direction: column;
-  height: 400px;
-  margin: auto;
-}
-
-#allFeaturesList1, #allFeaturesList2{
-  border: 1px solid red;
-  display: flex;
-  justify-content: space-around;  
-  list-style: none;
-  padding: 0px;
-}
-
-#allFeaturesList3{
-  border: 1px solid red;
-  display: flex;
-  list-style: none;
-  padding: 0px;
-
-}
-
-#loginSuccessSection #allFeatures .item{
-  border: 1px solid green;
+  padding-top: 55px;               
+  font-size: 28px;
+  background: #4f4fd2;
+  color: white; 
+  /* margin: auto; */
   
 }
-
-#loginSuccessSection #allFeatures #item-9{
-  margin:0px 81px 0px 37px;
+#rightdiv a:hover{
+  border: 3px solid black;
+  background-color: rgb(43, 43, 152);
 }
+.adminFeatures{
+  border: 1px solid black;
 
+}
