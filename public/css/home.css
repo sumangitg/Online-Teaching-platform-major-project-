@@ -92,11 +92,7 @@ body{
   background-color: rgb(235, 171, 11);
   color: black;
   }
-  #homeHeader #item-2 h3 a:hover{
-    /* background-color: rgb(54, 54, 162); */
-    background-color: rgb(167, 122, 7);
-    color:black;
-  }
+
 
 #homeNav{
         /* border: 1px solid black;  */
@@ -866,3 +862,31 @@ height: 250px;
 
 /*header css end */
 
+#marqueediv{
+  width: 779px;
+  /* border: 1px solid green; */
+  height: 40px;
+
+}
+#marqueediv marquee{
+  height: 40px; 
+  /* margin: 15px 0px 0px 0px; */
+  font-size: 23px;   
+  color: #b62772; 
+  padding-top: 5px;
+  
+}   
+#containMarqueeTlogin a{
+  margin: 5px 0px 6px 57px;
+  padding: 3px 16px 2px 16px;
+  font-size: 21px;
+  border-radius: 5px;
+  text-decoration: none;
+  background-color: rgb(235, 171, 11);
+  color: black;
+} 
+#containMarqueeTlogin a:hover{
+  /* background-color: rgb(54, 54, 162); */
+  background-color: rgb(167, 122, 7);
+  color:black;
+}  

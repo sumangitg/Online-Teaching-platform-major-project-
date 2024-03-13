@@ -46,8 +46,13 @@
     <div class="inHeader" id="item-2">
       <h1> <span>MATHEMATICS ACADEMY</span><input type="text" class="search-box" placeholder="Search here"></h1>
       <h2>No. 1 Institution Of All India Mca Entrance</h2>
-      <h3><span>More than 20 years of teaching experience</span><a href="/login">Teacher login</a></h3>
-    </div>
+      <div id="containMarqueeTlogin" style="display: flex;">   
+        <div id="marqueediv">
+          <marquee behavior="scroll" scrollamount="5">More than 20 years of teaching experience</marquee>
+        </div>
+        <a href="/login">Teacher login</a>
+      </div>  
+    </div>     
 
     <div class="inHeader" id="item-3">
       <img src="\public\images\sd2.png" alt="Sdinda" srcset="">
@@ -113,7 +118,7 @@
         <div class="heading-sect">
           <h3 class="head-title">Latest New</h3>
         </div>
-        <marquee direction="up">
+        <marquee direction="up" behavior="scroll" scrollamount="4">       
         <ul class="latest-news-ul">
         <% latest.forEach(notice1=>{  %>
           <li> <%=notice1.notice%> <img src="\public\images\latest-news-blink-img.gif"></li>
