@@ -10,7 +10,7 @@ const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 const fs= require("fs");
 
-
+        
 
 const app=express();
 
@@ -58,7 +58,6 @@ const storage = multer.diskStorage({
     cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
   }
 });
-
 
 // Multer Configuration for video upload in uploads folder.
 const storage2 = multer.diskStorage({
@@ -157,11 +156,14 @@ app.get('/' , (req , res)=>{
        return  console.error('latest notice not available',err);
       }   
 
-      if(req.session.token){
+      if(req.session.token){     
         let value = req.session.mykey;
         res.render('index', {latest:result1, upcoming:result2 ,users: value}); 
-      }else        
-        res.render('index', {latest:result1, upcoming:result2 ,users: 0}); 
+        
+      }else            
+        {
+          res.render('index', {latest:result1, upcoming:result2 ,users: 0}); 
+        }
       
     })
    
@@ -207,7 +209,7 @@ app.get('/addCourse', (req, res) => {
 
 app.post('/addCourse', (req, res) => {
  // console.log("IN");
- console.log(req.body);    
+ console.log(req.body);       
   upload(req, res, (err) => {
     // added   
     //console.log(req.body);
@@ -437,9 +439,6 @@ app.get('/giveNotice' , (req, res)=>{
 })
 
 
-//working in this route
-
-
 // Middleware to check if the user is authenticated
 function isAuthenticated(req, res, next) {
   if (req.session.token) {    
@@ -453,7 +452,7 @@ function isAuthenticated(req, res, next) {
   } else {
     res.redirect('/studentlogin');
   }
-}
+}    
 
 
 app.post('/registration', async (req, res)=>{
@@ -464,12 +463,13 @@ app.post('/registration', async (req, res)=>{
     db.query(
       'SELECT * FROM studentinfo WHERE email = ?',
       [email],
-      (err, result) => {
-        if (err) reject(err);
-        resolve(result.length > 0);
-      }
-    );
-  });
+      (err, result) => {    
+        if (err) reject(err);       
+        resolve(result.length > 0);     
+      }    
+    );         
+  });               
+
 
   if (userExists) {
     res.send('Account already exists with this username. <a href="/studentlogin">Login</a>');
@@ -483,12 +483,11 @@ app.post('/registration', async (req, res)=>{
       [email, hashedPassword],
       (err) => {
         if (err) throw err;
-        res.redirect('/studentlogin');  
+        res.redirect('/studentlogin');    
       }
     );
   }
 })
-
 
 
 app.get('/studentlogin', (req, res)=>{
@@ -504,11 +503,11 @@ app.get('/studentlogin', (req, res)=>{
 
 
 app.post('/studentlogin', async (req, res)=>{
-  const { email, stuPassword } = req.body;
-  //added new
+  const { email, stuPassword } = req.body;  
+  //added new     
 //console.log(email);
 //console.log(stuPassword);
-  // Check if userName exists
+  // Check if userName exists     
   const user = await new Promise((resolve, reject) => {
     db.query(
       'SELECT * FROM studentinfo WHERE email = ?',
@@ -543,7 +542,7 @@ app.post('/studentlogin', async (req, res)=>{
       console.log(req.session.token);
       
       req.session.mykey = user.stuId;   
-      res.redirect('/');   
+      res.redirect('/');                
        
     } else {
       

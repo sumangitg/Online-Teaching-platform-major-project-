@@ -795,12 +795,15 @@ height: 250px;
 /* header css   */
 #profileHeadDiv {
   display: flex;
-    flex-direction: row;
-    /* border: 1px solid black; */
-    padding: 0px;
-    float: right;    
-    display: flex;
-    padding-right: 28px;  
+  flex-direction: row;
+  /* border: 1px solid black; */
+  padding: 0px;
+  /* float: right; */
+  display: flex;
+  padding-right: 28px;
+  justify-content: flex-end;
+  background: cornflowerblue;
+  color: white; 
 }
 .inheadDiv {
   border: 1px solid green;
@@ -813,14 +816,14 @@ height: 250px;
 
 
 #outerInheadDiv-3 {
-  margin: 0px 0px 0px 646px;
+  margin: 0px 0px 0px 22px;   
 }
 #outerInheadDiv-3 button {
   margin: 0px 0px 0px 0px;
   border: none;
-  background-color: white;
+  background-color: cornflowerblue;
   padding: 3px 0px 0px 0px;
-}
+}   
 #profileBox {
   padding: 10px;
   display: none;
@@ -847,7 +850,9 @@ height: 250px;
 
 #outerInheadDiv-3 img {
   width: 47px;
-  /* height: 60px;*/   
+  /* height: 60px; */
+  padding: 0px 0px 0px 0px;
+  background: cornflowerblue;   
 }
 .profileOption {
   /* border: 1px solid green; */
@@ -890,3 +895,4 @@ height: 250px;
   background-color: rgb(167, 122, 7);
   color:black;
 }  
+
