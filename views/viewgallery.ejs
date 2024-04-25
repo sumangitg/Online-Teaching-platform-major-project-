@@ -1,5 +1,4 @@
-+++++++++++ 
--4520<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,18 +7,24 @@
   <style>
     .galleryphoto{
       width: 100%;
-      height: 500px;
-      border: 5px solid red;
+      
+      /* border:1px solid green; */
+      margin-bottom: 50px;
 
+    }
+    .galleryimage{
+      width: 100%;
+      height: 700px;
+      margin-bottom: 50px;  
     }
   </style>
 </head>
 <body>
-  <h1>gallery photo</h1>
-  <div id="viewgallery">
+ 
+  <div id="viewgallery">   
     <% galleryphoto.forEach(gallery => { %>
       <div class="galleryphoto">
-        <img src="<%=gallery.path %>" alt="galley photo">   
+        <img class="galleryimage" src="<%=gallery.path %>" alt="galley photo">   
 
     </div>
     <% }); %>

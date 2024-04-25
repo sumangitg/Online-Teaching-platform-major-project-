@@ -87,8 +87,8 @@ background: #f8f8f8;
   background: #f8f8f8;
 }
 
-.videolist .invideolist:hover{
-  background: rgb(238 238 238);  
+.videolist .invideolist:hover{  
+  background: #e2dede;  
 }
 
 /* #container #syllabus .videolist::-webkit-scrollbar{
@@ -189,7 +189,7 @@ width: 21px;
   /* border: 1px solid green; */
   /* padding: 5px; */
 }
-#footer-1 {
+#footer-1 {   
   margin: 2px 22px 2px 24px;
   font-size: 32px;
   background-color: blue;
@@ -224,7 +224,7 @@ width: 21px;
   cursor: pointer;
   margin-right: 0px;     
 
-}
+}   
 #introToCourse{
   padding: 11px 0px 0px 19px;
   font-size: 29px;

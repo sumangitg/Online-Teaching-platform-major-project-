@@ -1,29 +1,40 @@
 /* public/styles.css */
+body{
+  background: lightblue;
+}
+
 #coursesContainer {
   display: flex;
   flex-wrap: wrap;
 }
 
 #coursesContainer .courseCard {
-  width: 500px;
-  border: 1px solid #cf5d5d;
+  width: 456px;
+  /* border: 1px solid #cf5d5d; */
   margin: 10px;
   padding: 10px;
   text-align: center;
+  background: #83bcef;
+  border-radius: 19px;
 }
 
 
 
 #coursesContainer .courseCard img {
-  width: 450px;
-  height: 450px;
+  width: 350px;
+  height: 350px;
 }
 
 #enrollButton{
-  border: 1px solid green;
-  color: white;
-  background-color: rgb(78, 78, 201);
+ /* border: 1px solid green; */
+  color: white;    
+  background-color: white;
   border-radius: 5px;
   text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 4px 6px 4px 6px;
   
 }
+
+

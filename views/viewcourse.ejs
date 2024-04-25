@@ -8,22 +8,19 @@
   <link rel="stylesheet" href="\css\viewcourse.css">
 </head>   
 <body>     
-  <h1>All Courses fhd</h1>  
+  <h1 id="coursehead" style="margin: 0px; text-align: center;"> Our Courses</h1>    
 <!-- <img src="/course-images/courseImage-1703331843426.png" alt="a">  
 <img src="/course-images/courseImage-1703335790131.png" alt="b">    -->
   <div id="coursesContainer">
     <% courses.forEach(course => { %>
-      <div class="courseCard">
-        <img src="<%=course.imagePath %>" alt="<%= course.courseName %>">      
+      <div class="courseCard">  
+        <img  src="<%=course.imagePath %>" alt="<%= course.courseName %>">      
         <h2><%= course.courseName %></h2>      
         <p>Price: <%= course.coursePrice %></p>
         <p>Coordinator: <%= course.coordinator %></p>
         <p>Time: <%= course.courseTime %></p>
-        <p>Note Available: <%= course.noteAvalaible ? 'Yes' : 'No' %></p>
-        <p>Video Classes: <%= course.videoClasses ? 'Yes' : 'No' %></p>
-        <p>Topics: <%= course.topics %></p>
           
-        <a id="enrollButton" href="/enrollCourse/<%=course.courseId%>">Enroll</a>  
+        <a id="enrollButton" href="/enrollCourse/<%=course.courseId%>">free enroll</a>  
       </div>  
     <% }); %>
   </div>

@@ -37,7 +37,8 @@ section{
   position: relative;
   background: #fff;
   border-radius: 20px;
-  height: 400px;
+  height: 358px;
+  width: 240px;
   margin: 20px 0;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
@@ -55,13 +56,17 @@ section{
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px;
+  padding: 3px;
   position: relative;
   z-index: 100;
   border-radius: none;
   border: 1px solid black;
   border-radius: 22px;
   background-color: whitesmoke;
+  width: 232px;  
+  height: 343px; 
+  padding-top: 10px; 
+  background: cadetblue;
 }
 
 section .card .image{
@@ -245,11 +250,11 @@ margin: 0px 0px 0px 128px;
 }
 
 #courses{
-/* border: 1px solid black; */
-padding: 8px 0px 8px 185px;
-margin: 0px;
-font-size: 30px;   
-display: flex;
+    /* border: 1px solid black; */
+    padding: 14px 0px 1px 205px;
+    margin: 0px;
+    font-size: 32px;
+    display: flex;   
 
 }
 #inheadDiv-1{

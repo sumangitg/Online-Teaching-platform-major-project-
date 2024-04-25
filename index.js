@@ -145,29 +145,71 @@ app.get('/' , (req , res)=>{
   //console.log(req);
   const sql='select notice from admissionnotice where noticeType=(?)';
   const sql1='select notice from admissionnotice where noticeType=(?)';
-  noticetype='latestNews';
-  noticetype1='upcomingNews';
-  db.query(sql, [noticetype], (err, result1)=>{
-    if(err){     
-      return console.error('latest notice not available',err);    
-    }    
-    db.query(sql1, [noticetype1], (err, result2)=>{
-      if(err){          
-       return  console.error('latest notice not available',err);
-      }   
+  noticetype='latestNews';  
+  noticetype1='upcomingNews';     
+  
+  //console.log(req.session.mykey);
+  let a=parseInt(req.session.mykey); 
+  //console.log(a);  
 
-      if(req.session.token){     
-        let value = req.session.mykey;
-        res.render('index', {latest:result1, upcoming:result2 ,users: value}); 
-        
-      }else            
-        {
-          res.render('index', {latest:result1, upcoming:result2 ,users: 0}); 
-        }
-      
-    })
-   
+  let sql5='select * from studentinfo where stuId=(?)';        
+  db.query(sql5, [req.session.mykey],(err6, result9)=>{
+
+    if(err6)
+    {
+      console.error(err6);
+    }else{
+      console.log(result9);   
+      db.query(sql, [noticetype], (err, result1)=>{
+        if(err){     
+          return console.error('latest notice not available',err);    
+        }else{
+    
+        db.query(sql1, [noticetype1], (err, result2)=>{
+          if(err){          
+           return  console.error('latest notice not available',err);
+          }else{}   
+          if(req.session.token){     
+            let value = req.session.mykey;
+            res.render('index', {latest:result1, upcoming:result2 ,users: value, udetail:result9}); 
+            
+          }else            
+            {
+              res.render('index', {latest:result1, upcoming:result2 ,users: 0}); 
+            }
+          
+        }) 
+      }
+       
+      })
+    }
+    
+
+
   })
+
+  // db.query(sql, [noticetype], (err, result1)=>{
+  //   if(err){     
+  //     return console.error('latest notice not available',err);    
+  //   }else{
+
+  //   db.query(sql1, [noticetype1], (err, result2)=>{
+  //     if(err){          
+  //      return  console.error('latest notice not available',err);
+  //     }else{}   
+  //     if(req.session.token){     
+  //       let value = req.session.mykey;
+  //       res.render('index', {latest:result1, upcoming:result2 ,users: value}); 
+        
+  //     }else            
+  //       {
+  //         res.render('index', {latest:result1, upcoming:result2 ,users: 0}); 
+  //       }
+      
+  //   }) 
+  // }
+   
+  // })
 
 
 
@@ -208,8 +250,8 @@ app.get('/addCourse', (req, res) => {
 
 
 app.post('/addCourse', (req, res) => {
- // console.log("IN");
- console.log(req.body);       
+ // console.log("IN");    
+ console.log(req.body);          
   upload(req, res, (err) => {
     // added   
     //console.log(req.body);
@@ -332,7 +374,7 @@ app.post('/uploadnoteswithcourses',upload1.single('pdfFile'), (req, res)=>{
   }
   else{
     //console.log('PDF stored in the database');
-    res.json({msg:'PDF successfully uploaded.'});
+    res.json({msg:`${pdfName}PDF successfully uploaded.`});  
   }
   });        
   //res.json({ msg: `note added successfully!` });
@@ -456,8 +498,9 @@ function isAuthenticated(req, res, next) {
 
 
 app.post('/registration', async (req, res)=>{
-  const { email, stuPassword } = req.body;
+  const { email, stuPassword, username } = req.body;
 
+  console.log(username);   
   // Check if userName already exists
   const userExists = await new Promise((resolve, reject) => {
     db.query(
@@ -479,10 +522,10 @@ app.post('/registration', async (req, res)=>{
 
     // Store the user in the database
     db.query(   
-      'INSERT INTO studentinfo (email, stuPassword) VALUES (?, ?)',
-      [email, hashedPassword],
+      'INSERT INTO studentinfo (email, stuPassword , stuName) VALUES (?, ?,?)',
+      [email, hashedPassword, username],
       (err) => {
-        if (err) throw err;
+        if (err) throw err;    
         res.redirect('/studentlogin');    
       }
     );
@@ -504,7 +547,7 @@ app.get('/studentlogin', (req, res)=>{
 
 app.post('/studentlogin', async (req, res)=>{
   const { email, stuPassword } = req.body;  
-  //added new     
+  //added new       
 //console.log(email);
 //console.log(stuPassword);
   // Check if userName exists     
@@ -518,6 +561,8 @@ app.post('/studentlogin', async (req, res)=>{
       }
     );
   });
+
+
 
   // added new
   //console.log(user);
@@ -541,7 +586,7 @@ app.post('/studentlogin', async (req, res)=>{
       res.cookie('token', token, { maxAge: 3600000, httpOnly: true });
       console.log(req.session.token);
       
-      req.session.mykey = user.stuId;   
+      req.session.mykey = user.stuId;      
       res.redirect('/');                
        
     } else {
@@ -757,7 +802,7 @@ app.get('/logout', (req, res) => {
 app.get('/myProfile/:userid',isAuthenticated, (req, res)=>{
   //console.log("ok"); 
   //console.log(req.params.userid);
-  let userid1=req.params.userid;
+ let userid1=req.params.userid;  
   let sql3=`select *from 
 	(select course.courseId, course.courseName, course.courseTime , course.noteAvalaible, course.coursePrice, course.coordinator,course.videoClasses, course.topics, course.imagePath, course.courseSection, table2.stuId,table2.currentTime 
     from course    
@@ -766,20 +811,35 @@ app.get('/myProfile/:userid',isAuthenticated, (req, res)=>{
     order by 
     currentTime 
     desc limit 1; `;
+
+    let sq='select * from course';
   db.query(sql3, (err, result)=>{
     if(err){
       console.error(err);
       //res.render('profilePage',{users: req.params.userid , recentCourse:0});
     }     
-    else{     
-      console.log(result);
-      if(result.length===0)
-      {  
-        res.render('profilePage',{users: req.params.userid , recentCourse:0});
-      }   
-      else{
-        res.render('profilePage',{users: req.params.userid , recentCourse:result});
-      }
+    else{ 
+      db.query(sq, (err, result7)=>{
+        if(err){
+          console.error(err);
+        }else{
+          if(result.length===0)
+          {  
+            res.render('profilePage',{users: req.params.userid , recentCourse:0 , allcourse:result7});   
+          }   
+          else{
+            res.render('profilePage',{users: req.params.userid , recentCourse:result ,allcourse:result7});  
+          }
+        }
+      })    
+     // console.log(result);
+      // if(result.length===0)
+      // {  
+      //   res.render('profilePage',{users: req.params.userid , recentCourse:0});   
+      // }   
+      // else{
+      //   res.render('profilePage',{users: req.params.userid , recentCourse:result});
+      // }
       //console.log(result.imagePath);  
         
     }
@@ -790,8 +850,19 @@ app.get('/myProfile/:userid',isAuthenticated, (req, res)=>{
 
 app.get('/MyAccount/:userid', (req, res)=>{
   //console.log("ok"); 
-  console.log(req.params.userid);  
-  res.render('MyAccount',{users: req.params.userid});   
+  console.log(req.params.userid); 
+  
+  let sql12='select * from studentinfo where stuId=(?)';
+
+  db.query(sql12 , [req.params.userid],(err, result17)=>{
+    if(err){
+      console.error(err);
+    }else{
+      console.log(result17);
+      res.render('MyAccount',{users: req.params.userid , userinfo:result17});   
+    }
+  })
+  
 })
 
 app.get('/MyEnrollments/:userid' , (req, res)=>{

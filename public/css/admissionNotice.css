@@ -1,31 +1,33 @@
+
 /* css of admission notice */
 
 .width-100 {
-  width: 100%;
+  width: 1481px;
   float: left;
   /* margin: 28px 0px 0px 38px; */
-  background-color: #f7f7f7;
+  background-color: #e2e0e0;   
   padding: 28px 0px 32px 38px;
-  margin: 0px 0px 90px 0px ;
 }
 
 .container {
-  width: 1500px;
+  width: 1420px;
   margin: 0 auto;
 }
 .width-33 {
   width: 33%;
   float: left;
 }
-.latest-news {
-  /* margin-left: 0px; */
+
+.latest-news {   
+  /*margin-left: 0px; */
   /* margin-right: 0px; */
-  background: #fff;
+  background: #313477;
   padding: 20px;
   height: 350px;
   /* margin-bottom: 0px; */
-  border: 2px solid #1253cd;
-  margin: 0px 6px 9px 0px;
+  border: 2px solid #191167;
+  /* margin: 0px 6px 9px 0px; */
+  color: white;
 }  
 
 
@@ -40,11 +42,11 @@ height: 250px;
   margin: 0px;
   margin-bottom: 15px;
   padding-top: 2px;
-  border: 1px solid #cfcfcf;
-  padding-bottom: 10px;
+  /* border: 1px solid #cfcfcf; */   
+  padding-bottom: 10px;    
   padding-top: 15px;
   padding-left: 15px;
-  background: #00aed9;
+  /* background: #00aed9; */      
   color: white;
 }
 .heading-sect h3 {
@@ -68,18 +70,19 @@ height: 250px;
 .width-33 {
   width: 31%;
   float: left;
-  background-color: #538ae2;
+  /* background-color: #538ae2; */
   margin: 0px 6px 0px 0px;  
 }
 .event-list {
-  /* margin-left: 10px; */
-    /* margin-right: 10px; */
-    background: #fff;
+    /* background: #fff; */
     padding: 20px;
     height: 350px;
     /* margin-bottom: 30px; */
     border: 2px solid #1253cd;
     margin: 0px 6px 9px 0px;
+    border: 2px solid #191167;
+    background: #313477;
+    color: white;     
 }
 
 .heading-sect {
@@ -90,13 +93,13 @@ height: 250px;
   margin: 0px;
   margin-bottom: 15px;
   padding-top: 2px;
-  border: 1px solid #cfcfcf;
+  /* border: 1px solid #cfcfcf; */
   padding-bottom: 10px;
   padding-top: 15px;
-  padding-left: 15px;
-  background: #00aed9;
+  padding-left: 3px;
+  /* background: #00aed9; */
   color: white;
-}
+}    
 .upcoming-event-list {
   padding: 0px;
   list-style: none;
@@ -117,14 +120,14 @@ height: 250px;
   margin-right: 10px;
 }
 .notice-board {
-  /* margin-left: 10px; */
-    /* margin-right: 10px; */
-    background: #fff;
-    padding: 20px;
-    height: 350px;
-    /* margin-bottom: 30px; */
-    border: 2px solid #1253cd;
-    margin: 0px 6px 9px 0px;
+  background: #fff;
+  padding: 20px;
+  height: 353px;
+  /* margin-bottom: 30px; */
+  /* border: 2px solid #1253cd; */
+  margin: 0px 6px 9px 0px;
+  color: white;
+  background: #313477;  
 }   
 .notice-board-list {
   padding: 0px;
@@ -139,11 +142,10 @@ height: 250px;
 #admissionNotice{
   margin: 20px 0px 0px 0px;
   text-align: center;
-  font-size: 40px; 
-  background-color: #5757e4;
-  color: white;
+  font-size: 34px;
+  /* background-color: #9bcfa2; */
+  /* color: white;*/
 }
-
 
 /* course section */
 #courseContainer{

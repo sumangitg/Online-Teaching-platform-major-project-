@@ -16,12 +16,12 @@
     <div id="inheadDiv-2" class="inheadDiv"><input type="search" placeholder="search here "><div><img src="\images\icons8-search-50.png" alt=""></div></div>
     <div id="userid"><%=users%></div> 
     <div id="outerInheadDiv-3"> 
-          
+    
       <button id="inheadDiv-3" class="inheadDiv" onclick="toggleProfile()"><img src="\images\kindpng_4952535.png" alt="profile"></button>   
       <br>
   <div id="profileBox"> </div>
       </div>
-  </div>
+  </div>   
   <hr style="margin: 0px;">
 
   <div id="backHome">   
@@ -39,37 +39,29 @@
         <div class="myprofile">
           My Profile   
         </div>
-      </div>
+      </div>   
     </a>
 
-    <a href="/MyEnrollments/${userid}" >
+    <a href="/MyEnrollments/<%= userinfo[0].stuId%>" >
        <div class="inAccount-1" id="myEnrollLink">       
           <div class="imgicon" >
             <img src="\images\exam.png" alt="">
           </div>  
           <div class="myprofile">
-            My Enrollments   
+            My Enrollments     
           </div> 
       </div>   
     </a>   
     </div>
 
     <div id="account-2">
-      <p class="accountDetail">Account name : Suman Halder</p>
+      <p class="accountDetail">Student Id : <%=userinfo[0].stuId%></p>   
       <hr>
-      <p class="accountDetail">Qualification : M.C.A Degree</p>  
+      <p class="accountDetail">Account name : <%=userinfo[0].stuName%></p>
       <hr>
-      <p class="accountDetail">Email : haldersumanaqz123@gmail.com</p>
-      <hr>
-      <p class="accountDetail">Your Contact No : 9330536931</p>
-      <hr>
-      <p class="accountDetail">Dote of Birth : jan 28 1999</p>
-      <hr>
-      <p class="accountDetail">Address : vill-shyampur , p.o-Gazipur , p.s-kulpi </p>
-      <hr>
-      <p class="accountDetail">Gurdian Name : Prabhabati Halder</p>
-      <hr>  
-      <p class="accountDetail">Gurdian Contact No : 9006444536</p>
+      <p class="accountDetail">Email : <%=userinfo[0].email%></p>    
+      <hr> 
+      
     </div>
 
   </div>

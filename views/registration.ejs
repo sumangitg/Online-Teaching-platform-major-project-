@@ -1,21 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>       
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>registration</title>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> create account </title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+      * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: blueviolet;
+}
+
+.container {
+  width: 27rem;
+    margin: 1rem;
+    padding: 5rem 1rem 8rem 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 5px;     
+}
+
+.container h2 {
+    margin-bottom: 2rem;
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container form label {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.container form input {
+    width: 16rem;
+    outline: none;
+    padding: 5px 10px;
+    margin-bottom: 1rem;
+    border: 1px solid rgb(133, 129, 129);
+}
+
+button {
+    border: none;
+    color: #fff;
+    margin: 1rem 0;
+    font-size: 18px;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5rem;
+    background: linear-gradient(to right, red, yellow);
+}
+
+.newUser span {
+    color: rgb(25, 176, 176);
+}
+    </style>
 </head>
+
 <body>
-    <h1>user registration</h1>
-    <form  id="userregistration" action="/registration" method="post">
-      <label for="userName" >user name:</label>
-      <input type="text" id="userName" placeholder="enter your name" name="email">   
-      <br>
-      <label for="password">Password: </label>
-      <input type="password" id="password" placeholder="enter a password" name="stuPassword">
-      <br>
-      <button type="submit">register</button> 
-      <button type="reset">reset</button>
-    </form>
+
+    <section class="container">
+
+        <h2> Create Account </h2>
+        <form id="loginForm" action="/registration" method="post">
+
+          <label for="username"><span> Your name </span></label>
+          <input type="text" name="username" id="username">
+          
+            <label for="userId"><span> Email </span></label>
+            <input type="email" name="email" id="userId">
+
+            <label for="password"><span> Password </span></label>
+
+            <input type="password" name="stuPassword" id="password" required/>
+
+            <button>Register</button>  
+        </form>
+
+        <p class="newUser">
+            Account exists? <a href="/studentlogin" style="text-decoration: none;"><span> click to login</span></a>  
+        </p> 
+      </section>
+
 </body>
 </html>

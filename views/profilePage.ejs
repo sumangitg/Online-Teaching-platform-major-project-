@@ -59,7 +59,7 @@
     <img src="\images\joinExamGirl.png" alt="buy now" id="notCourseImg">
 <div>  
   <span id="noCourse">No course You Buyed</span>
-  <button id="enrollnow">Buy Now</button>
+  <a href="/courses" style="text-decoration: none;"     id="enrollnow">Buy Now</a>        
 </div>
 </div>    
   <%}%>
@@ -67,7 +67,7 @@
 
 
   <div id="courses">
-    courses <div id="courseno">30</div> 
+    courses 
   </div>
   
   
@@ -94,285 +94,28 @@
     <div class="swiper mySwiper container">
       <div class="swiper-wrapper content">
 
+        <%allcourse.forEach(Allcourse=>{ %>
+
+      
         <div class="swiper-slide card">
           <div class="card-content">
-            <div class="image">
-              <img src="images/1.jpg" alt="">     
+            <div>
+              <img src="<%=Allcourse.imagePath%>" alt="" style="width: 214px;
+              border: 1px solid black;
+              border-radius: 4px; height: 214px;" >    
             </div>
-
-            <div class="media-icons">
-              <i class="fab fa-facebook"></i>
-              <i class="fab fa-twitter"></i>
-              <i class="fab fa-github"></i>
+            <div style="color: white;
+            line-height: 0.5;">       
+              <p class="detail1">instructor</p>
+              <p class="detail1"><%= Allcourse.coordinator%></p>
+              <p class="detail1"><%= Allcourse.courseName%></p>   
+              <p class="detail1">price: <%= Allcourse.coursePrice%></p>
+              <a href="/enrollCourse/<%=Allcourse.courseId%>"   style="text-decoration: none; padding: 3px 6px 3px 6px; ">free enroll</a>
             </div>
-
-            <div class="name-profession">
-              <span class="name">Ally Pearson</span>
-              <span class="profession">Web Developer</span>
-            </div>
-
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-
-            <div class="button">
-              <button class="aboutMe">About Me</button>
-              <button class="hireMe">Hire Me</button>
-            </div>
+            
           </div>
         </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="images/2.jpg" alt="">   
-            </div>
-
-            <div class="media-icons">
-              <i class="fab fa-facebook"></i>
-              <i class="fab fa-twitter"></i>
-              <i class="fab fa-github"></i>
-            </div>
-
-            <div class="name-profession">
-              <span class="name">Dominic Wells</span>
-              <span class="profession">Software Engineer</span>
-            </div>
-
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-
-            <div class="button">
-              <button class="aboutMe">About Me</button>
-              <button class="hireMe">Hire Me</button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="images/3.jpg" alt="">
-            </div>
-
-            <div class="media-icons">
-              <i class="fab fa-facebook"></i>
-              <i class="fab fa-twitter"></i>
-              <i class="fab fa-github"></i>
-            </div>
-
-            <div class="name-profession">
-              <span class="name">Kylie Smith</span>
-              <span class="profession">UX/UI Desinger</span>
-            </div>
-
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-
-            <div class="button">
-              <button class="aboutMe">About Me</button>
-              <button class="hireMe">Hire Me</button>
-            </div>
-          </div>    
-        </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="images/4.jpg" alt="">
-            </div>
-
-            <div class="media-icons">
-              <i class="fab fa-facebook"></i>
-              <i class="fab fa-twitter"></i>
-              <i class="fab fa-github"></i>
-            </div>
-
-            <div class="name-profession">
-              <span class="name">Stephanie Xia</span>
-              <span class="profession">Backend Developer</span>
-            </div>
-
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-
-            <div class="button">
-              <button class="aboutMe">About Me</button>
-              <button class="hireMe">Hire Me</button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="images/5.jpg" alt="">
-            </div>
-
-            <div class="media-icons">
-              <i class="fab fa-facebook"></i>
-              <i class="fab fa-twitter"></i>
-              <i class="fab fa-github"></i>
-            </div>
-
-            <div class="name-profession">
-              <span class="name">Jordan Tapp</span>
-              <span class="profession">Network Engineer</span>
-            </div>
-
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-
-            <div class="button">
-              <button class="aboutMe">About Me</button>
-              <button class="hireMe">Hire Me</button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="images/6.jpg" alt="">
-            </div>
-
-            <div class="media-icons">
-              <i class="fab fa-facebook"></i>
-              <i class="fab fa-twitter"></i>
-              <i class="fab fa-github"></i>
-            </div>
-
-            <div class="name-profession">
-              <span class="name">Caroline Parker</span>
-              <span class="profession">Systems Analyst</span>
-            </div>
-
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-
-            <div class="button">
-              <button class="aboutMe">About Me</button>
-              <button class="hireMe">Hire Me</button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="images/7.jpg" alt="">
-            </div>
-
-            <div class="media-icons">
-              <i class="fab fa-facebook"></i>
-              <i class="fab fa-twitter"></i>
-              <i class="fab fa-github"></i>
-            </div>
-
-            <div class="name-profession">
-              <span class="name">Maddie Crox</span>
-              <span class="profession">Frontend Developer</span>
-            </div>
-
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-
-            <div class="button">
-              <button class="aboutMe">About Me</button>
-              <button class="hireMe">Hire Me</button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="images/8.jpg" alt="">
-            </div>
-
-            <div class="media-icons">
-              <i class="fab fa-facebook"></i>
-              <i class="fab fa-twitter"></i>
-              <i class="fab fa-github"></i>
-            </div>
-
-            <div class="name-profession">
-              <span class="name">Simone Mitchell</span>
-              <span class="profession">Java Developer</span>
-            </div>
-
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-
-            <div class="button">
-              <button class="aboutMe">About Me</button>
-              <button class="hireMe">Hire Me</button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="images/9.jpg" alt="">
-            </div>
-
-            <div class="media-icons">
-              <i class="fab fa-facebook"></i>
-              <i class="fab fa-twitter"></i>
-              <i class="fab fa-github"></i>
-            </div>
-
-            <div class="name-profession">
-              <span class="name">Heather Cornwell</span>
-              <span class="profession">Systems Engineer</span>
-            </div>
-
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-
-            <div class="button">
-              <button class="aboutMe">About Me</button>
-              <button class="hireMe">Hire Me</button>
-            </div>
-          </div>
-        </div>
+        <% }) %>
 
       </div>
     </div>
