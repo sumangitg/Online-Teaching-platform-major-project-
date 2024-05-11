@@ -784,6 +784,7 @@ app.post('/studenteedback', (req ,res)=>{
 })
 
 
+
 app.get('/doubt' , (req, res)=>{
   res.render('doubtAsked');
 } )
@@ -813,37 +814,39 @@ app.get('/myProfile/:userid',isAuthenticated, (req, res)=>{
     desc limit 1; `;
 
     let sq='select * from course';
-  db.query(sql3, (err, result)=>{
-    if(err){
-      console.error(err);
-      //res.render('profilePage',{users: req.params.userid , recentCourse:0});
-    }     
-    else{ 
-      db.query(sq, (err, result7)=>{
-        if(err){
-          console.error(err);
-        }else{
-          if(result.length===0)
-          {  
-            res.render('profilePage',{users: req.params.userid , recentCourse:0 , allcourse:result7});   
-          }   
-          else{
-            res.render('profilePage',{users: req.params.userid , recentCourse:result ,allcourse:result7});  
+    let sql13='select * from studentinfo where stuId=(?)';
+
+    db.query(sql13,[userid1], (err, result19)=>{
+      if(err){
+        console.error(err);
+      }else{
+        db.query(sql3, (err, result)=>{
+          if(err){
+            console.error(err);
+            //res.render('profilePage',{users: req.params.userid , recentCourse:0});
+          }     
+          else{ 
+            db.query(sq, (err, result7)=>{
+              if(err){
+                console.error(err);  
+              }else{
+                if(result.length===0)
+                {  
+                  res.render('profilePage',{users: req.params.userid , recentCourse:0 , allcourse:result7 , udetails:result19});   
+                }   
+                else{    
+                  res.render('profilePage',{users: req.params.userid , recentCourse:result ,allcourse:result7, udetails:result19});  
+                }
+              }    
+            })    
+               
           }
-        }
-      })    
-     // console.log(result);
-      // if(result.length===0)
-      // {  
-      //   res.render('profilePage',{users: req.params.userid , recentCourse:0});   
-      // }   
-      // else{
-      //   res.render('profilePage',{users: req.params.userid , recentCourse:result});
-      // }
-      //console.log(result.imagePath);  
-        
-    }
-  })  
+        })  
+      }
+    })
+
+
+
    
     
 }) 
@@ -858,7 +861,7 @@ app.get('/MyAccount/:userid', (req, res)=>{
     if(err){
       console.error(err);
     }else{
-      console.log(result17);
+      console.log(result17);   
       res.render('MyAccount',{users: req.params.userid , userinfo:result17});   
     }
   })
@@ -901,21 +904,45 @@ app.get('/MyEnrollments/:userid' , (req, res)=>{
 
 app.get('/enrollCourse/:courseid' , isAuthenticated, (req, res)=>{
   console.log("ok"); 
-  console.log(req.user.userId);
-  console.log(req.params.courseid);   
+  //console.log(req.user.userId);
+  //console.log(req.params.courseid);   
   let userid=req.user.userId;   
   let courseid=parseInt(req.params.courseid);
                 
-  let sql=`insert into enrolledcourses(stuId, courseId,currentTime) value (${userid},${courseid},CURRENT_TIMESTAMP)`;       
-  db.query(sql, (err , result)=>{
-    if(err){      
+  let sql=`insert into enrolledcourses(stuId, courseId,currentTime) value (${userid},${courseid},CURRENT_TIMESTAMP)`; 
+  
+  let sql1=`select * from enrolledcourses where courseId=${courseid} and stuId=${userid}`;  
+  
+  db.query(sql1, (err, result1)=>{
+    if(err){
       console.error(err);
+    }else{   
+      if(result1.length===1){  
+        res.redirect(`/myProfile/${userid}`);
+      }    
+      else{
+        db.query(sql, (err , result)=>{   
+          if(err){      
+            console.error(err);
+          }
+          else{
+            console.log("insert successfully");
+            res.redirect(`/myProfile/${userid}`);     
+          }     
+        }) 
+      }
     }
-    else{
-      console.log("insert successfully");
-      res.redirect(`/myProfile/${userid}`);     
-    }
-  })      
+  })
+
+  // db.query(sql, (err , result)=>{   
+  //   if(err){      
+  //     console.error(err);
+  //   }
+  //   else{
+  //     console.log("insert successfully");
+  //     res.redirect(`/myProfile/${userid}`);     
+  //   }   
+  // })      
 })   
 
 app.get('/onlineClass/:courseid', isAuthenticated,(req, res)=>{
