@@ -7,8 +7,9 @@
   <title>sdMath</title>
   <link rel="stylesheet" href="\css\home.css">
 
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <!-- <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
   <!-- <style>
 
 #logoNav{
@@ -21,6 +22,24 @@
 </head>
 
 <body>
+<nav style="background: #42A5F5;">     
+  <ul style="display: flex;
+  margin: 0px 0px 0px 0px;
+  padding: 3px 0px 3px 71px;">
+    <li class="li-1"><i class="fa-brands fa-square-facebook"></i>  </li>
+    <li class="li-1"><i class="fa-brands fa-square-whatsapp"></i></li>
+    <li class="li-1"><i class="fa-brands fa-square-instagram"></i></li>
+    <li class="li-1"><i class="fa-brands fa-square-twitter"></i></li>   
+    <a href="/login" style="    text-decoration: none;
+    color: white;
+    padding-top: 3px 5px 0px 5px;
+    font-size: 18px;
+    border-radius: 7px;
+    padding: 3px 5px 0px 5px;
+    background: #1976D2;">Teacher login</a>    
+  </ul>
+</nav>    
+
 
   <%if(users) { %>
     
@@ -46,21 +65,56 @@
     <div class="inHeader" id="item-1">
       <img src="\public\images\websitelogo2.jpg" alt="SdMath" srcset="">
     </div>
-    <div class="inHeader" id="item-2">
-      <h1> <span>MATHEMATICS ACADEMY</span><input type="text" class="search-box" placeholder="Search here"></h1>
+    <div class="inHeader" id="item-2">  
+      <h1> <span>MATHEMATICS ACADEMY</span></h1>
       <h2>No. 1 Institution Of All India Mca Entrance</h2>
       <div id="containMarqueeTlogin" style="display: flex;">   
         <div id="marqueediv">
           <marquee behavior="scroll" scrollamount="5">More than 20 years of teaching experience</marquee>
         </div>
-        <a href="/login">Teacher login</a>
+        
       </div>  
-    </div>     
+    </div> 
+    
+    <div style="    height: 133px;
+    width: 228px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;">
 
-    <div class="inHeader" id="item-3">
-      <img src="\public\images\sd2.png" alt="Sdinda" srcset="">
-      
+      <div style="    text-align: center;
+      color: white;
+      border: 1px solid green;
+      font-size: 28px;
+      background: #F9A825;
+      color: white;
+      border-radius: 5px;
+      padding: 4px 0px 4px 0px;   
+      width: 149px;
+      margin-top: 20px;">Contact</div>  
+
+      <div style="display: flex; margin-top: 20px;">     
+        <i class="fa fa-phone" style="padding: 0px 10px 0px 10px;
+        font-size: 22px;
+        /* color: white; */   
+        color: #FF5722;
+        "></i>
+        <i class="fa fa-location-dot" style="padding: 0px 10px 0px 10px;
+        font-size: 22px;
+        /* color: white; */
+        color: #FF5722;"></i>
+        <i class="fa-brands fa-telegram" style="padding: 0px 10px 0px 10px;
+        font-size: 22px;
+        /* color: white; */
+        color: #FF5722;"></i>
+        <i class="fa-brands fa-youtube" style="padding: 0px 10px 0px 10px;  
+        font-size: 22px;
+        /* color: white; */
+        color: #FF5722;"></i>    
+      </div>
     </div>
+   
+                  
   </header>
 
 
@@ -89,8 +143,49 @@
     
   </div>
 
+  <div id="gallerynoticefees">
 
-  <div class="container">
+    <a class="gaNoFee" href="/viewgallery" id="photogallery1">
+      <img src="\public\images\pngwing.com.png" alt="gallery">
+      <h4>photo gallery</h4>
+    </a>
+ 
+
+  
+    <a class="gaNoFee" href="/admissionNotice" id="admission1">
+      <img src="\public\images\admission notice.png" alt="admission notice">
+      <h4 style="margin-top: 4px;">admission notice</h4>
+    </a>
+
+  
+
+  
+    <a class="gaNoFee" href="/feestructure" id="feesstructure1">
+      <img src="\public\images\fees structure5.png" alt="fees structure">
+      <h4 style="margin-top: 39px;">fees structure</h4>      
+    </a>
+ 
+
+ 
+    <a class="gaNoFee" href="/studentFeedback" method="get" id="studentfeedback1">
+      <img src="\public\images\student feedback.png" alt="student feedback">
+      <h4>student feedback</h4>
+    </a>
+
+    <a class="gaNoFee" href="/doubt" id="doubtasked1">
+      <img src="\public\images\question mark.png" alt="doubt asked">
+      <h4>doubt asked</h4>
+    </a>
+
+    <a class="gaNoFee" href="/parentZone" id="parentzone1">
+      <img src="\public\images\parent6.png" alt="parent zone">   
+      <h4>parent zone</h4>
+    </a>
+
+  
+</div>  
+
+  <!-- <div class="container">
     <div class="box box1">
       <img src="\public\images\profile-boy-icon.png" alt="">
       <h4>JEE 10</h4>
@@ -109,10 +204,10 @@
       <h4>IIT JAM 15</h4>
     </div>
 
-  </div>
-  <h2 id="admissionNotice">Admission Notice</h2>      
-  <div class="width-100 margin-top-50">
-    
+  </div> -->
+     
+  <!-- <div class="width-100 margin-top-50">
+    <h2 id="admissionNotice">Admission Notice</h2> 
     <div class="width-33">
       <div class="latest-news">
         <div class="heading-sect">
@@ -161,6 +256,12 @@
       </div>
     </div>
   
+</div> -->
+
+<div id="admisionNew" style="display: flex; height: 400px; border: 1px solid green;">    
+<div class="nLN">latest news </div>
+<div class="nLN">upcoming news</div>
+<div class="nLN">notice</div>
 </div>
 
 <h2 id="courseheading">
@@ -285,47 +386,7 @@
 
 
 
-  <div id="gallerynoticefees">
 
-      <a class="gaNoFee" href="/viewgallery" id="photogallery1">
-        <img src="\public\images\pngwing.com.png" alt="gallery">
-        <h4>photo gallery</h4>
-      </a>
-   
-
-    
-      <a class="gaNoFee" href="/admissionNotice" id="admission1">
-        <img src="\public\images\admission notice.png" alt="admission notice">
-        <h4 style="margin-top: 4px;">admission notice</h4>
-      </a>
-  
-    
-
-    
-      <a class="gaNoFee" href="/feestructure" id="feesstructure1">
-        <img src="\public\images\fees structure5.png" alt="fees structure">
-        <h4 style="margin-top: 39px;">fees structure</h4>      
-      </a>
-   
-
-   
-      <a class="gaNoFee" href="/studentFeedback" method="get" id="studentfeedback1">
-        <img src="\public\images\student feedback.png" alt="student feedback">
-        <h4>student feedback</h4>
-      </a>
-
-      <a class="gaNoFee" href="/doubt" id="doubtasked1">
-        <img src="\public\images\question mark.png" alt="doubt asked">
-        <h4>doubt asked</h4>
-      </a>
-
-      <a class="gaNoFee" href="/parentZone" id="parentzone1">
-        <img src="\public\images\parent6.png" alt="parent zone">   
-        <h4>parent zone</h4>
-      </a>
-
-    
-  </div>
 
   <h2 id="aboutheading">About Us</h2>
   <div id="aboutus">
