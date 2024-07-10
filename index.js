@@ -9,7 +9,8 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 const fs= require("fs");
-
+const nodemailer = require('nodemailer');
+const otpGenerator = require('otp-generator');
         
 
 const app=express();
@@ -102,6 +103,51 @@ db.connect(err => {
     return;
   }
   console.log('Connected to MySQL as id ' + db.threadId);
+});
+
+
+//email verify  code
+// Create Nodemailer transporter
+const transporter = nodemailer.createTransport({
+  service: 'gmail', // e.g., Gmail
+  auth: {
+    user: 'haldersumanaqz123@gmail.com',
+    pass: 'qquc ifng eqlx vlvc'
+  }      
+});
+
+// Route to handle email verification
+app.post('/verify-email', (req, res) => {
+  const { email } = req.body;
+  console.log(email);
+
+  // Generate OTP
+  const otp = otpGenerator.generate(6, { alphabets: false, upperCase: false, specialChars: false });
+
+  // Save OTP and email to database
+  connection.query('INSERT INTO otps (email, otp) VALUES (?, ?)', [email, otp], (error, results, fields) => {
+    if (error) {
+      console.error('Error saving OTP to database: ' + error);
+      res.status(500).json({ error: 'An error occurred while saving OTP to database' });
+      return;
+    }
+
+    // Send OTP via email
+    transporter.sendMail({
+      from: 'haldersumanaqz123@gmail.com',    
+      to: email,
+      subject: 'Email Verification OTP',
+      text: `Your OTP for email verification is: ${otp}`
+    }, (error, info) => {
+      if (error) {
+        console.error('Error sending email: ' + error);
+        res.status(500).json({ error: 'An error occurred while sending email' });
+        return;
+      }
+      console.log('Email sent: ' + info.response);
+      res.status(200).json({ message: 'OTP sent successfully' });
+    });
+  });
 });
 
 
