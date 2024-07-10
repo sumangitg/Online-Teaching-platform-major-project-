@@ -115,7 +115,24 @@ app.get('/uploadnotes', (req, res)=>{
 })
 
 app.get('/courses', (req,res)=>{
-  res.render('courses');
+  let sql5='select * from studentinfo where stuId=(?)'; 
+  db.query(sql5,[req.session.mykey],(err1,result2)=>{
+    if(err1){
+      console.error(err1);
+    }else{  
+
+      if(req.session.token){     
+        let value = req.session.mykey;
+        res.render('courses',{users:value, udetail:result2 });   
+        
+      }else            
+        {
+          res.render('courses',{users: 0 , udetail:result2 });        
+        }
+
+    }
+  })
+
 })
 
 app.post('/uploadnotes', (req, res)=>{
@@ -152,7 +169,8 @@ app.get('/' , (req , res)=>{
   let a=parseInt(req.session.mykey); 
   //console.log(a);  
 
-  let sql5='select * from studentinfo where stuId=(?)';        
+  let sql5='select * from studentinfo where stuId=(?)';   
+
   db.query(sql5, [req.session.mykey],(err6, result9)=>{
 
     if(err6)
@@ -161,7 +179,7 @@ app.get('/' , (req , res)=>{
     }else{
       console.log(result9);   
       db.query(sql, [noticetype], (err, result1)=>{
-        if(err){     
+        if(err){        
           return console.error('latest notice not available',err);    
         }else{
     
@@ -169,7 +187,7 @@ app.get('/' , (req , res)=>{
           if(err){          
            return  console.error('latest notice not available',err);
           }else{}   
-          if(req.session.token){     
+          if(req.session.token){        
             let value = req.session.mykey;
             res.render('index', {latest:result1, upcoming:result2 ,users: value, udetail:result9}); 
             
@@ -187,32 +205,6 @@ app.get('/' , (req , res)=>{
 
 
   })
-
-  // db.query(sql, [noticetype], (err, result1)=>{
-  //   if(err){     
-  //     return console.error('latest notice not available',err);    
-  //   }else{
-
-  //   db.query(sql1, [noticetype1], (err, result2)=>{
-  //     if(err){          
-  //      return  console.error('latest notice not available',err);
-  //     }else{}   
-  //     if(req.session.token){     
-  //       let value = req.session.mykey;
-  //       res.render('index', {latest:result1, upcoming:result2 ,users: value}); 
-        
-  //     }else            
-  //       {
-  //         res.render('index', {latest:result1, upcoming:result2 ,users: 0}); 
-  //       }
-      
-  //   }) 
-  // }
-   
-  // })
-
-
-
 })   
   
 
@@ -403,18 +395,34 @@ app.get('/viewcourses', (req, res) => {
  console.log('Received name:', name);
  // res.send(`Hello, ${name}!`);
   const selectQuery = 'SELECT * FROM course WHERE courseSection=?';
+  let sql5='select * from studentinfo where stuId=(?)';   
   db.query(selectQuery,[name], (err, results) => { 
     //added new
-    //console.log(results);       
+    //console.log(results);            
     if (err) {
       res.json({ error: 'Error: Failed to fetch courses from the database!' });
     } else {
-      res.render('viewcourse', { courses: results });
+
+      db.query(sql5,[req.session.mykey],(err1,result2)=>{
+        if(err1){
+          console.error(err1);
+        }else{
+                 
+          if(req.session.token){     
+            let value = req.session.mykey;
+            res.render('viewcourse', {courses:results , users:value ,udetail:result2 }); 
+            
+          }else            
+            {
+              res.render('viewcourse', {courses:results , users:0});     
+            }
+
+        }
+      })
+      //res.render('viewcourse', { courses: results });
     }
   });                         
 });                           
-
-
 
 app.get('/addGalleryPhoto', (req,res)=>{
   res.render('addgalleryphoto');
@@ -480,7 +488,6 @@ app.get('/giveNotice' , (req, res)=>{
 
 })
 
-
 // Middleware to check if the user is authenticated
 function isAuthenticated(req, res, next) {
   if (req.session.token) {    
@@ -495,7 +502,6 @@ function isAuthenticated(req, res, next) {
     res.redirect('/studentlogin');
   }
 }    
-
 
 app.post('/registration', async (req, res)=>{
   const { email, stuPassword, username } = req.body;
@@ -532,18 +538,10 @@ app.post('/registration', async (req, res)=>{
   }
 })
 
-
 app.get('/studentlogin', (req, res)=>{
   res.render('studentlogin');
 
 });
-
-
-// app.get('/welcome',(req, res)=>{
-//   res.render('welcome');
-// })
-
-
 
 app.post('/studentlogin', async (req, res)=>{
   const { email, stuPassword } = req.body;  
@@ -587,7 +585,7 @@ app.post('/studentlogin', async (req, res)=>{
       console.log(req.session.token);
       
       req.session.mykey = user.stuId;      
-      res.redirect('/');                
+      res.redirect('/');                   
        
     } else {
       
@@ -689,14 +687,14 @@ app.post('/latestNotice' , (req, res)=>{
   {
     if(err)     
     {
-      console.log("am in error");
+      //console.log("am in error");
       console.log('error', err);
       res.json({msg:"notice not uploaded."});
     }else
     {
       console.log('here');
       res.send('notice uploaded');   
-    }
+    }  
   })
 
 })
@@ -746,15 +744,32 @@ app.get('/admissionNotice', (req, res)=>{
 })
 
 app.get('/feestructure' , (req, res)=>{
-  const fees='select * from course';
+  let fees='select * from course';
+  let sql5='select * from studentinfo where stuId=(?)';      
   db.query(fees,(err,result)=>{
     if(err)
     {
       console.error("course not available");
     }
     else{
-      console.log(result);
-      res.render('feestructure',{fees: result});
+
+        db.query(sql5,[req.session.mykey],(err1,result2)=>{
+        if(err1){
+          console.error(err1);
+        }else{  
+
+          if(req.session.token){     
+            let value = req.session.mykey;
+            res.render('feestructure',{fees: result,users:value, udetail:result2 });   
+            
+          }else            
+            {
+              res.render('feestructure',{fees: result,users: 0 });      
+            }
+
+        }
+      })
+      //res.render('feestructure',{fees: result});
 
     }
   })
@@ -780,7 +795,7 @@ app.post('/studenteedback', (req ,res)=>{
     else{
       res.json({msg:'feedback uploaded'});  
     }
-  })
+  })    
 })
 
 
@@ -792,6 +807,25 @@ app.get('/doubt' , (req, res)=>{
 app.get('/parentZone', (req , res)=>{
   res.render('parentzone');
 })
+
+app.post('/parentZone', (req ,res)=>{   
+      
+  // console.log(req.body);
+   let Pname=req.body.name;
+   let Pnumber=req.body.pnumber;  
+   let doubt=req.body.feedtext;
+   //console.log(Pnumber);  
+   //let doubt= req.body.feedback;       
+   const sql='insert into parentdoubt(Pname, Pnumber, doubt) value(?,?,?)';
+   db.query(sql, [Pname, Pnumber, doubt],(err, result)=>{
+     if(err){      
+       console.error(err);   
+     }       
+     else{
+       res.json({msg:'feedback uploaded'});  
+     }   
+   })    
+ })
 
 // Logout
 app.get('/logout', (req, res) => {

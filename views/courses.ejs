@@ -5,127 +5,268 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>courses</title>
   <link rel="stylesheet" href="/public/css/courses.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 </head>
 <body>
-  <h2 id="courseheading">
-    Our Courses
-  </h2>
+  <nav id="homeNav" style="display: flex;">   
+    <ul id="navlist">
+      <li id="li-1" class="listitem"><a href="">home</a></li>
+        
+      <li id="li-2" class="listitem"><a href="/studentlogin">student login</a></li>   
+      <li id="li-3" class="listitem"><a href="/registration">student register</a></li>
+  
+      <li id="li-13" class="listitem"><a href="/feestructure"><i class="fa fa-angle-down"></i>fees structure</a>
+      
+        <div class="sub-menu-1">
+          <ul>   
+            <li class="item"><a href="">I.S.I ENTRANCE</a></li>
+            <li class="item"><a href="">IIT JAM</a></li>
+            <li class="item"><a href="">B.S.C MATH(HOUNS && PASS)</a>
+            </li>
+            <li class="item"><a href="">COMPUTER LANGUAGE</a></li>
+            <li class="item"><a href="">JELET</a></li>
+            <li class="item"><a href="">GATE(MATH && COMPUTER)</a></li>
+            <li class="item"><a href="">NIMCET ENTRANCE</a></li>
+            <li class="item"><a href="">B.TECH(MATH && COMPUTER)</a></li>
+            <li class="item"><a href="">JEE MAIN</a></li>
+            <li class="item"><a href="">COMPUTER PROJECT</a></li>
+            <li class="item"><a href="">S.S.C (school service)</a></li>
+          </ul>
+        </div>
 
-  <div id="courseContainer">
-    <a class="ab" href="/viewcourses/?name=I.S.I ENTRANCE">
-      <div class="courseitem">
-        <img src="\public\images\isi.jpeg" alt="">
-        <h2>I.S.I ENTRANCE</h2>
+      </li> 
+  
+         
+
+      <li id="li-11" class="listitem"><a href="#contact-Us">contact us</a></li>
+  
+    </ul>
+  
+    <%if(users) { %>
+  
+      <div id="profileHeadDiv">
+        <div id="a" style="    padding-top: 7px;
+      font-size: 19px;">    
+        <%=udetail[0].stuName%></div>
+  
+        <div id="userid" style="display: none;"><%=users%></div>
+          
+        <div id="outerInheadDiv-3"> 
+         
+          
+          <button id="inheadDiv-3" class="inheadDiv" onclick="toggleProfile()"><img src="\public\images\kindpng_4952535.png" alt="profile"></button>
+          <br>         
+      <div id="profileBox"> </div>
+          </div>
       </div>
-    </a>
+  
+    <%}  %>
+  
+  </nav>
 
-    <a class="ab" href="/viewcourses/?name=IIT JAM">
-      <div class="courseitem">
-        <img src="\public\images\iit jam.jpg" alt="">
-        <h2>IIT JAM</h2>
-      </div>
-    </a>
-
-    <a class="ab" href="/viewcourses/?name=COMPUTER LANGUAGE">
-      <div class="courseitem">
-        <img src="\public\images\computer language.png" alt="">
-        <h2>COMPUTER LANGUAGE</h2>
-      </div>
-    </a>
-
-    <a class="ab" href="/viewcourses/?name=B.S.C MATH(HONOURS PASS)">
-      <div class="courseitem">
-        <img src="\public\images\bsc math.webp" alt="">
-        <h2>B.S.C MATH(HONOURS & PASS)</h2>
-      </div>
-    </a>
-
-    <a class="ab" href="/viewcourses/?name=JELET">
-      <div class="courseitem">
-        <img src="\public\images\jelet3.jpeg" alt="">
-        <h2>JELET</h2>
-      </div>
-    </a>
-
-    <a class="ab" href="/viewcourses/?name=GATE (MATH COMPUTER)">
-      <div class="courseitem">
-        <img src="\public\images\gate1.jpeg" alt="">
-        <h2>GATE (MATH & COMPUTER)</h2>
-      </div>
-    </a>
-
-    <a class="ab" href="/viewcourses/?name=NIMCET ENTRANCE">
-      <div class="courseitem">
-        <img src="\public\images\nimcet2.jpeg" alt="">
-        <h2>NIMCET ENTRANCE</h2>
-      </div>
-    </a>
-
-    <a class="ab" href="/viewcourses/?name=B.TECH (MATH COMPUTER)">
-      <div class="courseitem">
-        <img src="\public\images\b tech1.jpeg" alt="">
-        <h2>B.TECH (MATH & COMPUTER)</h2>
-      </div>
-    </a>
-
-
-    <a class="ab" href="/viewcourses/?name=JEE (MAINADVANCE)">
-      <div class="courseitem">
-        <img src="\public\images\jee main.jpeg" alt="">
-        <h2>JEE (MAIN & ADVANCE)</h2>
-      </div>
-    </a>
-
-    <a class="ab" href="#">
-      <div class="courseitem">
-        <img src="\public\images\mock test.png" alt="">
-        <h2>MOCK TEST</h2>
-      </div>
-    </a>
-    
-    <a class="ab" href="/viewcourses/?name=COMPUTER PROJECT">
-      <div class="courseitem">
-        <img src="\public\images\computer project.png" alt="">
-        <h2>COMPUTER PROJECT</h2>
-      </div>
-    </a>
-
-    <a class="ab" href="/viewcourses/?name=S.S.C(school service comission)">
-      <div class="courseitem">
-        <img src="\public\images\ssc.jpeg" alt="">
-        <h2>S.S.C(school service comission)</h2>
-      </div>
-    </a>
-
-    <a class="ab" href="/viewcourses/?name=CLASS XI (MATH)">
-      <div class="courseitem">
-        <img src="\public\images\class xi.jpeg" alt="">
-        <h2>CLASS XI (MATH)</h2>
-      </div>
-    </a>
-
-    <a class="ab" href="/viewcourses/?name=CLASS XI (MATH)">
-      <div class="courseitem" >
-        <img src="\public\images\class xii.png" alt="">
-        <h2>CLASS XII (MATH)</h2>
-      </div>
-    </a>
-
-    <a class="ab" href="/viewcourses/?name=CAT-MAT (MATHEMATICS)">
-      <div class="courseitem">
-        <img src="\public\images\cat-mat.jpg" alt="">
-        <h2>CAT-MAT (MATHEMATICS)</h2>
-      </div>
-    </a>
-
-    <a class="ab" href="/viewcourses/?name=OXYMPIAD (MATH)">
-      <div class="courseitem">
-        <img src="\public\images\Olympiad-Exams.png" alt="">
-        <h2>OXYMPIAD (MATH)</h2>
-      </div>
-    </a>
-
+  <div style="text-align: center; background: #2f2fa4; ">
+    <h2 style="    color: whitesmoke;
+    margin: 0px;
+    padding: 26px 0px 25px 0px;
+    font-size: 39px;">Courses We Offer</h2>   
+    <div id="courseContainer">
+      <a class="ab" href="/viewcourses/?name=I.S.I ENTRANCE">
+        <div class="courseitem">
+          <i class="fa-solid fa-landmark" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+          <h2 class="coursehead">I.S.I ENTRANCE</h2>
+          <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+      </a>
+  
+      <a class="ab" href="/viewcourses/?name=IIT JAM">
+        <div class="courseitem"> 
+          <i class="fa-sharp fa-solid fa-pen-to-square" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+          <h2 class="coursehead">IIT JAM</h2>
+          <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+      </a>
+  
+      <a class="ab" href="/viewcourses/?name=COMPUTER LANGUAGE">
+        <div class="courseitem">
+          <i class="fa fa-laptop-code" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+          <h2 class="coursehead">COMPUTER LANGUAGE</h2>
+          <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+      </a>
+  
+      <a class="ab" href="/viewcourses/?name=B.S.C MATH(HONOURS PASS)">
+        <div class="courseitem">
+          <i class="fa-solid fa-calculator" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+          <h2 class="coursehead">B.S.C MATH(HONOURS & PASS)</h2>
+          <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+      </a>
+  
+      <a class="ab" href="/viewcourses/?name=JELET">
+        <div class="courseitem">
+          <i class="fa fa-pen-nib" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+          <h2 class="coursehead">JELET</h2>
+          <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+      </a>
+  
+      <a class="ab" href="/viewcourses/?name=GATE (MATH COMPUTER)">
+        <div class="courseitem">
+          <i class="fa fa-graduation-cap" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+          <h2 class="coursehead">GATE (MATH & COMPUTER)</h2>  
+          <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p> 
+        </div>
+      </a>
+  
+      <a class="ab" href="/viewcourses/?name=NIMCET ENTRANCE">
+        <div class="courseitem">
+          <i class="fa-solid fa-landmark" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+          <h2 class="coursehead">NIMCET ENTRANCE</h2>
+          <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+      </a>
+  
+      <a class="ab" href="/viewcourses/?name=B.TECH (MATH COMPUTER)">
+        <div class="courseitem">
+          <i class="fa fa-gears" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+          <h2 class="coursehead">B.TECH (MATH & COMPUTER)</h2>
+          <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+      </a>
+  
+  
+      <a  class="ab" href="/viewcourses/?name=JEE (MAINADVANCE)">
+        <div class="courseitem">
+          <i class="fa fa-clipboard" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+          <h2 class="coursehead">JEE (MAIN & ADVANCE)</h2>
+          <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+      </a>
+  
+      <a class="ab" href="#">
+        <div class="courseitem">
+          <i class="fa-solid fa-book-open-reader" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+          <h2 class="coursehead">MOCK TEST</h2>
+          <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+      </a>
+      
+      <a class="ab" href="/viewcourses/?name=COMPUTER PROJECT">
+        <div class="courseitem">
+          <i class="fa-sharp fa-solid fa-desktop" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+          <h2 class="coursehead">COMPUTER PROJECT</h2>
+          <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>  
+        </div>
+      </a>
+  
+      <a class="ab" href="/viewcourses/?name=S.S.C(school service comission)">
+        <div class="courseitem">
+          <i class="fa fa-school" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+          <h2 class="coursehead">S.S.C(school service comission)</h2>
+          <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+        </div>
+      </a>
+  
+      <a class="ab" href="/viewcourses/?name=CLASS XI (MATH)">
+        <div class="courseitem">
+          <i class="fa fa-light fa-calculator" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+          <h2 class="coursehead">CLASS XI (MATH)</h2>
+          <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+        </div>
+      </a>
+  
+      <a class="ab" href="/viewcourses/?name=CLASS XI (MATH)">
+        <div class="courseitem" >
+          <i class="fa fa-square-root-variable" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+          <h2 class="coursehead">CLASS XII (MATH)</h2>
+          <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+      </a>
+  
+      <a class="ab" href="/viewcourses/?name=CAT-MAT (MATHEMATICS)">
+        <div class="courseitem">
+          <i class="fa fa-pen-nib" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+          <h2 class="coursehead">CAT-MAT (MATHEMATICS)</h2>
+          <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+        </div>
+      </a>
+  
+      <a class="ab" href="/viewcourses/?name=OXYMPIAD (MATH)">
+        <div class="courseitem">
+          <i class="fa-solid fa-user-pen" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+          <h2 class="coursehead">OXYMPIAD (MATH)</h2>
+          <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+        </div>
+      </a>
+  
+    </div>
   </div>
+
+
+      <!-- footer section -->
+      <footer id="contact-Us">   
+        <div class="footer-col">
+          <h4>Terms</h4>
+          <ul>
+            <li><a href="#">teams</a></li>
+            <li><a href="#">advertising</a></li>
+            <li><a href="#">talent</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>abc</h4>
+          <ul>
+            <li><a href="#">fees structure</a></li>
+            <li><a href="#">science</a></li>
+            <li><a href="#">admision</a></li>
+            <li><a href="#">courses</a></li>
+            <li><a href="#">API</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>abc</h4>
+          <ul>
+            <li><a href="#">about</a></li>
+            <li><a href="#">legal</a></li>
+            <li><a href="#">contact us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>follow us</h4>
+          <div class="links">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </footer>
+
+  <script>    
+    let userid=document.getElementById('userid').innerText;  
+      let hiDivVisible = false;
+      function toggleProfile() {
+        const hiDiv = document.getElementById('profileBox');
+        
+        if (hiDivVisible) {
+          hiDiv.style.display = 'none'; // Hide the div
+          hiDivVisible = false;
+        } else {  
+          hiDiv.innerHTML = `  <a class="profileOption" id="profileLink" href="/myProfile/${userid}">My Profile</a>
+    <br>        
+          <a class="profileOption" href="/MyAccount/${userid}">My Account</a>  
+    <br>  
+    <a class="profileOption" href="/MyEnrollments/${userid}">My Enrollments</a>
+    <br>      
+    <a class="profileOption" href="/logout">Sign Out</a> `;  
+  
+          hiDiv.style.display = 'flex'; // Show the div
+          hiDiv.style.flexDirection='column';
+          hiDivVisible = true;
+        }
+      }     
+  </script>   
 
 </body>
 </html>

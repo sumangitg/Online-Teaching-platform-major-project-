@@ -112,14 +112,14 @@ body{
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
     /* border: 1px solid black; */
-    width: 1398px;
+    width: 1400px;
 }
 
 #homeNav #navlist a{
   text-decoration: none;
   cursor: pointer;
   margin: 0px 8px 0px 0px;
-  padding: 13px 22px 16px 22px;
+  padding: 13px 18px 16px 18px;
   /* border: 1px solid green; */
   font-size: 17px;
   border-radius: 32px;
@@ -139,7 +139,7 @@ body{
 #homePhotoSection{
   /* border:1px solid red; */
   width:100%;
-  height:450px;
+  height:474px;
   margin: 0px 0px 0px 0px;
   
 
@@ -354,14 +354,15 @@ margin: 57px 0px 0px 98px;
     height: 494px;
     /* border: 2px solid black; */
     display: flex;
-    background-color: #2c536c;
+    background-color: #26265e;
+
     /* padding: 0px 0px 7px 0px; */
 
 }
 
 
 #aboutus img{
-  height: 472px;
+  height: 470px;
   width: 500px;
   margin: 25px 0px 0px 60px;
 }
@@ -372,7 +373,7 @@ margin: 57px 0px 0px 98px;
   height: 494px;
   width: 623px;
   /* border: 1px solid green; */
-  background-color: #2c536c;
+  /* background-color: #2c536c; */
 
 }
 #aboutsdText{
@@ -384,7 +385,7 @@ margin: 57px 0px 0px 98px;
     text-align: justify;
     line-height: 34px;
     font-size: 19px;
-    background-color: #354f60;
+    /* background-color: #354f60; */
     color: white;
 }
 
@@ -404,10 +405,10 @@ margin: 57px 0px 0px 98px;
 
 
 #location {
-  padding: 9px 141px 0px 141px;
+  /* padding: 9px 141px 0px 141px; */
   /* border: 1px solid green; */
-  /* margin: 0px 0px 0px 0px; */
-  background-color: #97bd97;
+  margin: 18px 0px 0px 0px;
+  /* background-color: #97bd97; */
 }
 
 
@@ -586,6 +587,8 @@ ul{
 
 
 /* course css */
+
+
 #courseContainer{
   display: grid;
     grid-template-columns: repeat(4,1fr);
@@ -595,7 +598,7 @@ ul{
     grid-gap: 20px;
     padding: 25px 90px 25px 103px;
     /* background-color: #52bce7; */
-    background: whitesmoke;
+    /* background: #2f2fa4;    */
 }
 
 
@@ -605,45 +608,45 @@ ul{
 
 #courseContainer .courseitem{
   width: 307px;
-  height: 166px;
+  height: 166px;    
   /* border: 1px solid green; */
-  background-color: #3255c0;
+  /* background-color: #3255c0;   */
   margin: auto;
   text-align: center;
   padding: 12px 0px 0px 0px;
 }
 
 #courseContainer .courseitem:hover{
-  background-color: rgb(15 56 123);
-  border-radius: 5px;
-  position: relative;
+  background-color: #c7102b;  
+  /* border-radius: 5px; */
+  position: relative;   
   top: -2px;
 }
 
 #courseContainer .courseitem h2{
   
   text-align: center;    text-align: center;
-  margin: 0px 0px 0px 0px;
+  margin: 14px 0px 0px 0px;
   font-size: 20px;
   color: white;
 }
 
-#courseContainer .courseitem img{
+ /* #courseContainer .courseitem img{
   width: 250px;
   height: 121px;
   border: 1px solid green;
   background-color: pink;
-   /* margin: 8px 0px 0px 27px; */
-}
+   margin: 8px 0px 0px 27px;
+}  */
 
-#courseheading {
+/* #courseheading {
   text-align: center;
   background-color: #428bcc;
   margin: 2px 0px 0px 0px;
   padding: 14px 0px 15px 0px;
   font-size: 45px;
   color: #fff;
-}
+} */
 
 /* css of admission notice */
 
@@ -804,8 +807,9 @@ height: 250px;
   display: flex;
   padding-right: 28px;
   justify-content: flex-end;
-  background: cornflowerblue;
-  color: white; 
+  /* background: cornflowerblue; */
+  color: white;
+  width: 1063px;   
 }
 .inheadDiv {
   border: 1px solid green;
@@ -823,15 +827,15 @@ height: 250px;
 #outerInheadDiv-3 button {
   margin: 0px 0px 0px 0px;
   border: none;
-  background-color: cornflowerblue;
-  padding: 3px 0px 0px 0px;
-}   
+  background: #42A5F5;
+  padding: 1px 0px 0px 0px;
+}     
 #profileBox {
   padding: 10px;
   display: none;
   flex-direction: column;
   position: absolute;
-  top: 54px;
+  top: 41px;
   /* left: 20px; */
   z-index: 2;
   background-color: rgba(255, 255, 255, 0.9);
@@ -842,7 +846,7 @@ height: 250px;
   background-color: whitesmoke;
   /* color: #821f1f; */
   color: white;
-  right: 12px;
+  right: 37px;
   border-radius: 7px;
   box-shadow: 2px 2px 5px 0px #b8c2e2;
   /* color: white; */
@@ -851,10 +855,10 @@ height: 250px;
 
 
 #outerInheadDiv-3 img {
-  width: 47px;
+  width: 34px;
   /* height: 60px; */
   padding: 0px 0px 0px 0px;
-  background: cornflowerblue;   
+  /* background: cornflowerblue;    */
 }
 .profileOption {
   /* border: 1px solid green; */
@@ -885,22 +889,6 @@ height: 250px;
   /* background: whitesmoke; */
   
 }   
-#containMarqueeTlogin a{
-  margin: 5px 0px 6px 57px;
-  padding: 3px 16px 2px 16px;
-  font-size: 21px;
-  border-radius: 5px;
-  text-decoration: none;
-  background-color: rgb(235, 171, 11);
-  color: black;
-} 
-#containMarqueeTlogin a:hover{
-  /* background-color: rgb(54, 54, 162); */
-  background-color: rgb(167, 122, 7);
-  color:black;
-}  
-
-
 
 .ab{
   text-decoration: none;
@@ -911,3 +899,82 @@ height: 250px;
   margin-right: 31px;
   font-size: 25px;   
 }
+.sub-menu-1{
+  display: none;
+}
+
+#homeNav #navlist li:hover .sub-menu-1{
+  display: block;
+  position: absolute;
+  margin-top: 15px;
+  background-color: #1253cd;
+  margin-left: 20px;
+  font-size: 20px; 
+  
+}
+.sub-menu-1 ul{
+  margin: 0px;
+  padding: 0px;
+
+}
+.sub-menu-1 ul li{
+  margin: 10px;
+  padding: 5px;
+  color: white;
+  
+}
+
+.details{
+  /* border: 1px solid red; */   
+  height: 111px;
+  width: 218px;
+  border-radius: 8px;
+  background: #3dc3ff;
+  text-align: center;
+  /* margin-top: 10px; */
+  padding-top: 15px;  
+}
+.updateBar{
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+}
+
+.nLN{
+  display: flex;
+  width: 406px;
+  /* border: 1px solid green; */
+  margin: auto;
+  height: 440px;
+  border-right: 1px solid white;
+  flex-direction: column;
+}    
+.innNL{
+  width: 75px;
+  margin-left: 154px;
+  text-align: center;
+  padding-top: 15px;
+}    
+.nNLp{
+  margin: 0px 0px 0px 0px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+}
+.coursePara{
+  margin-top: 10px;
+  margin-bottom: 0px;
+  color: white;
+
+}
+.coursehead{
+  margin-top: 5px;
+}
+.details:hover{
+  background: #2196f3;
+}
+.tlogin:hover{
+  background: #263039;      
+}
+

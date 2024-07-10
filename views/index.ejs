@@ -21,32 +21,29 @@
 
 </head>
 
-<body>
-<nav style="background: #42A5F5;">     
+<body>  
+<nav style="background: #42A5F5;     display: flex;">     
   <ul style="display: flex;
   margin: 0px 0px 0px 0px;
   padding: 3px 0px 3px 71px;">
-    <li class="li-1"><i class="fa-brands fa-square-facebook"></i>  </li>
-    <li class="li-1"><i class="fa-brands fa-square-whatsapp"></i></li>
-    <li class="li-1"><i class="fa-brands fa-square-instagram"></i></li>
-    <li class="li-1"><i class="fa-brands fa-square-twitter"></i></li>   
-    <a href="/login" style="    text-decoration: none;
+    <li class="li-1"> <a href="https://www.facebook.com/" style="color: unset;"><i class="fa-brands fa-square-facebook"></i></a>  </li>
+    <li class="li-1"><a href="https://www.whatsapp.com/" style="color: unset;"><i class="fa-brands fa-square-whatsapp"></i></a></li>  
+    <li class="li-1"><a href="https://www.instagram.com/" style="color: unset;"><i class="fa-brands fa-square-instagram"></i></a> </li>  
+    <li class="li-1"><a href="https://x.com/?lang=en" style="color: unset;"><i class="fa-brands fa-square-twitter"></i></a></li>          
+    <a href="/login" class="tlogin" style="    text-decoration: none;
     color: white;
-    padding-top: 3px 5px 0px 5px;
     font-size: 18px;
     border-radius: 7px;
-    padding: 3px 5px 0px 5px;
-    background: #1976D2;">Teacher login</a>    
+    padding: 6px 5px 0px 5px;
+    background: #1976D2;" >Teacher login</a>    
   </ul>
-</nav>    
-
-
+  
   <%if(users) { %>
-    
-    
+
     <div id="profileHeadDiv">
-      <div id="a" style="padding-top: 17px;
-      font-size: 20px;"><%=udetail[0].stuName%></div>
+      <div id="a" style="    padding-top: 7px;
+    font-size: 19px;">
+      <%=udetail[0].stuName%></div>
 
       <div id="userid" style="display: none;"><%=users%></div>
         
@@ -58,13 +55,18 @@
     <div id="profileBox"> </div>
         </div>
     </div>
+
   <%}  %>
+</nav>    
+
+
  
   
   <header id="homeHeader">
     <div class="inHeader" id="item-1">
       <img src="\public\images\websitelogo2.jpg" alt="SdMath" srcset="">
     </div>
+    
     <div class="inHeader" id="item-2">  
       <h1> <span>MATHEMATICS ACADEMY</span></h1>
       <h2>No. 1 Institution Of All India Mca Entrance</h2>
@@ -94,23 +96,23 @@
       margin-top: 20px;">Contact</div>  
 
       <div style="display: flex; margin-top: 20px;">     
-        <i class="fa fa-phone" style="padding: 0px 10px 0px 10px;
+       <a href="#" style="cursor: pointer;"> <i class="fa fa-phone" style="padding: 0px 10px 0px 10px;
         font-size: 22px;
         /* color: white; */   
-        color: #FF5722;
-        "></i>
-        <i class="fa fa-location-dot" style="padding: 0px 10px 0px 10px;
+        color: #FF5722;   
+        "></i></a>   
+        <a href="https://www.google.com/maps/place/Garia,+Kolkata,+West+Bengal/@22.4533628,88.3742409,12.63z/data=!4m6!3m5!1s0x3a0271a00d52ca53:0x84c91e76a182e37a!8m2!3d22.4660129!4d88.3928446!16zL20vMGMwMnYx?entry=ttu" style="cursor: pointer;"><i class="fa fa-location-dot" style="padding: 0px 10px 0px 10px;
         font-size: 22px;
         /* color: white; */
-        color: #FF5722;"></i>
-        <i class="fa-brands fa-telegram" style="padding: 0px 10px 0px 10px;
+        color: #FF5722;"></i></a>   
+        <a href="https://telegram.org/" style="cursor: pointer;"><i class="fa-brands fa-telegram" style="padding: 0px 10px 0px 10px;
+        font-size: 22px;
+        /* color: white; */  
+        color: #FF5722;"></i></a>
+        <a href="https://www.youtube.com/watch?v=Kz7orumpkWE" style="cursor: pointer;"><i class="fa-brands fa-youtube" style="padding: 0px 10px 0px 10px;  
         font-size: 22px;
         /* color: white; */
-        color: #FF5722;"></i>
-        <i class="fa-brands fa-youtube" style="padding: 0px 10px 0px 10px;  
-        font-size: 22px;
-        /* color: white; */
-        color: #FF5722;"></i>    
+        color: #FF5722;"></i></a>    
       </div>
     </div>
    
@@ -121,16 +123,65 @@
   <nav id="homeNav">
     <ul id="navlist">
       <li id="li-1" class="listitem"><a href="">home</a></li>
-      <li id="li-12" class="listitem"><a href="/viewgallery">gallery</a></li>
-      <li id="li-2" class="listitem"><a href="/studentlogin">student login</a></li>
+      <li id="li-12" class="listitem"><a href="/viewgallery">gallery</a></li>    
+      <li id="li-2" class="listitem"><a href="/studentlogin">student login</a></li>   
       <li id="li-3" class="listitem"><a href="/registration">student register</a></li>
-      <li id="li-12" class="listitem"><a href="/admissionNotice">admission notice</a></li>
-      <li id="li-13" class="listitem"><a href="/feestructure">fees structure</a></li>    
-      <li id="li-4" class="listitem"><a href="/courses">courses</a></li>
+      <li id="li-12" class="listitem"><a href="#admisionNew"><i class="fa fa-angle-down"></i>admission notice </a>
+      
+        <div class="sub-menu-1">
+          <ul>   
+            <li class="item"><a href="#admisionNew">notifications</a></li>
+            <li class="item"><a href="#admisionNew">upcoming events</a></li>
+            <li class="item"><a href="#admisionNew">events</a></li>
+          </ul>
+        </div>
+  
+      </li>
+      <li id="li-13" class="listitem"><a href="/feestructure"><i class="fa fa-angle-down"></i>fees structure</a>
+      
+        <div class="sub-menu-1">
+          <ul>   
+            <li class="item"><a href="">I.S.I ENTRANCE</a></li>
+            <li class="item"><a href="">IIT JAM</a></li>
+            <li class="item"><a href="">B.S.C MATH(HOUNS && PASS)</a>
+            </li>
+            <li class="item"><a href="">COMPUTER LANGUAGE</a></li>
+            <li class="item"><a href="">JELET</a></li>
+            <li class="item"><a href="">GATE(MATH && COMPUTER)</a></li>
+            <li class="item"><a href="">NIMCET ENTRANCE</a></li>
+            <li class="item"><a href="">B.TECH(MATH && COMPUTER)</a></li>
+            <li class="item"><a href="">JEE MAIN</a></li>
+            <li class="item"><a href="">COMPUTER PROJECT</a></li>
+            <li class="item"><a href="">S.S.C (school service)</a></li>
+          </ul>
+        </div>
+
+      </li>    
+      <li id="li-4" class="listitem"><a href="/courses"><i class="fa fa-angle-down"></i>courses</a>
+      
+        <div class="sub-menu-1">
+          <ul>   
+
+            <li class="item"><a href="/viewcourses/?name=I.S.I ENTRANCE">I.S.I ENTRANCE</a></li>  
+            <li class="item"><a href="/viewcourses/?name=IIT JAM">IIT JAM</a></li>
+            <li class="item"><a href="/viewcourses/?name=B.S.C MATH(HONOURS PASS)">B.S.C MATH(HOUNS && PASS)</a></li>
+            <li class="item"><a href="/viewcourses/?name=COMPUTER LANGUAGE">COMPUTER LANGUAGE</a></li>   
+            <li class="item"><a href="/viewcourses/?name=JELET">JELET</a></li>
+            <li class="item"><a href="/viewcourses/?name=GATE (MATH COMPUTER)">GATE(MATH && COMPUTER)</a></li>
+            <li class="item"><a href="/viewcourses/?name=NIMCET ENTRANCE">NIMCET ENTRANCE</a></li>  
+            <li class="item"><a href="/viewcourses/?name=B.TECH (MATH COMPUTER)">B.TECH(MATH && COMPUTER)</a></li>  
+            <li class="item"><a href="/viewcourses/?name=JEE (MAINADVANCE)">JEE MAIN</a></li>
+            <li class="item"><a href="/viewcourses/?name=COMPUTER PROJECT">COMPUTER PROJECT</a></li>   
+            <li class="item"><a href="/viewcourses/?name=S.S.C(school service comission)">S.S.C (school service)</a></li>
+
+          </ul>
+        </div>
+      
+      </li>
   
       <li id="li-14" class="listitem"><a href="/parentZone">parent zone</a></li>   
       <!-- <li id="li-9" class="listitem"><a href="/login">Teacher login</a></li> -->
-      <li id="li-10" class="listitem"><a href="#aboutheading">about us</a></li>
+      <li id="li-10" class="listitem"><a href="#aboutus">about us</a></li>
       <li id="li-11" class="listitem"><a href="#contact-Us">contact us</a></li>
 
     </ul>
@@ -143,257 +194,254 @@
     
   </div>
 
-  <div id="gallerynoticefees">
+<div style="    display: flex;
+justify-content: space-between;
+margin-top: 46px;    
+margin-bottom: 46px;">          
+  <a href="/viewgallery" style="text-decoration: none;"><div class="details"><i class="fa fa-light fa-photo-film" style="font-size: 38px; color: white;"></i><p class="updateBar">photo gallery</p></div></a>
 
-    <a class="gaNoFee" href="/viewgallery" id="photogallery1">
-      <img src="\public\images\pngwing.com.png" alt="gallery">
-      <h4>photo gallery</h4>
-    </a>
- 
+  <a href="#admisionNew" style="text-decoration: none;"><div class="details"><i class="fa fa-light fa-file" style="font-size: 38px; color: white;"></i><p class="updateBar">
+    admission notice 
+  </p></div> 
+</a>   
+  <a href="/feestructure" style="text-decoration: none;">
+    <div class="details"><i class="fa-solid fa-money-check-dollar" style="font-size: 38px; color: white;"></i>
+    <p class="updateBar">fees structure</p></div>
+  </a>
 
+  <a href="/studentFeedback" style="text-decoration: none;"><div class="details"><i class="fa-regular fa-comments" style="font-size: 38px; color: white;"></i>
+    <p class="updateBar">student feedback</p></div></a> 
+
+  <a href="/doubt" style="text-decoration: none;"><div class="details"><i class="fa-solid fa-question" style="font-size: 38px; color: white;"></i>
+    <p class="updateBar">doubt asked</p></div></a>
+
+  <a href="/parentZone" style="text-decoration: none;"><div class="details"><i class="fa-solid fa-hands-holding-child" style="font-size: 38px; color: white;"></i><p class="updateBar">parent zone</p></div></a>
+
+</div>
+    
+
+<div id="admisionNew" style="    display: flex;
+width: 1164px;
+/* border: 1px solid green; */
+margin: auto;
+background: #343487;
+/* border-right: 1px solid white; */
+padding-top: 10px;
+padding-bottom: 18px;
+margin-bottom: 45px;">     
+    <div class="nLN">
+      <div class="innNL">    
+        <i class="fa-sharp fa-regular fa-file-lines"     style="color: white;
+        font-size: 46px;" ></i>
+        <hr color="white">
+      </div>   
+      <p  class="nNLp">notifications</p>   
+      <div style="padding-left: 25px;
+      color: white;
+      font-weight: bold;">   
+        <marquee direction="up" behavior="scroll" scrollamount="2">       
+          <ul class="latest-news-ul">
+          <% latest.forEach(notice1=>{  %>
+            <li> <%=notice1.notice%> <img src="\public\images\latest-news-blink-img.gif"><hr style="color: white;"></li>
+        <%  })%>
   
-    <a class="gaNoFee" href="/admissionNotice" id="admission1">
-      <img src="\public\images\admission notice.png" alt="admission notice">
-      <h4 style="margin-top: 4px;">admission notice</h4>
-    </a>
-
-  
-
-  
-    <a class="gaNoFee" href="/feestructure" id="feesstructure1">
-      <img src="\public\images\fees structure5.png" alt="fees structure">
-      <h4 style="margin-top: 39px;">fees structure</h4>      
-    </a>
- 
-
- 
-    <a class="gaNoFee" href="/studentFeedback" method="get" id="studentfeedback1">
-      <img src="\public\images\student feedback.png" alt="student feedback">
-      <h4>student feedback</h4>
-    </a>
-
-    <a class="gaNoFee" href="/doubt" id="doubtasked1">
-      <img src="\public\images\question mark.png" alt="doubt asked">
-      <h4>doubt asked</h4>
-    </a>
-
-    <a class="gaNoFee" href="/parentZone" id="parentzone1">
-      <img src="\public\images\parent6.png" alt="parent zone">   
-      <h4>parent zone</h4>
-    </a>
-
-  
-</div>  
-
-  <!-- <div class="container">
-    <div class="box box1">
-      <img src="\public\images\profile-boy-icon.png" alt="">
-      <h4>JEE 10</h4>
-    </div>
-
-    <div class="box box2">
-      <img src="\public\images\profile-boy-icon.png" alt="">
-      <h4>SSC 102</h4>
-    </div>
-
-    <div class="box box3"><img src="\public\images\profile-boy-icon.png" alt="">
-      <h4>JEE 3</h4>
-    </div>
-
-    <div class="box box4"><img src="\public\images\profile-boy-icon.png" alt="">
-      <h4>IIT JAM 15</h4>
-    </div>
-
-  </div> -->
-     
-  <!-- <div class="width-100 margin-top-50">
-    <h2 id="admissionNotice">Admission Notice</h2> 
-    <div class="width-33">
-      <div class="latest-news">
-        <div class="heading-sect">
-          <h3 class="head-title">Latest New</h3>
-        </div>
-        <marquee direction="up" behavior="scroll" scrollamount="4">       
-        <ul class="latest-news-ul">
-        <% latest.forEach(notice1=>{  %>
-          <li> <%=notice1.notice%> <img src="\public\images\latest-news-blink-img.gif"></li>
-      <%  })%>
-
-        </ul>
-        </marquee>
+          </ul>
+          </marquee>
       </div>
     </div>
 
-    <div class="width-33">
-      <div class="event-list">
-        <div class="heading-sect">
-          <h3 class="head-title">Upcoming Events</h3>
-        </div>
+    <div class="nLN">
+      <div class="innNL">
+        <i class="fa-regular fa-envelope-open" aria-hidden="true"     style="color: white;
+        font-size: 46px;" ></i>  
+        <hr color="white">
+      </div>
+      <p class="nNLp">upcoming events</p>
+      <div style="padding-left: 25px;
+      color: white;
+      font-weight: bold;">  
+        <marquee behavior="scroll" direction="up" scrollamount="2">
         <ul class="upcoming-event-list">
-          <% upcoming.forEach(upcom=>{ %>
-            <li><span class="event-date">29 <br>
-              April</span><span><%= upcom.notice%></span> </li>
+          <% upcoming.forEach(upcom=>{ %>  
+            <li><%= upcom.notice%> <hr style="color: white;"></li>  
          <% })%>    
-          
-          
-        </ul>
-      </div>
-    </div>
+        </ul>   
+      </marquee>
 
-    <div class="width-33">
-      <div class="notice-board">
-        <div class="heading-sect">
-          <h3 class="head-title">Notice Board</h3>
-        </div>
-        <ul class="notice-board-list">
-          <li><img src="\public\images\notice-board-img.png">	Participation in Climate Correction Day (CCD) Challenge for Mission LiFE </li>
-          <li><img src="images/notice-board-img.png"> 	West Zone Inter University Table Teniss (man) Tournament 2022-23 </li>
-          <li><img src="images/notice-board-img.png"> 	PhD Registration Form for Selected Candidates </li>
-          <li><img src="images/notice-board-img.png"> 	List of Activities organised under TEQIP-III </li>
-          <li><img src="images/notice-board-img.png"> 	Documents for empanellment of vendor for A Class contyractor </li>
-          <li><img src="images/notice-board-img.png"> 	School of Architecture College Level counselling 2022-23  </li>
-        </ul>
       </div>
     </div>
+    <div class="nLN" style="border: none;">
+      <div class="innNL">
+        <i class="fa-regular fa-calendar-check" style="color: white;
+        font-size: 46px;" ></i>
+        <hr color="white">
+      </div>
+      <p class="nNLp">events</p>
+      <div style="padding-left: 25px;
+      color: white;  
+      font-weight: bold;">
+        <marquee direction="up" behavior="scroll" scrollamount="2">       
+          <ul class="latest-news-ul">
+          <% latest.forEach(notice1=>{  %>
+            <li> <%=notice1.notice%> <img src="\public\images\latest-news-blink-img.gif"> <hr style="color: white;"></li>
+        <%  })%>
   
-</div> -->
+          </ul>
+          </marquee>
+      </div>
+  </div>   
 
-<div id="admisionNew" style="display: flex; height: 400px; border: 1px solid green;">    
-<div class="nLN">latest news </div>
-<div class="nLN">upcoming news</div>
-<div class="nLN">notice</div>
 </div>
 
-<h2 id="courseheading">
-  Our Courses
-</h2>
-
-<div id="courseContainer">
+<div style="text-align: center; background: #2f2fa4; ">
+  <h2 style="    color: whitesmoke;
+  margin: 0px;
+  padding: 26px 0px 25px 0px;
+  font-size: 39px;">Courses We Offer</h2>   
+  <div id="courseContainer">
     <a class="ab" href="/viewcourses/?name=I.S.I ENTRANCE">
       <div class="courseitem">
-        <img src="\public\images\isi.jpeg" alt="">
-        <h2>I.S.I ENTRANCE</h2>
+        <i class="fa-solid fa-landmark" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+        <h2 class="coursehead">I.S.I ENTRANCE</h2>
+        <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
       </div>
     </a>
 
     <a class="ab" href="/viewcourses/?name=IIT JAM">
-      <div class="courseitem">
-        <img src="\public\images\iit jam.jpg" alt="">
-        <h2>IIT JAM</h2>
+      <div class="courseitem"> 
+        <i class="fa-sharp fa-solid fa-pen-to-square" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+        <h2 class="coursehead">IIT JAM</h2>
+        <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
       </div>
     </a>
 
     <a class="ab" href="/viewcourses/?name=COMPUTER LANGUAGE">
       <div class="courseitem">
-        <img src="\public\images\computer language.png" alt="">
-        <h2>COMPUTER LANGUAGE</h2>
+        <i class="fa fa-laptop-code" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+        <h2 class="coursehead">COMPUTER LANGUAGE</h2>
+        <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
       </div>
     </a>
 
     <a class="ab" href="/viewcourses/?name=B.S.C MATH(HONOURS PASS)">
       <div class="courseitem">
-        <img src="\public\images\bsc math.webp" alt="">
-        <h2>B.S.C MATH(HONOURS & PASS)</h2>
+        <i class="fa-solid fa-calculator" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+        <h2 class="coursehead">B.S.C MATH(HONOURS & PASS)</h2>
+        <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
       </div>
     </a>
 
     <a class="ab" href="/viewcourses/?name=JELET">
       <div class="courseitem">
-        <img src="\public\images\jelet3.jpeg" alt="">
-        <h2>JELET</h2>
+        <i class="fa fa-pen-nib" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+        <h2 class="coursehead">JELET</h2>
+        <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
       </div>
     </a>
 
     <a class="ab" href="/viewcourses/?name=GATE (MATH COMPUTER)">
       <div class="courseitem">
-        <img src="\public\images\gate1.jpeg" alt="">
-        <h2>GATE (MATH & COMPUTER)</h2>
+        <i class="fa fa-graduation-cap" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+        <h2 class="coursehead">GATE (MATH & COMPUTER)</h2>  
+        <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p> 
       </div>
     </a>
 
     <a class="ab" href="/viewcourses/?name=NIMCET ENTRANCE">
       <div class="courseitem">
-        <img src="\public\images\nimcet2.jpeg" alt="">
-        <h2>NIMCET ENTRANCE</h2>
+        <i class="fa-solid fa-landmark" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+        <h2 class="coursehead">NIMCET ENTRANCE</h2>
+        <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
       </div>
     </a>
 
     <a class="ab" href="/viewcourses/?name=B.TECH (MATH COMPUTER)">
       <div class="courseitem">
-        <img src="\public\images\b tech1.jpeg" alt="">
-        <h2>B.TECH (MATH & COMPUTER)</h2>
+        <i class="fa fa-gears" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+        <h2 class="coursehead">B.TECH (MATH & COMPUTER)</h2>
+        <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
       </div>
     </a>
 
 
     <a  class="ab" href="/viewcourses/?name=JEE (MAINADVANCE)">
       <div class="courseitem">
-        <img src="\public\images\jee main.jpeg" alt="">
-        <h2>JEE (MAIN & ADVANCE)</h2>
+        <i class="fa fa-clipboard" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+        <h2 class="coursehead">JEE (MAIN & ADVANCE)</h2>
+        <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
       </div>
     </a>
 
     <a class="ab" href="#">
       <div class="courseitem">
-        <img src="\public\images\mock test.png" alt="">
-        <h2>MOCK TEST</h2>
+        <i class="fa-solid fa-book-open-reader" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+        <h2 class="coursehead">MOCK TEST</h2>
+        <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
       </div>
     </a>
     
     <a class="ab" href="/viewcourses/?name=COMPUTER PROJECT">
       <div class="courseitem">
-        <img src="\public\images\computer project.png" alt="">
-        <h2>COMPUTER PROJECT</h2>
+        <i class="fa-sharp fa-solid fa-desktop" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+        <h2 class="coursehead">COMPUTER PROJECT</h2>
+        <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>  
       </div>
     </a>
 
     <a class="ab" href="/viewcourses/?name=S.S.C(school service comission)">
       <div class="courseitem">
-        <img src="\public\images\ssc.jpeg" alt="">
-        <h2>S.S.C(school service comission)</h2>
+        <i class="fa fa-school" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+        <h2 class="coursehead">S.S.C(school service comission)</h2>
+        <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
       </div>
     </a>
 
     <a class="ab" href="/viewcourses/?name=CLASS XI (MATH)">
       <div class="courseitem">
-        <img src="\public\images\class xi.jpeg" alt="">
-        <h2>CLASS XI (MATH)</h2>
+        <i class="fa fa-light fa-calculator" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+        <h2 class="coursehead">CLASS XI (MATH)</h2>
+        <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
       </div>
     </a>
 
     <a class="ab" href="/viewcourses/?name=CLASS XI (MATH)">
       <div class="courseitem" >
-        <img src="\public\images\class xii.png" alt="">
-        <h2>CLASS XII (MATH)</h2>
+        <i class="fa fa-square-root-variable" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+        <h2 class="coursehead">CLASS XII (MATH)</h2>
+        <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
       </div>
     </a>
 
     <a class="ab" href="/viewcourses/?name=CAT-MAT (MATHEMATICS)">
       <div class="courseitem">
-        <img src="\public\images\cat-mat.jpg" alt="">
-        <h2>CAT-MAT (MATHEMATICS)</h2>
+        <i class="fa fa-pen-nib" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+        <h2 class="coursehead">CAT-MAT (MATHEMATICS)</h2>
+        <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
       </div>
     </a>
 
     <a class="ab" href="/viewcourses/?name=OXYMPIAD (MATH)">
       <div class="courseitem">
-        <img src="\public\images\Olympiad-Exams.png" alt="">
-        <h2>OXYMPIAD (MATH)</h2>
+        <i class="fa-solid fa-user-pen" style="color: rgb(10, 206, 75); font-size: 40px;"></i>
+        <h2 class="coursehead">OXYMPIAD (MATH)</h2>
+        <p class="coursePara">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
       </div>
     </a>
 
   </div>
+</div>
 
 
 
 
 
-  <h2 id="aboutheading">About Us</h2>
+
+ 
   <div id="aboutus">
 
     <div id="aboutsd">
       <img src="\public\images\sd.png" alt="subhabrata dinda">
-    </div>
+    </div>    
     <div id="aboutsdText">
       I, Dr. Subhabrata Dinda, got my Ph.D Degree from Jadavpur University in Science since 2020. I delivered the
       lecture through online and off line mode. Here every previous students got MCA ranked and servies different
@@ -404,13 +452,10 @@
     </div>
 
   </div>
-  <h2 id="locationheading">
-    Get In Touch
-  </h2>
   <div id="location">
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d88388.68375421318!2d88.34451951535934!3d22.46577175819336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0271a00d52ca53%3A0x84c91e76a182e37a!2sGaria%2C%20Kolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1705083764103!5m2!1sen!2sin"
-      width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy"
+      width="100%" height="361px" style="border:0;" allowfullscreen="" loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 

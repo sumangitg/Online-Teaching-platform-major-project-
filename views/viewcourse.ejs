@@ -6,24 +6,170 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>All Courses</title>
   <link rel="stylesheet" href="\css\viewcourse.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
 </head>   
-<body>     
-  <h1 id="coursehead" style="margin: 0px; text-align: center;"> Our Courses</h1>    
+<body>          
 <!-- <img src="/course-images/courseImage-1703331843426.png" alt="a">  
 <img src="/course-images/courseImage-1703335790131.png" alt="b">    -->
+<nav id="homeNav" style="display: flex;">   
+  <ul id="navlist">
+    <li id="li-1" class="listitem"><a href="">home</a></li>
+      
+    <li id="li-2" class="listitem"><a href="/studentlogin">student login</a></li>   
+    <li id="li-3" class="listitem"><a href="/registration">student register</a></li>
+
+    
+
+    <li id="li-13" class="listitem"><a href="/feestructure"><i class="fa fa-angle-down"></i>fees structure</a>
+    
+      <div class="sub-menu-1">
+        <ul>   
+          <li class="item"><a href="">I.S.I ENTRANCE</a></li>
+          <li class="item"><a href="">IIT JAM</a></li>
+          <li class="item"><a href="">B.S.C MATH(HOUNS && PASS)</a>
+          </li>
+          <li class="item"><a href="">COMPUTER LANGUAGE</a></li>
+          <li class="item"><a href="">JELET</a></li>
+          <li class="item"><a href="">GATE(MATH && COMPUTER)</a></li>
+          <li class="item"><a href="">NIMCET ENTRANCE</a></li>
+          <li class="item"><a href="">B.TECH(MATH && COMPUTER)</a></li>
+          <li class="item"><a href="">JEE MAIN</a></li>
+          <li class="item"><a href="">COMPUTER PROJECT</a></li>
+          <li class="item"><a href="">S.S.C (school service)</a></li>
+        </ul>
+      </div>
+
+    </li>    
+    <li id="li-4" class="listitem"><a href="/courses"><i class="fa fa-angle-down"></i>courses</a>
+    
+      <div class="sub-menu-1">
+        <ul>   
+          <li class="item"><a href="">I.S.I ENTRANCE</a></li>
+          <li class="item"><a href="">IIT JAM</a></li>
+          <li class="item"><a href="">B.S.C MATH(HOUNS && PASS)</a></li>
+          <li class="item"><a href="">COMPUTER LANGUAGE</a></li>
+          <li class="item"><a href="">JELET</a></li>
+          <li class="item"><a href="">GATE(MATH && COMPUTER)</a></li>
+          <li class="item"><a href="">NIMCET ENTRANCE</a></li>
+          <li class="item"><a href="">B.TECH(MATH && COMPUTER)</a></li>
+          <li class="item"><a href="">JEE MAIN</a></li>
+          <li class="item"><a href="">COMPUTER PROJECT</a></li>
+          <li class="item"><a href="">S.S.C (school service)</a></li>
+
+        </ul>
+      </div>
+    
+    </li>
+    <li id="li-11" class="listitem"><a href="#contact-Us">contact us</a></li>
+
+  </ul>
+
+  <%if(users) { %>
+
+    <div id="profileHeadDiv">
+      <div id="a" style="    padding-top: 7px;
+    font-size: 19px;">
+      <%=udetail[0].stuName%></div>
+
+      <div id="userid" style="display: none;"><%=users%></div>
+        
+      <div id="outerInheadDiv-3"> 
+       
+        
+        <button id="inheadDiv-3" class="inheadDiv" onclick="toggleProfile()"><img src="\public\images\kindpng_4952535.png" alt="profile"></button>
+        <br>         
+    <div id="profileBox"> </div>
+        </div>
+    </div>
+
+  <%}  %>
+
+</nav>
+
+
   <div id="coursesContainer">
     <% courses.forEach(course => { %>
       <div class="courseCard">  
-        <img  src="<%=course.imagePath %>" alt="<%= course.courseName %>">      
-        <h2><%= course.courseName %></h2>      
-        <p>Price: <%= course.coursePrice %></p>
-        <p>Coordinator: <%= course.coordinator %></p>
-        <p>Time: <%= course.courseTime %></p>
+       <div style="height: 280px;"> <img  src="<%=course.imagePath %>" alt="<%= course.courseName %>"></div>
+        <div class="inViewcourse" style="height: 135px;">          
+        <h2 style="margin: 0px 0px 0px 0px; padding-top: 11px;"><%= course.courseName %></h2>      
+        <p style="margin: 5px 0px 0px 0px;">Price: <%= course.coursePrice %></p>
+        <p style="margin: 4px 0px 12px 0px;">Coordinator: <%= course.coordinator %></p>
           
-        <a id="enrollButton" href="/enrollCourse/<%=course.courseId%>">free enroll</a>  
+        <a id="enrollButton" href="/enrollCourse/<%=course.courseId%>">enroll</a> 
+        <a id="enrollButton" href="">View more</a>  
       </div>  
-    <% }); %>
+      </div>  
+    <% }); %>   
   </div>
+
+    <!-- footer section -->
+    <footer id="contact-Us">   
+      <div class="footer-col">
+        <h4>Terms</h4>
+        <ul>
+          <li><a href="#">teams</a></li>
+          <li><a href="#">advertising</a></li>
+          <li><a href="#">talent</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>abc</h4>
+        <ul>
+          <li><a href="#">fees structure</a></li>
+          <li><a href="#">science</a></li>
+          <li><a href="#">admision</a></li>
+          <li><a href="#">courses</a></li>
+          <li><a href="#">API</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>abc</h4>
+        <ul>
+          <li><a href="#">about</a></li>
+          <li><a href="#">legal</a></li>
+          <li><a href="#">contact us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>follow us</h4>
+        <div class="links">
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </footer>
+
+
+    
+  <script>    
+    let userid=document.getElementById('userid').innerText;  
+      let hiDivVisible = false;
+      function toggleProfile() {
+        const hiDiv = document.getElementById('profileBox');
+        
+        if (hiDivVisible) {
+          hiDiv.style.display = 'none'; // Hide the div
+          hiDivVisible = false;
+        } else {  
+          hiDiv.innerHTML = `  <a class="profileOption" id="profileLink" href="/myProfile/${userid}">My Profile</a>
+    <br>        
+          <a class="profileOption" href="/MyAccount/${userid}">My Account</a>  
+    <br>  
+    <a class="profileOption" href="/MyEnrollments/${userid}">My Enrollments</a>
+    <br>      
+    <a class="profileOption" href="/logout">Sign Out</a> `;  
+  
+          hiDiv.style.display = 'flex'; // Show the div
+          hiDiv.style.flexDirection='column';
+          hiDivVisible = true;
+        }
+      }     
+      
+    </script>
 </body>
 </html>
 

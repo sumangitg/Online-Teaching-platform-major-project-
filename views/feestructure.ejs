@@ -4,11 +4,143 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>feestructure</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
   <style>
+
+body{
+  /* background: lightblue; */
+  margin: 0px;   
+}
+
+/* navbar start  */
+
+
+
+
+
+
+#homeNav {
+  /* border: 1px solid black; */
+  margin: 0px 0px 0px 0px;
+  /* border: 1px solid black; */
+  padding: 8px 15px 9px 57px;
+  background-color: #239dd0;
+}         
+#homeNav #navlist {
+  list-style: none;
+  display: flex;
+  /* justify-content: space-around; */
+  margin: 0px 0px 0px 0px;
+  padding: 6px 0px 0px 0px;
+  /* border: 1px solid black; */
+  width: 840px;
+}  
+#homeNav #navlist a {
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0px 8px 0px 0px;
+  padding: 13px 18px 16px 18px;
+  /* border: 1px solid green; */
+  font-size: 17px;
+  border-radius: 32px;
+  color: #fff;
+  font-size: 20px;
+}  
+#homeNav #navlist a:hover {
+  background-color: whitesmoke;
+  color: blue;
+}    
+#homeNav #navlist li:hover .sub-menu-1{
+  display: block;
+  position: absolute;
+  margin-top: 15px;
+  background-color: #1253cd;
+  margin-left: 20px;
+  font-size: 20px; 
+
+}    
+.sub-menu-1 {
+  display: none;
+}
+.sub-menu-1 ul {
+  margin: 0px;
+  padding: 0px;
+}
+.sub-menu-1 ul li {
+  margin: 10px;
+  padding: 5px;
+  color: white;
+}
+#profileHeadDiv {
+  display: flex;
+  flex-direction: row;
+  /* border: 1px solid black; */
+  padding: 0px;
+  /* float: right; */
+  display: flex;
+  padding-right: 28px;
+  justify-content: flex-end;
+  /* background: cornflowerblue; */
+  color: white;
+  width: 583px;
+}
+#outerInheadDiv-3 {
+  margin: 0px 0px 0px 22px;
+}
+#outerInheadDiv-3 button {
+  margin: 0px 0px 0px 0px;
+  border: none;
+  background-color: #239dd0;   
+  padding: 1px 0px 0px 0px;
+}   
+#profileBox {
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 41px;
+  /* left: 20px; */
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid green;
+  width: 234px;
+  height: 273px;
+  font-size: 25px;
+  background-color: whitesmoke;
+  /* color: #821f1f; */
+  color: white;
+  right: 37px;
+  border-radius: 7px;
+  box-shadow: 2px 2px 5px 0px #b8c2e2;
+  /* color: white; */
+  /* text-decoration: none; */
+}   
+.profileOption {
+  /* border: 1px solid green; */
+  /* margin: 0px 0px 12px 0px; */
+  /* padding: 0px 0px 13px 0px; */
+  text-decoration: none;
+  /* margin: 20px; */
+  padding: 5px 5px 5px 0px;
+}
+#outerInheadDiv-3 img {
+  width: 34px;
+  /* height: 60px; */
+  padding: 0px 0px 0px 0px;
+  /* background: cornflowerblue; */
+}    
+
+
+
+
+
+/* navbar end  */
     table {
       font-family: arial, sans-serif;
       border-collapse: collapse;
-      width: 100%;
+      width: 98%;
+    margin: auto;
+    margin-top: 22px;
     }
     
     td, th {
@@ -18,7 +150,7 @@
     }
     
     tr:nth-child(even) {
-      background-color: #74c4dc;
+      background-color: #a4a9eb;
       color: white;
     }
     #feesheading{
@@ -28,10 +160,65 @@
     /* color: white; */
     margin: 0px 0px 18px 0px;   
     }  
+
     </style>
 </head>
 <body>
-  <h2 id="feesheading">Fees Structure</h2>
+  <nav id="homeNav" style="display: flex;">   
+    <ul id="navlist">
+      <li id="li-1" class="listitem"><a href="">home</a></li>
+        
+      <li id="li-2" class="listitem"><a href="/studentlogin">student login</a></li>   
+      <li id="li-3" class="listitem"><a href="/registration">student register</a></li>
+  
+      
+  
+         
+      <li id="li-4" class="listitem"><a href="/courses"><i class="fa fa-angle-down"></i>courses</a>
+      
+        <div class="sub-menu-1">
+          <ul>   
+            <li class="item"><a href="">I.S.I ENTRANCE</a></li>
+            <li class="item"><a href="">IIT JAM</a></li>
+            <li class="item"><a href="">B.S.C MATH(HOUNS && PASS)</a></li>
+            <li class="item"><a href="">COMPUTER LANGUAGE</a></li>
+            <li class="item"><a href="">JELET</a></li>
+            <li class="item"><a href="">GATE(MATH && COMPUTER)</a></li>
+            <li class="item"><a href="">NIMCET ENTRANCE</a></li>
+            <li class="item"><a href="">B.TECH(MATH && COMPUTER)</a></li>
+            <li class="item"><a href="">JEE MAIN</a></li>
+            <li class="item"><a href="">COMPUTER PROJECT</a></li>
+            <li class="item"><a href="">S.S.C (school service)</a></li>
+  
+          </ul>
+        </div>
+      
+      </li>
+      <li id="li-11" class="listitem"><a href="#contact-Us">contact us</a></li>
+  
+    </ul>
+  
+    <%if(users) { %>
+  
+      <div id="profileHeadDiv">
+        <div id="a" style="    padding-top: 7px;
+      font-size: 19px;">    
+        <%=udetail[0].stuName%></div>
+  
+        <div id="userid" style="display: none;"><%=users%></div>
+          
+        <div id="outerInheadDiv-3"> 
+         
+          
+          <button id="inheadDiv-3" class="inheadDiv" onclick="toggleProfile()"><img src="\public\images\kindpng_4952535.png" alt="profile"></button>
+          <br>         
+      <div id="profileBox"> </div>
+          </div>
+      </div>
+  
+    <%}  %>
+  
+  </nav>
 
 <table>
   <tr>
@@ -53,5 +240,32 @@
   
   
 </table>
+
+<script>    
+  let userid=document.getElementById('userid').innerText;  
+    let hiDivVisible = false;
+    function toggleProfile() {
+      const hiDiv = document.getElementById('profileBox');
+      
+      if (hiDivVisible) {
+        hiDiv.style.display = 'none'; // Hide the div
+        hiDivVisible = false;
+      } else {  
+        hiDiv.innerHTML = `  <a class="profileOption" id="profileLink" href="/myProfile/${userid}">My Profile</a>
+  <br>        
+        <a class="profileOption" href="/MyAccount/${userid}">My Account</a>  
+  <br>  
+  <a class="profileOption" href="/MyEnrollments/${userid}">My Enrollments</a>
+  <br>      
+  <a class="profileOption" href="/logout">Sign Out</a> `;  
+
+        hiDiv.style.display = 'flex'; // Show the div
+        hiDiv.style.flexDirection='column';
+        hiDivVisible = true;
+      }
+    }     
+</script>
+
+
 </body>
 </html>

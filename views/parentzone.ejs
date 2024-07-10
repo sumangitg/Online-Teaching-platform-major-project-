@@ -6,16 +6,26 @@
   <title>Document</title>
 </head>
 <style>
+  body{
+    margin: 0px;
+    background: #e3e5f5;
+  }
+     
   form{
-    width: 579px;
-    height: 484px;
-    margin: 0px auto;
-    background-color: #f2f0f0;
+    width: 415px;
+    height: 505px;
+    margin: auto;
+    background-color: white;
+    margin-top: 89px;
+    border: 1px solid gren;
+    /* border: 1px solid green; */
+    border-radius: 12px;
+    padding: 36px 45px 0px 45px;   
   }
   form h2{
     text-align: center;
-    background-color: blue;
-    color: white;
+    /* background-color: blue; */
+    color: blue;   
     font-size: 33px;
     margin: 0px;
   }
@@ -23,12 +33,13 @@
     font-size: 21px;
   }
   form #feedName{
-    margin: 12px 0px 16px 12px;
+    margin: 5px 0px 10px 0px;
+    width: 176px;
   }
   form textarea{
-    width: 552px;
-    height: 323px;
-    margin: 0px 0px 0px 8px;
+    width: 392px;
+    height: 216px;
+    margin: 29px 0px 0px 0px;
 }
   form button{
     margin: 11px 14px 0px 0px;
@@ -44,15 +55,17 @@
 <body>
   
   <form>
-    <h2 >parent doubt or feedback form</h2>  
-    <label for="student">Name:</label>
-    <input type="text" id="feedName" name="student" placeholder="your name">
+    <h2>parent doubt</h2>
+    <label for="student">parent name</label>
     <br>
-    <label for="parentnumber">mobile no: </label>
-    <input type="tel" placeholder="enter mobile no" id="parentnumber" name="parentNumber" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required>
+    <input type="text" id="feedName" name="parentName" placeholder="your name">
+    <br>             
+    <label for="parentnumber">mobile no </label>
     <br>
-    <h4>write feedback or doubt here</h4>
-    <textarea name="feedback" id="feed" cols="50" rows="10"></textarea>
+    <input type="tel" style="width: 175px; margin-top: 4px;" placeholder="enter mobile no" id="parentnumber" name="parentNumber" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required>
+    <br>
+    
+    <textarea name="feedback" id="feed" cols="50" rows="10" placeholder="Text feedback "></textarea>
     <br>
     <button type="button" onclick="fb()">submit</button>
     <button type="reset" onclick="clearf()">reset</button>
@@ -67,13 +80,14 @@
   }
 
   function fb(){
-    var student=document.getElementById('feedName').value;
+    var Pname=document.getElementById('feedName').value;
   var f=document.getElementById('feed').value;
-  
-  var a={
-    name:student,
-    feedtext: f      
-  }
+  var pNumber=document.getElementById('parentnumber').value;   
+  var a={  
+    name:Pname,
+    pnumber:pNumber,
+    feedtext: f        
+  }   
   fetch('/parentZone', {
         method: 'POST',
         headers: {

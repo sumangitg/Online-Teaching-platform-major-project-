@@ -1,57 +1,297 @@
+body{
+  margin: 0px;
+}
+
+/* navbar start */
+
+
+
+
+#homeNav {
+  /* border: 1px solid black; */
+  margin: 0px 0px 0px 0px;
+  /* border: 1px solid black; */
+  padding: 8px 15px 9px 57px;
+  background-color: #239dd0;
+}         
+#homeNav #navlist {
+  list-style: none;
+  display: flex;
+  /* justify-content: space-around; */
+  margin: 0px 0px 0px 0px;
+  padding: 6px 0px 0px 0px;
+  /* border: 1px solid black; */
+  width: 840px;
+}  
+#homeNav #navlist a {
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0px 8px 0px 0px;
+  padding: 13px 18px 16px 18px;
+  /* border: 1px solid green; */
+  font-size: 17px;
+  border-radius: 32px;
+  color: #fff;
+  font-size: 20px;
+}  
+#homeNav #navlist a:hover {
+  background-color: whitesmoke;
+  color: blue;
+}    
+#homeNav #navlist li:hover .sub-menu-1{
+  display: block;
+  position: absolute;
+  margin-top: 15px;
+  background-color: #1253cd;
+  margin-left: 20px;
+  font-size: 20px; 
+
+}    
+.sub-menu-1 {
+  display: none;
+}
+.sub-menu-1 ul {
+  margin: 0px;
+  padding: 0px;
+}
+.sub-menu-1 ul li {
+  margin: 10px;
+  padding: 5px;
+  color: white;
+}
+#profileHeadDiv {
+  display: flex;
+  flex-direction: row;
+  /* border: 1px solid black; */
+  padding: 0px;
+  /* float: right; */
+  display: flex;
+  padding-right: 28px;
+  justify-content: flex-end;
+  /* background: cornflowerblue; */
+  color: white;
+  width: 583px;
+}
+#outerInheadDiv-3 {
+  margin: 0px 0px 0px 22px;
+}
+#outerInheadDiv-3 button {
+  margin: 0px 0px 0px 0px;
+  border: none;
+  background-color: #239dd0;   
+  padding: 1px 0px 0px 0px;
+}   
+#profileBox {
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 41px;
+  /* left: 20px; */
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid green;
+  width: 234px;
+  height: 273px;
+  font-size: 25px;
+  background-color: whitesmoke;
+  /* color: #821f1f; */
+  color: white;
+  right: 37px;
+  border-radius: 7px;
+  box-shadow: 2px 2px 5px 0px #b8c2e2;
+  /* color: white; */
+  /* text-decoration: none; */
+}   
+.profileOption {
+  /* border: 1px solid green; */
+  /* margin: 0px 0px 12px 0px; */
+  /* padding: 0px 0px 13px 0px; */
+  text-decoration: none;
+  /* margin: 20px; */
+  padding: 5px 5px 5px 0px;
+}
+#outerInheadDiv-3 img {
+  width: 34px;
+  /* height: 60px; */
+  padding: 0px 0px 0px 0px;
+  /* background: cornflowerblue; */
+}    
+
+
+
+
+
+/* navbar end  */
+
+
+
+
+
+/* course css */
+
+
+
+
+
 #courseContainer{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  /* border: 1px solid black; */
-  /* margin: 5px; */
-  grid-gap: 20px;
-  padding: 25px 90px 25px 103px;
-  /* background-color: #52bce7; */
-  background-color: #e0e5fa;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(4,1fr);
+    /* border: 1px solid black; */
+    /* margin: 5px; */
+    grid-gap: 20px;
+    padding: 25px 90px 25px 103px;
+    /* background-color: #52bce7; */
+    /* background: #2f2fa4;    */
+}
+
+
+#courseContainer a{
+  text-decoration: none;
 }
 
 #courseContainer .courseitem{
   width: 307px;
-  height: 166px;
-  border: 1px solid green;
-  /* background-color: #707ca0; */
+  height: 166px;    
+  /* border: 1px solid green; */
+  /* background-color: #3255c0;   */
   margin: auto;
   text-align: center;
   padding: 12px 0px 0px 0px;
-  background-color: #3255c0;
+}
+
+#courseContainer .courseitem:hover{
+  background-color: #c7102b;  
+  /* border-radius: 5px; */
+  position: relative;   
+  top: -2px;
 }
 
 #courseContainer .courseitem h2{
   
   text-align: center;    text-align: center;
-  margin: 0px 0px 0px 0px;
+  margin: 14px 0px 0px 0px;
   font-size: 20px;
   color: white;
 }
+.coursePara{
+  margin-top: 10px;
+  margin-bottom: 0px;
+  color: white;
 
-#courseContainer .courseitem img{
-  width: 250px;
-  height: 121px;
-  border: 1px solid green;
-  background-color: pink;
-   /* margin: 8px 0px 0px 27px; */
+}  
+.coursehead{
+  margin-top: 5px;
 }
 
-#courseheading{
-  text-align: center;
-  /* background-color: #29304e; */
-  margin: 0px 0px 0px 0px;
-  padding: 1px 0px 15px 0px;
-  font-size: 37px;
-  /* color: #fff;*/
+
+/* courses css end */
+
+
+
+
+/* footer css  */
+
+#footerdiv{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #bbbbbb;
 }
 
-#courseContainer .courseitem:hover{
-  background-color: rgb(28, 16, 133);
-  border-radius: 5px;
-  
+footer{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: auto;
+  background-color: #1c213b;
+  padding: 60px 10%;
 }
 
-.ab{
+ul{
+  list-style: none;
+}
+
+.footer-col{
+  width: 25%;
+}
+
+
+.footer-col h4{
+  position: relative;
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-size: 22px;
+  color: #f1bc0d;
+  text-transform: capitalize;
+}
+
+.footer-col h4::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  background-color: #27c0ac;
+  height: 2px;
+  width: 40px;
+}
+
+.footer-col ul li:not(:last-child){
+  margin-bottom: 8px;
+}
+
+.footer-col ul li a{
+  display: block;
+  font-size: 19px;
+  text-transform: capitalize;
+  color: #bdb6b6;
   text-decoration: none;
+  transition: 0.4s;
 }
+
+.footer-col ul li a:hover{
+  color: white;
+  padding-left: 2px;
+}
+
+.footer-col .links a{
+  display: inline-block;
+  height: 44px;
+  width: 44px;
+  color: white;
+  background-color: rgba(40, 130, 214, 0.8);
+  margin: 0 8px 8px 0;
+  text-align: center;
+  line-height: 44px;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.footer-col .links a:hover{
+  color: #4d4f55;
+  background-color: white;
+}
+
+.footer-col ul{
+  padding: 0px;
+}
+
+@media(max-width: 740px){
+  .footer-col{
+      width: 50%;
+      margin-bottom: 30px;
+      text-align: center;
+  }
+
+  .footer-col h4::before{
+      all: unset;
+  }
+}
+
+@media(max-width: 555px){
+  .footer-col{
+      width: 100%;
+  }
+}
+
+/* footer css end */
