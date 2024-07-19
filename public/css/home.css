@@ -839,7 +839,7 @@ height: 250px;
   /* left: 20px; */
   z-index: 2;
   background-color: rgba(255, 255, 255, 0.9);
-  border: 1px solid green;
+  /* border: 1px solid green; */  
   width: 234px;
   height: 273px;
   font-size: 25px;    
@@ -867,6 +867,7 @@ height: 250px;
   text-decoration: none;
   /* margin: 20px; */
   padding: 5px 5px 5px 0px;
+  margin-bottom: 16px;
 }  
 
 

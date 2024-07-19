@@ -363,6 +363,7 @@ flex-direction: row;
 text-decoration: none;
 /* margin: 20px; */
 padding: 5px 5px 5px 0px;  
+margin-bottom: 16px;
 }
 
 #username{

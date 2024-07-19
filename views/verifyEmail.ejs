@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Verification</title>
+</head>
+<body>         
+  <h1>Email Verification</h1>
+  <form id="emailForm">
+    <label for="email">Enter your email:</label>
+    <input type="email" id="email" name="email" required>
+    <button type="submit" id="sendEmailBtn">Send Verification Email</button>
+  </form>
+
+  <form id="otpForm" style="display: none;">
+    <label for="otp">Enter OTP:</label>
+    <input type="text" id="otp" name="otp" required>
+    <button type="submit" id="verifyOtpBtn">Verify OTP</button>
+  </form>     
+
+  <div id="message"></div>
+
+  <script >
+
+    document.addEventListener('DOMContentLoaded', function() {
+  const emailForm = document.getElementById('emailForm');
+  const otpForm = document.getElementById('otpForm');
+  const sendEmailBtn = document.getElementById('sendEmailBtn');
+  const verifyOtpBtn = document.getElementById('verifyOtpBtn');
+  const messageDiv = document.getElementById('message');
+
+  // Event listener for sending verification email
+  emailForm.addEventListener('submit', function(event) {
+    event.preventDefault();     
+    const email = document.getElementById('email').value;
+    sendVerificationEmail(email);
+    //document.getElementById("p2").style.color = "blue";
+       
+  });
+
+
+
+  // Event listener for verifying OTP
+  otpForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    const otp = document.getElementById('otp').value;
+    verifyOTP(email, otp);
+  });
+
+  // Function to send verification email
+  function sendVerificationEmail(email) {
+    //console.log("is working");
+    //console.log(email);
+    fetch('/verify-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email: email })
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to send email');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Email sent successfully');
+      messageDiv.textContent = 'Verification email sent successfully. Check your inbox.';
+      document.getElementById("emailForm").style.display = "none";
+      //emailForm.style.display = 'none';     
+      //otpForm.style.display = 'block';
+      document.getElementById("otpForm").style.display = "block";
+    })      
+    .catch(error => {
+      console.error('Error sending email:', error);
+      messageDiv.textContent = 'Error sending verification email. Please try again later.';
+    });
+  }
+
+  // Function to verify OTP
+  function verifyOTP(email, otp) {
+    fetch('/verify-otp', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email: email, otp: otp })
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to verify OTP');
+      }
+      return response.json();
+    })      
+    .then(data => {
+      console.log('Email verified successfully');
+      window.location.href = `/registration2?email=${encodeURIComponent(email)}`;    
+    })   
+    .catch(error => {
+      console.error('Error verifying OTP:', error);
+      messageDiv.textContent = 'Error verifying OTP. Please try again.';
+    });
+  }      
+});   
+
+  </script>
+</body>
+</html>

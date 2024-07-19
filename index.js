@@ -125,7 +125,7 @@ app.post('/verify-email', (req, res) => {
   const otp = otpGenerator.generate(6, { alphabets: false, upperCase: false, specialChars: false });
 
   // Save OTP and email to database
-  connection.query('INSERT INTO otps (email, otp) VALUES (?, ?)', [email, otp], (error, results, fields) => {
+  db.query('INSERT INTO otps (email, otp) VALUES (?, ?)', [email, otp], (error, results, fields) => {
     if (error) {
       console.error('Error saving OTP to database: ' + error);
       res.status(500).json({ error: 'An error occurred while saving OTP to database' });
@@ -150,6 +150,33 @@ app.post('/verify-email', (req, res) => {
   });
 });
 
+// Route to handle OTP verification
+app.post('/verify-otp', (req, res) => {
+  const { email, otp } = req.body;
+
+  // Check OTP from database
+  db.query('SELECT * FROM otps WHERE email = ? AND otp = ?', [email, otp], (error, results, fields) => {
+    if (error) {
+      console.error('Error verifying OTP: ' + error);
+      res.status(500).json({ error: 'An error occurred while verifying OTP' });
+      return;
+    }
+
+    if (results.length === 0) {
+      res.status(400).json({ error: 'Invalid OTP' });
+    } else {
+      // Mark email as verified in database
+      db.query('UPDATE users SET email_verified = 1 WHERE email = ?', [email], (error, results, fields) => {
+        if (error) {
+          console.error('Error marking email as verified: ' + error);
+          res.status(500).json({ error: 'An error occurred while marking email as verified' });
+          return;
+        }            
+        res.status(200).json({ message: 'Email verified successfully', email: email });    
+      });
+    }
+  });
+});
 
 // teacher view courses
 app.get('/teacherviewcourses' ,(req,res)=>{
@@ -201,8 +228,6 @@ app.post('/uploadnotes', (req, res)=>{
   })
 });
 
-
-
 //home page
 app.get('/' , (req , res)=>{ 
   //console.log(req);
@@ -252,8 +277,6 @@ app.get('/' , (req , res)=>{
 
   })
 })   
-  
-
 
 //login page
 app.get('/login', (req, res) => {
@@ -278,7 +301,6 @@ app.get('/adminPanel',(req,res)=>{
       }
     });
   });
-  
 
 // add course api
 
@@ -365,11 +387,6 @@ app.post('/addCourse', (req, res) => {
   });
 });
 
-// app.get('/uploadnoteswithcourses', (req, res)=>{
-//   console.log("hello");
-//   res.render('uploadnoteswithcourses');
-// })
-
 app.post('/uploadnoteswithcourses',upload1.single('pdfFile'), (req, res)=>{
   //console.log(req);
   //console.log(req.body);  
@@ -429,12 +446,6 @@ app.post('/uploadnoteswithcourses',upload1.single('pdfFile'), (req, res)=>{
 
 
 });
-
-
-
-
-
-
 
 app.get('/viewcourses', (req, res) => {
   var name = req.query.name; // Default to 'default' if no name is provided
@@ -523,15 +534,17 @@ app.get('/viewgallery',(req, res)=>{
   })
 })
 
-app.get('/registration' ,  (req, res)=>{
-  res.render('registration');
+app.get('/registration1' ,  (req, res)=>{
+  res.render('verifyEmail');
+})
+app.get('/registration2' ,  (req, res)=>{
+  let email=req.query.email;
+  res.render('registration', {email:email});
 })
 
 app.get('/giveNotice' , (req, res)=>{
   res.render('writeNotice');
  // res.send('am ready');
- 
-
 })
 
 // Middleware to check if the user is authenticated
@@ -567,7 +580,7 @@ app.post('/registration', async (req, res)=>{
 
 
   if (userExists) {
-    res.send('Account already exists with this username. <a href="/studentlogin">Login</a>');
+    res.send('Account already exists with this username. you may <a href="/studentlogin">Login</a> or <a href="/registration1">create account</a> ');
   } else {
     // Hash the password
     const hashedPassword = await bcrypt.hash(stuPassword, 10);
@@ -586,7 +599,7 @@ app.post('/registration', async (req, res)=>{
 
 app.get('/studentlogin', (req, res)=>{
   res.render('studentlogin');
-
+ 
 });
 
 app.post('/studentlogin', async (req, res)=>{
@@ -721,7 +734,6 @@ app.post('/uploadVideoWithCourses', upload2.single('videoFile'), (req, res)=>{
   }) 
 });
 
-
 app.post('/latestNotice' , (req, res)=>{
   console.log("in abc");  
   console.log(req.body);
@@ -767,7 +779,6 @@ app.post('/upcomingNotice' , (req, res)=>{
   })
 
 })  
-
 
 app.get('/admissionNotice', (req, res)=>{
   const sql='select notice from admissionnotice where noticeType=(?)';
@@ -843,8 +854,6 @@ app.post('/studenteedback', (req ,res)=>{
     }
   })    
 })
-
-
 
 app.get('/doubt' , (req, res)=>{
   res.render('doubtAsked');
@@ -1060,8 +1069,6 @@ app.get('/onlineClass/:courseid', isAuthenticated,(req, res)=>{
     }
   })    
 }) 
-
-
 
 // Route to download an individual PDF
 app.get('/download/:noteid', (req, res) => {

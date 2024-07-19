@@ -125,7 +125,7 @@
       <li id="li-1" class="listitem"><a href="">home</a></li>
       <li id="li-12" class="listitem"><a href="/viewgallery">gallery</a></li>    
       <li id="li-2" class="listitem"><a href="/studentlogin">student login</a></li>   
-      <li id="li-3" class="listitem"><a href="/registration">student register</a></li>
+      <li id="li-3" class="listitem"><a href="/registration1">student register</a></li>
       <li id="li-12" class="listitem"><a href="#admisionNew"><i class="fa fa-angle-down"></i>admission notice </a>
       
         <div class="sub-menu-1">
@@ -239,7 +239,7 @@ margin-bottom: 45px;">
       <div style="padding-left: 25px;
       color: white;
       font-weight: bold;">   
-        <marquee direction="up" behavior="scroll" scrollamount="2">       
+        <marquee direction="up" behavior="scroll" scrollamount="2" onmouseover="this.stop();" onmouseout="this.start();">       
           <ul class="latest-news-ul">
           <% latest.forEach(notice1=>{  %>
             <li> <%=notice1.notice%> <img src="\public\images\latest-news-blink-img.gif"><hr style="color: white;"></li>
@@ -260,7 +260,7 @@ margin-bottom: 45px;">
       <div style="padding-left: 25px;
       color: white;
       font-weight: bold;">  
-        <marquee behavior="scroll" direction="up" scrollamount="2">
+        <marquee behavior="scroll" direction="up" scrollamount="2" onmouseover="this.stop();" onmouseout="this.start();">
         <ul class="upcoming-event-list">
           <% upcoming.forEach(upcom=>{ %>  
             <li><%= upcom.notice%> <hr style="color: white;"></li>  
@@ -280,7 +280,7 @@ margin-bottom: 45px;">
       <div style="padding-left: 25px;
       color: white;  
       font-weight: bold;">
-        <marquee direction="up" behavior="scroll" scrollamount="2">       
+        <marquee direction="up" behavior="scroll" scrollamount="2" onmouseover="this.stop();" onmouseout="this.start();">     
           <ul class="latest-news-ul">
           <% latest.forEach(notice1=>{  %>
             <li> <%=notice1.notice%> <img src="\public\images\latest-news-blink-img.gif"> <hr style="color: white;"></li>
@@ -292,6 +292,7 @@ margin-bottom: 45px;">
   </div>   
 
 </div>
+
 
 <div style="text-align: center; background: #2f2fa4; ">
   <h2 style="    color: whitesmoke;
@@ -510,12 +511,14 @@ margin-bottom: 45px;">
         hiDiv.style.display = 'none'; // Hide the div
         hiDivVisible = false;
       } else {  
-        hiDiv.innerHTML = `  <a class="profileOption" id="profileLink" href="/myProfile/${userid}">My Profile</a>
-  <br>        
+        hiDiv.innerHTML = ` <a class="profileOption" id="backhome" href="/">Home</a>
+        
+        <a class="profileOption" id="profileLink" href="/myProfile/${userid}">My Profile</a>
+         
         <a class="profileOption" href="/MyAccount/${userid}">My Account</a>  
-  <br>  
+  
   <a class="profileOption" href="/MyEnrollments/${userid}">My Enrollments</a>
-  <br>      
+      
   <a class="profileOption" href="/logout">Sign Out</a> `;  
 
         hiDiv.style.display = 'flex'; // Show the div

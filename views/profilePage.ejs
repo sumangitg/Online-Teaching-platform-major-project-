@@ -151,12 +151,14 @@
         hiDiv.style.display = 'none'; // Hide the div
         hiDivVisible = false;
       } else {  
-        hiDiv.innerHTML = `  <a class="profileOption" id="profileLink" href="/myProfile/${userid}">My Profile</a>
-  <br>         
+        hiDiv.innerHTML = ` <a class="profileOption" id="backhome" href="/">Home</a>
+       
+        <a class="profileOption" id="profileLink" href="/myProfile/${userid}">My Profile</a>
+         
         <a class="profileOption" href="/MyAccount/${userid}">My Account</a>  
-  <br>  
+  
   <a class="profileOption" href="/MyEnrollments/${userid}">My Enrollments</a>
-  <br>      
+  
   <a class="profileOption" href="/logout">Sign Out</a> `;  
 
         hiDiv.style.display = 'flex'; // Show the div

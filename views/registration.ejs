@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> create account </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>   
     <!-- <link rel="stylesheet" href="style.css"> -->
     <style>
       * {
@@ -25,15 +26,15 @@ body {
 }
 
 .container {
-  width: 27rem;
+    width: 27rem;
     margin: 1rem;
-    padding: 5rem 1rem 8rem 1rem;
+    padding: 2rem 1rem 3rem 1rem;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     background-color: #fff;
-    border-radius: 13px;       
+    border-radius: 13px;     
 }
 
 .container h2 {
@@ -51,11 +52,13 @@ body {
 }
 
 .container form input {
-    width: 16rem;
+    width: 17rem;
     outline: none;
     padding: 5px 10px;
     margin-bottom: 1rem;
     border: 1px solid rgb(133, 129, 129);
+    margin-left: 33px;
+    border-radius: 4px;
 }
 
 button {
@@ -64,10 +67,11 @@ button {
     margin: 1rem 0;
     font-size: 18px;
     padding: 0.5rem;
-    cursor: pointer;
+    cursor: pointer;   
     font-weight: bold;
-    border-radius: 5rem;
-    background: linear-gradient(to right, red, yellow);
+    border-radius: 7px;
+    /* background: linear-gradient(to right, red, yellow); */
+    background: #272323;
 }
 
 .newUser span {
@@ -80,16 +84,20 @@ button {
 
     <section class="container">
 
-        <h2> Sign up </h2>
+        <h2> Create Account </h2>
         <form id="loginForm" action="/registration" method="post">
+            <i class="fa fa-user-check" style="    text-align: center;
+            font-size: 39px;
+            color: #00b200;"></i>          <p style="    text-align: center;
+            margin-bottom: 35px;">email verified enter your name and password to complete the registration </p>   
 
-          <label for="username"><span> Your name </span></label>
+          <label for="username" style="padding-left: 37px;"><span> Your name </span></label>
           <input type="text" name="username" id="username">
           
-            <label for="userId"><span> Email </span></label>
-            <input type="email" name="email" id="userId">
+            <label for="userId" style="padding-left: 37px;"><span> Email </span></label>
+            <input type="email" name="email" id="userId" value=" <%=email%> "   readonly> 
 
-            <label for="password"><span> Password </span></label>
+            <label for="password" style="padding-left: 37px;"><span> Password </span></label>
 
             <input type="password" name="stuPassword" id="password" required/>
 
